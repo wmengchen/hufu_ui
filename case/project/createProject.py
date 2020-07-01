@@ -26,7 +26,6 @@ class Project(unittest.TestCase):
         self.login = login.Login()
         self.login.login()
         self.driver = self.login.browser
-
         pass
 
     @ddt.data(*testData)
@@ -35,17 +34,21 @@ class Project(unittest.TestCase):
         print('---------开始执行测试用例:{}---------'.format(data['case_name']))
 
         Element(self.driver,'project','createProject_click').click()
-        Element(self.driver,'project','Projectname_click').send_keys( time +data["project_name"])
-        time.sleep(1)
+        Element(self.driver,'project','Projectname_click').send_keys(time+data["project_name"])
         Element(self.driver,'project','Projectdesc_click').send_keys(data["project_desc"])
         Element(self.driver,'project','Projectcancel_click').click()
-        time.sleep(1)
+
         Element(self.driver, 'project', 'createProject_click').click()
         Element(self.driver, 'project', 'Projectname_click').send_keys(time + data["project_name"])
         Element(self.driver, 'project', 'Projectdesc_click').send_keys(data["project_desc"])
         Element(self.driver,'project','Projectok_click').click()
-        # self.assertEqual(Dbconnect.sql_ProjectInfo())
+        time.sleep(12)
 
+        print('---------结束执行测试用例:{}---------'.format(data["case_name"]))
+
+    def tearDown(self):
+         print('--------测试结束--------')
+         self.login.logout()
     #
     # def test_editProject(self,data):
     #

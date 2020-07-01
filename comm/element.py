@@ -7,7 +7,9 @@ from selenium import webdriver
 import sys,os,time
 from xml.etree import ElementTree as ETree
 from selenium.common.exceptions import NoSuchElementException
-
+from selenium.webdriver.common.by import By
+from  selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 path = os.path.split(os.path.dirname(__file__))[0]
 
 
@@ -34,9 +36,7 @@ def set_xml():
                 for t in e.getchildren():
                     element_child[t.tag] = t.text
                 element[element_name] = element_child
-                # print(element)
             activity[activity_name] = element
-        # print(activity)
 
 
 
@@ -79,6 +79,7 @@ class Element():
             return False
 
     def get_element(self):
+
         try:
             if self.pathType == "XPATH":
                 element = self.driver.find_element_by_xpath(self.pathValue)
@@ -105,7 +106,7 @@ class Element():
 if __name__=="__main__":
 
     t = Element("project","createProject_click").get_element()
-    print('t的值是,',t)
+
 
 
 
