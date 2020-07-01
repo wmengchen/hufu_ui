@@ -51,8 +51,8 @@ def get_el_dict(activity_name, element):
 
 
 class Element():
-    def __init__(self,activity_name,element_name):
-
+    def __init__(self,driver,activity_name,element_name):
+        self.driver = driver
         self.activity = activity_name
         self.element = element_name
 
@@ -81,7 +81,6 @@ class Element():
     def get_element(self):
         try:
             if self.pathType == "XPATH":
-                print('self.value:',self.pathValue)
                 element = self.driver.find_element_by_xpath(self.pathValue)
 
                 return element
@@ -91,14 +90,12 @@ class Element():
         element = self.get_element()
         time.sleep(1)
         if element:
-
             element.click()
         self.driver.implicitly_wait(1)
         return self.driver.current_url
     def send_keys(self,key):
         element = self.get_element()
         if element:
-
             element.send_keys(key)
     def clear(self):
         element = self.get_element()
