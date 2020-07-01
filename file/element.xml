@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page>
+    <activity name="project">
+        <element id="createProject_click">
+            <name>createProject_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//button[@class = "ant-btn ant-btn-primary"]</pathValue>
+        </element>
+		<element id="Projectname_click">
+            <name>Projectname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="请输入项目名称"]</pathValue>
+        </element>
+     	<element id="Projectdesc_click">
+            <name>Projectdesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//textarea[@placeholder="请输入描述"]</pathValue>
+        </element>
+		<element id="Projectcancel_click">
+            <name>Projectcancel_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[1]</pathValue>
+        </element>
+		<element id="Projectok_click">
+            <name>Projectok_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+    </activity>
+
+
+  
+</page>
