@@ -26,6 +26,11 @@
             <pathType>XPATH</pathType>
             <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
         </element>
+		<element id="Projectaddcancel_click">
+            <name>Projectaddcancel_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//i[@aria-label="图标: close"]</pathValue>
+        </element>		
 		<element id="Projectfind_click">
             <name>Projectfind_click</name>
             <pathType>XPATH</pathType>

@@ -10,6 +10,7 @@ from selenium.common.exceptions import NoSuchElementException,TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.keys import Keys
 
 
 path = os.path.split(os.path.dirname(__file__))[0]
@@ -73,6 +74,7 @@ class Element():
         try:
 
             if element:
+                element.clear()
                 element.send_keys(key)
         except (NoSuchElementException,TimeoutException)as e:
             raise e
@@ -87,26 +89,12 @@ class Element():
             return True
         except (NoSuchElementException, TimeoutException)as e:
             raise e
-    #等待元素消失
-    def is_not_visiale(self):
-        element = WebDriverWait(self.driver, 30).until_not(EC.visibility_of_element_located((By.XPATH,str(self.pathValue))))
-        try:
+    #模拟键盘操作
+    def send_keys(self,key):
 
-            if element:
-                element.click()
-            return True
-        except (NoSuchElementException, TimeoutException)as e:
-            raise e
-
-    def click_is_not_visiale(self):
-        element = WebDriverWait(self.driver, 30).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
-        try:
-
-            if element:
-                element.click()
-            return True
-        except (NoSuchElementException, TimeoutException)as e:
-            raise e
+        element = self.get_element()
+        if element:
+            element.send_keys(key)
 
     def clear(self):
         element = self.get_element()
@@ -131,13 +119,12 @@ class Element():
         """
         try:
             if self.pathType == 'XPATH':
-                print('self.pathValue:', self.pathValue)
                 element = self.driver.find_element_by_xpath(self.pathValue)
-                print('element:',element)
                 return element
 
         except NoSuchElementException:
             return None
+
 
 
 

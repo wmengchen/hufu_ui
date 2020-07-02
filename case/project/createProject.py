@@ -9,6 +9,7 @@ from comm.element import  Element
 from comm.readExcel import ReadExcel
 from comm import login
 from config import setting
+from selenium.webdriver.common.keys import Keys
 from comm.sql import Dbconnect
 import time
 
@@ -40,6 +41,11 @@ class Project(unittest.TestCase):
         Element(self.driver,'project','Projectname_click').wait_send_keys(date + data["project_name"])
         Element(self.driver,'project','Projectdesc_click').wait_send_keys(data["project_desc"])
         Element(self.driver,'project','Projectok_click').wait_click()
+        time.sleep(3)
+        Element(self.driver, 'project', 'Projectcancel_click').wait_click()
+        time.sleep(1)
+        Element(self.driver,'project','Projectfind_click').wait_send_keys(date+data["project_name"])
+        Element(self.driver,'project','Projectfind_click').send_keys(Keys.ENTER)
 
 
 
