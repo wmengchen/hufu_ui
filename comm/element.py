@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# @date: 2020/6/29 13:40 
+# @date: 2020/6/29 13:40
 # @name: element
 # @author：menghuan.wmc
 
@@ -74,14 +74,13 @@ class Element():
         try:
 
             if element:
-                element.clear()
                 element.send_keys(key)
         except (NoSuchElementException,TimeoutException)as e:
             raise e
 
     # 等待点击
     def wait_click(self):
-        element = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
         try:
 
             if element:
@@ -89,6 +88,11 @@ class Element():
             return True
         except (NoSuchElementException, TimeoutException)as e:
             raise e
+        return self.driver.current_url
+    #等待元素消失
+    def wait_not(self):
+        element = WebDriverWait(self.driver, 100).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+        return element
     #模拟键盘操作
     def send_keys(self,key):
 
@@ -100,6 +104,7 @@ class Element():
         element = self.get_element()
         if element:
             element.clear()
+
     def wait_element(self, wait_time):
         """
         wait element appear in time
@@ -124,17 +129,3 @@ class Element():
 
         except NoSuchElementException:
             return None
-
-
-
-
-
-
-
-
-
-
-
-#
-#
-#

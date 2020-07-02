@@ -52,7 +52,8 @@ class Dbconnect():
 
 if __name__=="__main__":
     db = Dbconnect()
-    db.sql_ProjectInfo('sql_find','project')
+    t  = db.sql_ProjectInfo('sql_find','project')
+    print(t)
 
 
 

@@ -25,19 +25,45 @@
             <name>Projectok_click</name>
             <pathType>XPATH</pathType>
             <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
-        </element>
-		<element id="Projectaddcancel_click">
-            <name>Projectaddcancel_click</name>
-            <pathType>XPATH</pathType>
-            <pathValue>//i[@aria-label="图标: close"]</pathValue>
         </element>		
 		<element id="Projectfind_click">
             <name>Projectfind_click</name>
             <pathType>XPATH</pathType>
             <pathValue>//input[@placeholder="项目名称"]</pathValue>
         </element>
+		<element id="enterProject_click">
+            <name>enterProject_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//p[@class="item-title"]</pathValue>
+        </element>		
     </activity>
-
+	<activity name="projectmanager">
+        <element id="projectmanager_click">
+            <name>projectmanager_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/div/div[3]/ul/li[9]/a</pathValue>
+        </element>
+		 <element id="projectmanageredit_click">
+            <name>projectmanageredit_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/button</pathValue>
+        </element>
+		<element id="projectmanageredit_name_click">
+            <name>projectmanageredit_name_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[1]/td[2]/input</pathValue>
+        </element>
+		<element id="projectmanageredit_desc_click">
+            <name>projectmanageredit_desc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//tbody[@class="ant-table-tbody"]/tr[4]/td[2]/textarea[@placeholder="项目描述"]</pathValue>
+        </element>
+		<element id="projectmanageredit_save_click">
+            <name>projectmanageredit_save_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/button[@class="ant-btn ant-btn-primary"]</pathValue>
+        </element>
+	</activity>
 
   
 </page>

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# @date: 2020/6/29 11:16 
+# @date: 2020/6/29 11:16
 # @name: createProject
 # @author：menghuan.wmc
 import ddt,unittest,sys,os
@@ -41,30 +41,35 @@ class Project(unittest.TestCase):
         Element(self.driver,'project','Projectname_click').wait_send_keys(date + data["project_name"])
         Element(self.driver,'project','Projectdesc_click').wait_send_keys(data["project_desc"])
         Element(self.driver,'project','Projectok_click').wait_click()
-        time.sleep(3)
-        Element(self.driver, 'project', 'Projectcancel_click').wait_click()
-        time.sleep(1)
+        Element(self.driver, 'project', 'Projectok_click').wait_not()
         Element(self.driver,'project','Projectfind_click').wait_send_keys(date+data["project_name"])
         Element(self.driver,'project','Projectfind_click').send_keys(Keys.ENTER)
+        time.sleep(1)
+        Element(self.driver,'project','enterProject_click').wait_click()
+        time.sleep(1)
+        Element(self.driver,'projectmanager','projectmanager_click').wait_click()
+        Element(self.driver,'projectmanager', 'projectmanageredit_click').wait_click()
+        Element(self.driver, 'projectmanager', 'projectmanageredit_name_click').clear()
+        Element(self.driver, 'projectmanager', 'projectmanageredit_name_click').wait_send_keys(date+data["edit_project_name"])
+        Element(self.driver, 'projectmanager', 'projectmanageredit_desc_click').clear()
+        Element(self.driver, 'projectmanager', 'projectmanageredit_desc_click').wait_send_keys(date + data["edit_project_desc"])
+        Element(self.driver,'projectmanager','projectmanageredit_save_click').wait_click()
+        Element(self.driver, 'projectmanager', 'projectmanageredit_save_click').wait_not()
+        time.sleep(1)
+        self.assertEqual(self.check_result(),1)
 
-
+    def check_result(self):
+        count = Dbconnect.sql_ProjectInfo('sql_find','project')
+        print('count的结果是',count)
+        return count
 
 
     def tearDown(self):
-         print('--------测试结束--------')
-         self.login.logout()
+        print('--------测试结束--------')
+        self.login.logout()
+
+
 
 
 if __name__=="__main__":
     unittest.main()
-
-
-
-
-
-
-
-
-
-
-

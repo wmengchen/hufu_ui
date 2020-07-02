@@ -24,9 +24,7 @@ class ReadExcel():
             for col in range(1, self.nrows):
                 values = self.table.row_values(col)
                 # keys，values组合转换为字典
-
                 api_dict = dict(zip(keys, values))
-                print(api_dict)
                 listApiData.append(api_dict)
             return listApiData
         else:
