@@ -4,7 +4,7 @@
         <element id="createProject_click">
             <name>createProject_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//button[@class = "ant-btn ant-btn-primary"]</pathValue>
+            <pathValue>//button[@class="ant-btn ant-btn-primary"]</pathValue>
         </element>
 		<element id="Projectname_click">
             <name>Projectname_click</name>
@@ -25,6 +25,11 @@
             <name>Projectok_click</name>
             <pathType>XPATH</pathType>
             <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="Projectfind_click">
+            <name>Projectfind_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="项目名称"]</pathValue>
         </element>
     </activity>
 

@@ -13,9 +13,9 @@ from comm.sql import Dbconnect
 import time
 
 sheetName = 'project'
-
+date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
-time = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+
 
 @ddt.ddt
 class Project(unittest.TestCase):
@@ -31,28 +31,23 @@ class Project(unittest.TestCase):
     @ddt.data(*testData)
     def test_createProject(self,data):
 
-        print('---------开始执行测试用例:{}---------'.format(data['case_name']))
+        print('---------{}---------'.format(data['case_name']))
+        Element(self.driver,'project','createProject_click').wait_click()
+        Element(self.driver,'project','Projectname_click').wait_send_keys(date+data["project_name"])
+        Element(self.driver,'project','Projectdesc_click').wait_send_keys(data["project_desc"])
+        Element(self.driver,'project','Projectcancel_click').wait_click()
+        time.sleep(1)
+        Element(self.driver,'project','createProject_click').wait_click()
+        Element(self.driver,'project','Projectname_click').wait_send_keys(date + data["project_name"])
+        Element(self.driver,'project','Projectdesc_click').wait_send_keys(data["project_desc"])
+        Element(self.driver,'project','Projectok_click').wait_click()
 
-        Element(self.driver,'project','createProject_click').click()
-        Element(self.driver,'project','Projectname_click').send_keys(time+data["project_name"])
-        Element(self.driver,'project','Projectdesc_click').send_keys(data["project_desc"])
-        Element(self.driver,'project','Projectcancel_click').click()
 
-        Element(self.driver, 'project', 'createProject_click').click()
-        Element(self.driver, 'project', 'Projectname_click').send_keys(time + data["project_name"])
-        Element(self.driver, 'project', 'Projectdesc_click').send_keys(data["project_desc"])
-        Element(self.driver,'project','Projectok_click').click()
-        time.sleep(12)
-
-        print('---------结束执行测试用例:{}---------'.format(data["case_name"]))
 
     def tearDown(self):
          print('--------测试结束--------')
          self.login.logout()
-    #
-    # def test_editProject(self,data):
-    #
-    #     Element(self)
+
 
 if __name__=="__main__":
     unittest.main()

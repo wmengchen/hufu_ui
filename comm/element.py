@@ -3,12 +3,12 @@
 # @date: 2020/6/29 13:40 
 # @name: element
 # @author：menghuan.wmc
-from selenium import webdriver
-import sys,os,time
+
+import os,time
 from xml.etree import ElementTree as ETree
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException,TimeoutException
 from selenium.webdriver.common.by import By
-from  selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 path = os.path.split(os.path.dirname(__file__))[0]
 
@@ -20,8 +20,7 @@ def set_xml():
     get element
     :return:
     """
-    # web = runSet.get_web()
-    # site = runSet.get_site()
+
     if len(activity) == 0:
         file_path = os.path.join(path, 'file', 'element.xml')
         tree = ETree.parse(file_path)
@@ -37,15 +36,14 @@ def set_xml():
                     element_child[t.tag] = t.text
                 element[element_name] = element_child
             activity[activity_name] = element
+        return activity
 
 
 
 def get_el_dict(activity_name, element):
 
     set_xml()
-    #print(activity)
     element_dict = activity.get(activity_name).get(element)
-
     return element_dict
 
 
@@ -55,9 +53,7 @@ class Element():
         self.driver = driver
         self.activity = activity_name
         self.element = element_name
-
         element_dict = get_el_dict(self.activity,self.element)
-
         self.pathType = element_dict.get('pathType')
         self.pathValue = element_dict.get('pathValue')
 
@@ -71,7 +67,37 @@ class Element():
         except NoSuchElementException:
             return False
 
-    def wait_element(self,wait_time):
+    #显示等待元素出现，等待点击
+    def wait_click(self):
+        element = WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,str(self.pathValue))))
+        print('element:',element)
+        try:
+
+            if element:
+                element.click()
+            return self.driver.current_url
+        except (NoSuchElementException,TimeoutException)as e:
+            raise e
+    # 显示等待元素出现，等待输入
+    def wait_send_keys(self,key):
+        element = WebDriverWait(self.driver,30).until(EC.visibility_of_element_located((By.XPATH,str(self.pathValue))))
+        try:
+
+            if element:
+                element.send_keys(key)
+        except (NoSuchElementException,TimeoutException)as e:
+            raise e
+
+    def clear(self):
+        element = self.get_element()
+        if element:
+            element.clear()
+    def wait_element(self, wait_time):
+        """
+        wait element appear in time
+        :param wait_time: wait time
+        :return: true or false
+        """
         time.sleep(wait_time)
         if self.is_exist():
             return True
@@ -79,35 +105,19 @@ class Element():
             return False
 
     def get_element(self):
-
+        """
+        get element
+        :return: element
+        """
         try:
-            if self.pathType == "XPATH":
+            if self.pathType == 'XPATH':
+                print('self.pathValue:', self.pathValue)
                 element = self.driver.find_element_by_xpath(self.pathValue)
-
+                print('element:',element)
                 return element
+
         except NoSuchElementException:
             return None
-    def click(self):
-        element = self.get_element()
-        time.sleep(1)
-        if element:
-            element.click()
-        self.driver.implicitly_wait(1)
-        return self.driver.current_url
-    def send_keys(self,key):
-        element = self.get_element()
-        if element:
-            element.send_keys(key)
-    def clear(self):
-        element = self.get_element()
-        if element:
-            element.clear()
-
-if __name__=="__main__":
-
-    t = Element("project","createProject_click").get_element()
-
-
 
 
 
