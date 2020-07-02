@@ -20,7 +20,6 @@ testData = ReadExcel(setting.Test_case,sheetName).read_data()
 @ddt.ddt
 class Project(unittest.TestCase):
 
-
     def setUp(self):
         print('--------测试开始--------')
         self.login = login.Login()
@@ -36,11 +35,12 @@ class Project(unittest.TestCase):
         Element(self.driver,'project','Projectname_click').wait_send_keys(date+data["project_name"])
         Element(self.driver,'project','Projectdesc_click').wait_send_keys(data["project_desc"])
         Element(self.driver,'project','Projectcancel_click').wait_click()
-        time.sleep(1)
+        time.sleep(2)
         Element(self.driver,'project','createProject_click').wait_click()
         Element(self.driver,'project','Projectname_click').wait_send_keys(date + data["project_name"])
         Element(self.driver,'project','Projectdesc_click').wait_send_keys(data["project_desc"])
         Element(self.driver,'project','Projectok_click').wait_click()
+
 
 
 

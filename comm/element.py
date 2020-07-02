@@ -10,11 +10,11 @@ from selenium.common.exceptions import NoSuchElementException,TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+
+
 path = os.path.split(os.path.dirname(__file__))[0]
-
-
-
 activity = {}
+
 def set_xml():
     """
     get element
@@ -67,18 +67,7 @@ class Element():
         except NoSuchElementException:
             return False
 
-    #显示等待元素出现，等待点击
-    def wait_click(self):
-        element = WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,str(self.pathValue))))
-        print('element:',element)
-        try:
-
-            if element:
-                element.click()
-            return self.driver.current_url
-        except (NoSuchElementException,TimeoutException)as e:
-            raise e
-    # 显示等待元素出现，等待输入
+    # 等待输入
     def wait_send_keys(self,key):
         element = WebDriverWait(self.driver,30).until(EC.visibility_of_element_located((By.XPATH,str(self.pathValue))))
         try:
@@ -86,6 +75,37 @@ class Element():
             if element:
                 element.send_keys(key)
         except (NoSuchElementException,TimeoutException)as e:
+            raise e
+
+    # 等待点击
+    def wait_click(self):
+        element = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+        try:
+
+            if element:
+                element.click()
+            return True
+        except (NoSuchElementException, TimeoutException)as e:
+            raise e
+    #等待元素消失
+    def is_not_visiale(self):
+        element = WebDriverWait(self.driver, 30).until_not(EC.visibility_of_element_located((By.XPATH,str(self.pathValue))))
+        try:
+
+            if element:
+                element.click()
+            return True
+        except (NoSuchElementException, TimeoutException)as e:
+            raise e
+
+    def click_is_not_visiale(self):
+        element = WebDriverWait(self.driver, 30).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+        try:
+
+            if element:
+                element.click()
+            return True
+        except (NoSuchElementException, TimeoutException)as e:
             raise e
 
     def clear(self):
