@@ -91,7 +91,7 @@ class Element():
         return self.driver.current_url
     #等待元素消失
     def wait_not(self):
-        element = WebDriverWait(self.driver, 100).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+        element = WebDriverWait(self.driver, 20).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
         return element
     #模拟键盘操作
     def send_keys(self,key):

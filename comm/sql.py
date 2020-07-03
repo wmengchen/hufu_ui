@@ -26,9 +26,9 @@ class Dbconnect():
         try:
             self.conn = connect(host=host,
                                 port=int(port),
-                                user = user,
-                                password = pwd,
-                                db = db,
+                                user=user,
+                                password=pwd,
+                                db=db,
                                 cursorclass = cursors.DictCursor
                                 )
         except OperationalError as e:
@@ -44,8 +44,6 @@ class Dbconnect():
             cursor.execute(self.read_config(section,key).strip("'"))
             #查询的条数
             count = cursor.rowcount
-            print('查到的条数为：{}'.format(count))
-
             self.conn.commit()
             return count
 
@@ -53,7 +51,7 @@ class Dbconnect():
 if __name__=="__main__":
     db = Dbconnect()
     t  = db.sql_ProjectInfo('sql_find','project')
-    print(t)
+    print('t的类型是',type(t))
 
 
 

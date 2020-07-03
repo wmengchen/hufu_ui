@@ -40,8 +40,13 @@ class Project(unittest.TestCase):
         Element(self.driver,'project','createProject_click').wait_click()
         Element(self.driver,'project','Projectname_click').wait_send_keys(date + data["project_name"])
         Element(self.driver,'project','Projectdesc_click').wait_send_keys(data["project_desc"])
-        Element(self.driver,'project','Projectok_click').wait_click()
-        Element(self.driver, 'project', 'Projectok_click').wait_not()
+        Element(self.driver, 'project', 'Projectok_click').wait_click()
+        #添加如下的异常场景，新建项目时候不会显示等待创建页面消失
+        try:
+            Element(self.driver, 'project', 'Projectok_click').wait_not()
+        except:
+            return self.check_result()
+
         Element(self.driver,'project','Projectfind_click').wait_send_keys(date+data["project_name"])
         Element(self.driver,'project','Projectfind_click').send_keys(Keys.ENTER)
         time.sleep(1)
@@ -49,19 +54,18 @@ class Project(unittest.TestCase):
         time.sleep(1)
         Element(self.driver,'projectmanager','projectmanager_click').wait_click()
         Element(self.driver,'projectmanager', 'projectmanageredit_click').wait_click()
+        time.sleep(1)
         Element(self.driver, 'projectmanager', 'projectmanageredit_name_click').clear()
         Element(self.driver, 'projectmanager', 'projectmanageredit_name_click').wait_send_keys(date+data["edit_project_name"])
         Element(self.driver, 'projectmanager', 'projectmanageredit_desc_click').clear()
         Element(self.driver, 'projectmanager', 'projectmanageredit_desc_click').wait_send_keys(date + data["edit_project_desc"])
         Element(self.driver,'projectmanager','projectmanageredit_save_click').wait_click()
-        Element(self.driver, 'projectmanager', 'projectmanageredit_save_click').wait_not()
-        time.sleep(1)
-        self.assertEqual(self.check_result(),1)
+        time.sleep(2)
+        self.check_result()
 
     def check_result(self):
-        count = Dbconnect.sql_ProjectInfo('sql_find','project')
-        print('count的结果是',count)
-        return count
+        count = Dbconnect().sql_ProjectInfo('sql_find','project')
+        self.assertEqual(count,1)
 
 
     def tearDown(self):
