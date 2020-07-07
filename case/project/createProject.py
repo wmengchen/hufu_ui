@@ -43,7 +43,7 @@ class Project(unittest.TestCase):
         Element(self.driver, 'project', 'Projectok_click').wait_click()
         #添加如下的异常场景，新建项目时候不会显示等待创建页面消失
         try:
-            Element(self.driver, 'project', 'Projectok_click').wait_not()
+            Element(self.driver, 'project', 'Projectok_click').wait_not_click()
         except:
             return self.check_result()
 

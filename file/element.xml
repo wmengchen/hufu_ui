@@ -41,7 +41,7 @@
         <element id="projectmanager_click">
             <name>projectmanager_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/div/div[3]/ul/li[9]/a</pathValue>
+            <pathValue>//a[text()="项目管理"]</pathValue>
         </element>
 		 <element id="projectmanageredit_click">
             <name>projectmanageredit_click</name>
@@ -62,6 +62,68 @@
             <name>projectmanageredit_save_click</name>
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/button[@class="ant-btn ant-btn-primary"]</pathValue>
+        </element>
+	</activity>
+	<activity name="dataAssert">
+        <element id="dataAssert_click">
+            <name>dataAssert_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//a[text()="数据资产"]</pathValue>
+        </element>
+		<element id="dataSourceadd_click">
+            <name>dataSourceadd_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="新增数据源"]</pathValue>
+        </element>		
+		<element id="dataSourceaddMysql_click">
+            <name>dataSourceaddMysql_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@value="MySQL"]</pathValue>
+        </element>
+		<element id="dataSourceadd_nextclick">
+            <name>dataSourceadd_nextclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="下一步"]</pathValue>
+        </element>
+		<element id="dataSourcename_click">
+            <name>dataSourcename_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="数据源名称"]</pathValue>
+        </element>
+		<element id="dataSourcedesc_click">
+            <name>dataSourcedesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="数据源描述"]</pathValue>
+        </element>
+		<element id="dataSourceurl_click">
+            <name>dataSourceurl_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@type="text"]</pathValue>
+        </element>		
+		<element id="dataSourceuser_click">
+            <name>dataSourceuser_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="用户名"]</pathValue>
+        </element>
+		<element id="dataSourcepwd_click">
+            <name>dataSourcepwd_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="密码"]</pathValue>
+        </element>
+		<element id="dataSourceTestCon_click">
+            <name>dataSourceTestCon_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="测试连通性"]</pathValue>
+        </element>
+		<element id="dataSourceTestConpre_click">
+            <name>dataSourceTestConpre_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="上一步"]</pathValue>
+        </element>
+		<element id="dataSourceSave_click">
+            <name>dataSourceSave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="保存"]</pathValue>
         </element>
 	</activity>
 

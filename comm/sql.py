@@ -35,7 +35,7 @@ class Dbconnect():
             print('Mysql Error %d :%s'%(e.args[0]),e.args[1])
     def read_config(self,section,key):
         value = cpg.get(section,key)
-        print(value)
+        # print(value)
         return value
 
 
