@@ -44,6 +44,7 @@ class Login():
     def __init__(self):
         self.browser = webdriver.Chrome()
 
+
     def login(self):
 
         self.browser.get(test_url)
@@ -56,8 +57,14 @@ class Login():
         sleep(1)
         self.browser.find_element_by_xpath("//input[@placeholder='验证码']").send_keys('1111')
         sleep(1)
-        submit = WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]')))
-        submit.click()
+        k = WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]')))
+        # print('k',k)
+        k.click()
+        WebDriverWait(self.browser, 10).until_not(EC.element_to_be_clickable((By.XPATH, '//button[@type="submit"]')))
+
+
+
+
         # self.browser.find_element_by_xpath('//button[@type="submit"]').click()
         # sleep(3)
 

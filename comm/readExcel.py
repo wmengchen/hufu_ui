@@ -30,8 +30,12 @@ class ReadExcel():
         else:
             print("表格是空数据!")
             return None
+    def data(self):
+        t = self.read_data()[0]["case_name"]
+        print(t)
+
 if __name__=="__main__":
     fiel = ReadExcel(r'E:\07_python\hufu_ui\database\虎符测试用例.xlsx','project')
-    fiel.read_data()
+    print(fiel.data())
 
 

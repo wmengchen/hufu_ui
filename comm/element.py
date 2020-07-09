@@ -85,10 +85,10 @@ class Element():
 
             if element:
                 element.click()
-            return True
+            return self.driver.current_url
         except (NoSuchElementException, TimeoutException)as e:
             raise e
-        return self.driver.current_url
+
     #等待元素消失
     def wait_not_click(self):
         element = WebDriverWait(self.driver, 20).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
@@ -129,3 +129,10 @@ class Element():
 
         except NoSuchElementException:
             return None
+    def get_text_value(self):
+        element = WebDriverWait(self.driver,30).until(EC.visibility_of_element_located((By.XPATH,str(self.pathValue))))
+        value = ''
+        print('element',element)
+        if element:
+            value = element.text
+        return str(value)

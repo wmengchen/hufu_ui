@@ -68,22 +68,22 @@
         <element id="dataAssert_click">
             <name>dataAssert_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//a[text()="数据资产"]</pathValue>
+            <pathValue>//li/a[text()="数据资产"]</pathValue>
         </element>
 		<element id="dataSourceadd_click">
             <name>dataSourceadd_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//span[text()="新增数据源"]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/p/button</pathValue>
         </element>		
 		<element id="dataSourceaddMysql_click">
             <name>dataSourceaddMysql_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//input[@value="MySQL"]</pathValue>
+            <pathValue>//span[text()="MySQL"]</pathValue>
         </element>
 		<element id="dataSourceadd_nextclick">
             <name>dataSourceadd_nextclick</name>
             <pathType>XPATH</pathType>
-            <pathValue>//span[text()="下一步"]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/div[8]/button</pathValue>
         </element>
 		<element id="dataSourcename_click">
             <name>dataSourcename_click</name>
@@ -98,7 +98,7 @@
 		<element id="dataSourceurl_click">
             <name>dataSourceurl_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//input[@type="text"]</pathValue>
+            <pathValue>//div/ul/li[3]/input</pathValue>
         </element>		
 		<element id="dataSourceuser_click">
             <name>dataSourceuser_click</name>
@@ -113,17 +113,22 @@
 		<element id="dataSourceTestCon_click">
             <name>dataSourceTestCon_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//span[text()="测试连通性"]</pathValue>
+            <pathValue>//button[@class="ant-btn ant-btn-primary ant-btn-background-ghost"]</pathValue>
         </element>
 		<element id="dataSourceTestConpre_click">
             <name>dataSourceTestConpre_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//span[text()="上一步"]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[1]/div/button[1]</pathValue>
         </element>
 		<element id="dataSourceSave_click">
             <name>dataSourceSave_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//span[text()="保存"]</pathValue>
+            <pathValue>//button[2][@class="ant-btn ant-btn-primary"]</pathValue>
+        </element>
+		<element id="dataSourceok_click">
+            <name>dataSourceok_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[3]/div</pathValue>
         </element>
 	</activity>
 
