@@ -44,6 +44,7 @@ class RelationDb(unittest.TestCase):
         Element(self.driver, 'dataAssert', 'dataSourceaddMysql_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
         Element(self.driver,'dataAssert','dataSourceTestConpre_click').wait_click()
+        Element(self.driver, 'dataAssert', 'dataSourceTestConpre_click').wait_not_click()
         Element(self.driver,'dataAssert','dataSourceadd_nextclick').wait_click()
         Element(self.driver,'dataAssert','dataSourcename_click').wait_send_keys(data["dataSource_name"]+date)
         Element(self.driver, 'dataAssert', 'dataSourcedesc_click').wait_send_keys(date+data["dataSouce_desc"])
@@ -54,12 +55,24 @@ class RelationDb(unittest.TestCase):
         Element(self.driver, 'dataAssert', 'dataSourceTestConpre_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceSave_click').wait_click()
-        time.sleep(2)
+
+        Element(self.driver,'dataAssert','dataSourceok_click').wait_click()
         try:
-            self.assertTrue(Element(self.driver,'dataAssert','dataSourceok_click').wait_click())
+            Element(self.driver, 'dataAssert', 'dataSourceok_click').wait_not_click()
         except:
             pass
-
+        Element(self.driver,'dataAssert','dataSourcefindname_click').wait_send_keys(data["dataSource_name"]+date)
+        Element(self.driver,'dataAssert','dataSourceedit_click').wait_click()
+        time.sleep(1)
+        Element(self.driver,'dataAssert','dataSourcenameedit_click').clear()
+        time.sleep(1)
+        Element(self.driver, 'dataAssert', 'dataSourcenameedit_click').wait_send_keys(data["edit_sourceName"]+date)
+        Element(self.driver, 'dataAssert', 'dataSourceedit_saveclick').wait_click()
+        content = Element(self.driver,'dataAssert','dataSourceedit_dataclick').get_text_value()
+        print('content的内容是：',content)
+        self.check_result(content)
+    def check_result(self,content):
+        assert content == '共1条'
 
     def tearDown(self):
         print('--------测试结束--------')

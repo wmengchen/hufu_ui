@@ -129,6 +129,31 @@
             <name>dataSourceok_click</name>
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[3]/div</pathValue>
+        </element>		
+		<element id="dataSourcefindname_click">
+            <name>dataSourcefindname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class="content-header"]/input</pathValue>
+        </element>
+		<element id="dataSourceedit_click">
+            <name>dataSourceedit_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class="details-icon"]/span[2]/span[text()="编辑"]</pathValue>
+        </element>
+		<element id="dataSourceedit_saveclick">
+            <name>dataSourceedit_saveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class="next-box"]/button/span</pathValue>
+        </element>
+		<element id="dataSourceedit_dataclick">
+            <name>dataSourceedit_dataclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class="pages-l"]</pathValue>
+        </element>
+		<element id="dataSourcenameedit_click">
+            <name>dataSourcenameedit_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div/ul/li[1]/input</pathValue>
         </element>
 	</activity>
 
