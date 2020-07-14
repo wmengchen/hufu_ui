@@ -65,3 +65,8 @@ class Log():
 
     def error(self, message):
         self.__console('error', message)
+
+if __name__=="__main__":
+    log = Log()
+    log.info('nihao')
+
