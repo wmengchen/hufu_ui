@@ -18,7 +18,6 @@ sheetName = 'relationdataSource'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
-
 @ddt.ddt
 class RelationDb(unittest.TestCase):
 
@@ -44,7 +43,6 @@ class RelationDb(unittest.TestCase):
         Element(self.driver, 'dataAssert', 'dataSourceaddMysql_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
         Element(self.driver,'dataAssert','dataSourceTestConpre_click').wait_click()
-        Element(self.driver, 'dataAssert', 'dataSourceTestConpre_click').wait_not_click()
         Element(self.driver,'dataAssert','dataSourceadd_nextclick').wait_click()
         Element(self.driver,'dataAssert','dataSourcename_click').wait_send_keys(data["dataSource_name"]+date)
         Element(self.driver, 'dataAssert', 'dataSourcedesc_click').wait_send_keys(date+data["dataSouce_desc"])
@@ -54,25 +52,22 @@ class RelationDb(unittest.TestCase):
         Element(self.driver,'dataAssert','dataSourceTestCon_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceTestConpre_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
-        Element(self.driver, 'dataAssert', 'dataSourceSave_click').wait_click()
+        current_url = Element(self.driver, 'dataAssert', 'dataSourceSave_click').wait_click()
+        time.sleep(1)
 
-        Element(self.driver,'dataAssert','dataSourceok_click').wait_click()
         try:
-            Element(self.driver, 'dataAssert', 'dataSourceok_click').wait_not_click()
+            self.check_result(current_url,data['expect_url1'])
         except:
-            pass
-        Element(self.driver,'dataAssert','dataSourcefindname_click').wait_send_keys(data["dataSource_name"]+date)
-        Element(self.driver,'dataAssert','dataSourceedit_click').wait_click()
-        time.sleep(1)
-        Element(self.driver,'dataAssert','dataSourcenameedit_click').clear()
-        time.sleep(1)
-        Element(self.driver, 'dataAssert', 'dataSourcenameedit_click').wait_send_keys(data["edit_sourceName"]+date)
-        Element(self.driver, 'dataAssert', 'dataSourceedit_saveclick').wait_click()
-        content = Element(self.driver,'dataAssert','dataSourceedit_dataclick').get_text_value()
-        print('content的内容是：',content)
-        self.check_result(content)
-    def check_result(self,content):
-        assert content == '共1条'
+            return
+
+    @ddt.data(*testData)
+    def check_result(self,acual_url,expect_url):
+        if int(testData["result"]) == 0:
+            assert (acual_url != expect_url)
+        else:
+            assert (acual_url == expect_url)
+
+
 
     def tearDown(self):
         print('--------测试结束--------')

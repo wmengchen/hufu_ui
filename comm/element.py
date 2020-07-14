@@ -10,7 +10,7 @@ from selenium.common.exceptions import NoSuchElementException,TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.keys import Keys
+
 
 
 path = os.path.split(os.path.dirname(__file__))[0]
@@ -93,8 +93,13 @@ class Element():
     def wait_not_click(self):
         element = WebDriverWait(self.driver, 20).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
         return element
+    #模拟键盘正常点击
+    def click(self):
+        element = self.get_element()
+        if element:
+            element.click()
     #模拟键盘操作
-    def send_keys(self,key):
+    def send_keys(self,*key):
 
         element = self.get_element()
         if element:
