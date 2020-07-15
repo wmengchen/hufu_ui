@@ -80,6 +80,26 @@
             <pathType>XPATH</pathType>
             <pathValue>//span[text()="MySQL"]</pathValue>
         </element>
+		<element id="dataSourceaddsqlServer_click">
+            <name>dataSourceaddsqlServer_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="SQL Server"]</pathValue>
+        </element>
+		<element id="dataSourceaddPostgreSQL_click">
+            <name>dataSourceaddPostgreSQL_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="PostgreSQL"]</pathValue>
+        </element>
+		<element id="dataSourceaddDB2_click">
+            <name>dataSourceaddDB2_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="DB2"]</pathValue>
+        </element>
+		<element id="dataSourceaddOracle_click">
+            <name>dataSourceaddOracle_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="Oracle"]</pathValue>
+        </element>		
 		<element id="dataSourceadd_nextclick">
             <name>dataSourceadd_nextclick</name>
             <pathType>XPATH</pathType>

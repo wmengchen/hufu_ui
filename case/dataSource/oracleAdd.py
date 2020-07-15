@@ -1,5 +1,10 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+# @date: 2020/7/15 16:58
+# @name: sqlServerAdd
+# @author：menghuan.wmc
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 # @date: 2020/6/29 11:16
 # @name: createProject
 # @author：menghuan.wmc
@@ -14,7 +19,7 @@ from comm.sql import Dbconnect
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 
-sheetName = 'mysqlAdd'
+sheetName = 'OracleAdd'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
@@ -29,7 +34,7 @@ class RelationDb(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_mysqlAdd(self,data):
+    def test_oracleAdd(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 
@@ -40,7 +45,7 @@ class RelationDb(unittest.TestCase):
         time.sleep(1)
         Element(self.driver,'dataAssert','dataAssert_click').wait_click()
         Element(self.driver,'dataAssert', 'dataSourceadd_click').wait_click()
-        Element(self.driver, 'dataAssert', 'dataSourceaddMysql_click').wait_click()
+        Element(self.driver, 'dataAssert', 'dataSourceaddOracle_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
         Element(self.driver,'dataAssert','dataSourceTestConpre_click').wait_click()
         Element(self.driver,'dataAssert','dataSourceadd_nextclick').wait_click()
@@ -52,6 +57,7 @@ class RelationDb(unittest.TestCase):
         Element(self.driver,'dataAssert','dataSourceTestCon_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceTestConpre_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
+        time.sleep(3)
         current_url = Element(self.driver, 'dataAssert', 'dataSourceSave_click').wait_click()
         time.sleep(1)
 
