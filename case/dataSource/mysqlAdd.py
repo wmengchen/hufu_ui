@@ -14,7 +14,7 @@ from comm.sql import Dbconnect
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 
-sheetName = 'relationdataSource'
+sheetName = 'mysql_add'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
@@ -29,7 +29,7 @@ class RelationDb(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_relationDb(self,data):
+    def test_mysqlAdd(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 
