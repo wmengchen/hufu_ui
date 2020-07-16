@@ -1,4 +1,7 @@
 project/createProject
 dataSource/mysqlAdd
-#dataSource/sqlServerAdd
-#dataSource/postgreSqlAdd
+dataSource/sqlServerAdd
+dataSource/postgreSqlAdd
+#dataSource/oracleAdd
+#dataSource/db2Add
+#dataSource/hiveAdd

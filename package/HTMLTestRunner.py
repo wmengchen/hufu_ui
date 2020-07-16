@@ -190,7 +190,7 @@ class Template_mixin(object):
     # 增加DEFAULT_TESTER变量  --YinJia
     DEFAULT_TITLE = '单元测试报告'
     DEFAULT_DESCRIPTION = ''
-    DEFAULT_TESTER = '最棒QA'
+    DEFAULT_TESTER = 'menghuan'
 
     # ------------------------------------------------------------------------
     # HTML Template

@@ -180,6 +180,11 @@
             <pathType>XPATH</pathType>
             <pathValue>//span[text()="Hive"]</pathValue>
         </element>
+		<element id="dataSourceAddhive_click">
+            <name>dataSourceAddhive_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="Hive"]</pathValue>
+        </element>
 	</activity>
 
   
