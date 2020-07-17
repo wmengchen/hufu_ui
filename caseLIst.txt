@@ -5,3 +5,4 @@ dataSource/postgreSqlAdd
 #dataSource/oracleAdd
 #dataSource/db2Add
 #dataSource/hiveAdd
+dataSource/maxcomputeAdd

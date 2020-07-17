@@ -179,11 +179,106 @@
             <name>dataSourceAddhive_click</name>
             <pathType>XPATH</pathType>
             <pathValue>//span[text()="Hive"]</pathValue>
-        </element>
-		<element id="dataSourceAddhive_click">
-            <name>dataSourceAddhive_click</name>
+        </element>		
+		<element id="dataSourceAddhivename_click">
+            <name>dataSourceAddhivename_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//span[text()="Hive"]</pathValue>
+            <pathValue>//ul/li[2]/input[@placeholder="数据源名称"]</pathValue>
+        </element>
+		<element id="dataSourceAddhivedesc_click">
+            <name>dataSourceAddhivedesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//ul/li[3]/input[@placeholder="数据源描述"]</pathValue>
+        </element>		
+		<element id="dataSourceAddhiveurl_click">
+            <name>dataSourceAddhiveurl_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//ul/li[4]/input[@placeholder="请输入JDBC URL"]</pathValue>
+        </element>
+		<element id="dataSourceAddhiveuser_click">
+            <name>dataSourceAddhiveuser_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//ul/li[5]/input[@placeholder="用户名"]</pathValue>
+        </element>
+		<element id="dataSourceAddhivepwd_click">
+            <name>dataSourceAddhivepwd_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//ul/li[6]/input[@placeholder="密码"]</pathValue>
+        </element>
+		<element id="dataSourceAddhiveconnect_click">
+            <name>dataSourceAddhiveconnect_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//ul/li[7]/button</pathValue>
+        </element>
+		<element id="dataSourceAddhivesave_click">
+            <name>dataSourceAddhivesave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[2]/div/button[2]</pathValue>
+        </element>
+		<element id="dataSourceAddhivepre_click">
+            <name>dataSourceAddhivepre_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[2]/div/button[1]</pathValue>
+        </element>
+		<element id="dataSourceAddhivenext_click">
+            <name>dataSourceAddhivenext_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="下一步"]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcompute_click">
+            <name>dataSourceaddmaxcompute_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="MaxCompute"]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputeaccid_click">
+            <name>dataSourceaddmaxcomputeaccid_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="accessId"]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputename_click">
+            <name>dataSourceaddmaxcomputename_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[8]/ul/li[1]/input</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputedesc_click">
+            <name>dataSourceaddmaxcomputedesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[8]/ul/li[2]/input</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputeAccS_click">
+            <name>dataSourceaddmaxcomputeAccS_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="accessKey"]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputeProject_click">
+            <name>dataSourceaddmaxcomputeProject_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="project"]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputeODPS_click">
+            <name>dataSourceaddmaxcomputeODPS_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="endPoint"]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputeTunnel_click">
+            <name>dataSourceaddmaxcomputeTunnel_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="tunnelEndPoint"]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputeconnect_click">
+            <name>dataSourceaddmaxcomputeconnect_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="tunnelEndPoint"]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputepre_click">
+            <name>dataSourceaddmaxcomputepre_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[8]/div/button[1]</pathValue>
+        </element>
+		<element id="dataSourceaddmaxcomputesave_click">
+            <name>dataSourceaddmaxcomputesave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[8]/div/button[2]</pathValue>
         </element>
 	</activity>
 
