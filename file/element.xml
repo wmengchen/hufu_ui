@@ -280,6 +280,56 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[8]/div/button[2]</pathValue>
         </element>
+		<element id="dataSourceaddmondb_click">
+            <name>dataSourceaddmondb_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="Mongodb"]</pathValue>
+        </element>
+		<element id="dataSourceaddmondbpre_click">
+            <name>dataSourceaddmondbpre_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/div/button[1]</pathValue>
+        </element>
+		<element id="dataSourceaddmondbname_click">
+            <name>dataSourceaddmondbname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[1]/input</pathValue>
+        </element>
+		<element id="dataSourceaddmondbdesc_click">
+            <name>dataSourceaddmondbdesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[2]/input</pathValue>
+        </element>
+		<element id="dataSourceaddmondbserver_click">
+            <name>dataSourceaddmondbserver_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="格式：host:port"]</pathValue>
+        </element>
+		<element id="dataSourceaddmondbDBinfo_click">
+            <name>dataSourceaddmondbDBinfo_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="数据库"]</pathValue>
+        </element>
+		<element id="dataSourceaddmondbuser_click">
+            <name>dataSourceaddmondbuser_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="用户名"]</pathValue>
+        </element>
+		<element id="dataSourceaddmondbpwd_click">
+            <name>dataSourceaddmondbpwd_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="密码"]</pathValue>
+        </element>
+		<element id="dataSourceaddmondbconnect_click">
+            <name>dataSourceaddmondbconnect_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[7]/button</pathValue>
+        </element>
+		<element id="dataSourceaddmondbsave_click">
+            <name>dataSourceaddmondbsave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/div/button[2]</pathValue>
+        </element>
 	</activity>
 
   
