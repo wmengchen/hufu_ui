@@ -3,11 +3,7 @@
 # @date: 2020/7/15 16:58
 # @name: sqlServerAdd
 # @author：menghuan.wmc
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
-# @date: 2020/6/29 11:16
-# @name: createProject
-# @author：menghuan.wmc
+
 import ddt,unittest,sys,os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from comm.element import  Element
