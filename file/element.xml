@@ -475,6 +475,116 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[4]/input</pathValue>
         </element>
+		<element id="dataSourceaddHttpMdt_click">
+            <name>dataSourceaddHttpMdt_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="HTTP MDT"]</pathValue>
+        </element>
+		<element id="dataSourceaddHttpMdtpre_click">
+            <name>dataSourceaddHttpMdtpre_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[5]/div/button[1]</pathValue>
+        </element>
+		<element id="dataSourceaddHttpMdttname_click">
+            <name>dataSourceaddHttpMdttname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[5]/ul/li[1]/input</pathValue>
+        </element>
+		<element id="dataSourceaddHttpMdttopic_click">
+            <name>dataSourceaddHttpMdttopic_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[5]/ul/li[3]/input</pathValue>
+        </element>
+		<element id="dataSourceaddHttpMdttdesc_click">
+            <name>dataSourceaddHttpMdttdesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[5]/ul/li[4]/input</pathValue>
+        </element>
+		<element id="dataSourceaddHttpMdttparaAdd_click">
+            <name>dataSourceaddHttpMdttparaAdd_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[5]/ul/li[6]/div/div[2]/span</pathValue>
+        </element>		
+		<element id="dataSourceaddHttpMdttpara1name_click">
+            <name>dataSourceaddHttpMdttpara1name_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[5]/ul/li[6]/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/input</pathValue>
+        </element>
+		<element id="dataSourceaddHttpMdttpara1type_click">
+            <name>dataSourceaddHttpMdttpara1type_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[5]/ul/li[6]/div/div[1]/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div</pathValue>
+        </element>
+		<element id="dataSourceaddHttpMdttpara1type_select">
+            <name>dataSourceaddHttpMdttpara1type_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="test-uuid"]/ul/li[1]</pathValue>
+        </element>
+		<element id="dataSourceaddHttpMdttsave_click">
+            <name>dataSourceaddHttpMdttsave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[5]/div/button[2]</pathValue>
+        </element>
+		<element id="dataSourceaddmqtt_click">
+            <name>dataSourceaddmqtt_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="MQTT"]</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpre_click">
+            <name>dataSourceaddmqttpre_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/div/button[1]</pathValue>
+        </element>
+		<element id="dataSourceaddmqttname_click">
+            <name>dataSourceaddmqttname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[1]/input</pathValue>
+        </element>
+		<element id="dataSourceaddmqtttopic_click">
+            <name>dataSourceaddmqtttopic_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[3]/input</pathValue>
+        </element>
+		<element id="dataSourceaddmqttdesc_click">
+            <name>dataSourceaddmqttdesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[4]/input</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpermiss_click">
+            <name>dataSourceaddmqttpermiss_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[6]/div/div/div/div</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpermissrelease_select">
+            <name>dataSourceaddmqttpermissrelease_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="test-uuid"]/ul/li[1]</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpermisssubscription_select">
+            <name>dataSourceaddmqttpermisssubscription_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="test-uuid"]/ul/li[2]</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpermissreleasesubscription_select">
+            <name>dataSourceaddmqttpermissreleasesubscription_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="test-uuid"]/ul/li[3]</pathValue>
+        </element>
+		<element id="dataSourceaddmqttadd_click">
+            <name>dataSourceaddmqttadd_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[7]/div/div[2]/span</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpara1name_click">
+            <name>dataSourceaddmqttpara1name_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[7]/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/input</pathValue>
+        </element>
+		<element id="dataSourceaddmqttsave_click">
+            <name>dataSourceaddmqttsave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/div/button[2]</pathValue>
+        </element>
 	</activity>
 
   

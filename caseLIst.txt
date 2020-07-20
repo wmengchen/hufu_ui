@@ -10,3 +10,4 @@ dataSource/mongoAdd
 dataSource/hdfsAdd
 dataSource/hdfs_publicNetAdd
 dataSource/opentsdbAdd
+dataSource/opentsdb_publicNetAdd
