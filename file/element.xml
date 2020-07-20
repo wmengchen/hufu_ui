@@ -59,7 +59,7 @@
             <pathValue>//tbody[@class="ant-table-tbody"]/tr[4]/td[2]/textarea[@placeholder="项目描述"]</pathValue>
         </element>
 		<element id="projectmanageredit_save_click">
-            <name>projectmanageredit_save_click</name>
+            <name>projectmanageredit_save_click</name>			
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/button[@class="ant-btn ant-btn-primary"]</pathValue>
         </element>
@@ -329,6 +329,36 @@
             <name>dataSourceaddmondbsave_click</name>
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/div/button[2]</pathValue>
+        </element>
+		<element id="dataSourceaddhdfs_click">
+            <name>dataSourceaddhdfs_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="HDFS"]</pathValue>
+        </element>
+		<element id="dataSourceaddhdfspre_click">
+            <name>dataSourceaddhdfspre_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/div/button[1]</pathValue>
+        </element>
+		<element id="dataSourceaddhdfname_click">
+            <name>dataSourceaddhdfname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/ul/li[2]/input</pathValue>
+        </element>
+		<element id="dataSourceaddhdfdesc_click">
+            <name>dataSourceaddhdfdesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/ul/li[3]/input</pathValue>
+        </element>
+		<element id="dataSourceaddhdfconnect_click">
+            <name>dataSourceaddhdfconnect_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/ul/li[5]/button</pathValue>
+        </element>
+		<element id="dataSourceaddhdfsave_click">
+            <name>dataSourceaddhdfsave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/div/button[2]</pathValue>
         </element>
 	</activity>
 
