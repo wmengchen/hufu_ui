@@ -313,12 +313,12 @@
 		<element id="dataSourceaddmondbuser_click">
             <name>dataSourceaddmondbuser_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//input[@placeholder="用户名"]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[5]/input</pathValue>
         </element>
 		<element id="dataSourceaddmondbpwd_click">
             <name>dataSourceaddmondbpwd_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//input[@placeholder="密码"]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[6]/input</pathValue>
         </element>
 		<element id="dataSourceaddmondbconnect_click">
             <name>dataSourceaddmondbconnect_click</name>
