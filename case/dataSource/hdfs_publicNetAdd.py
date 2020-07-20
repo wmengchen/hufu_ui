@@ -42,15 +42,20 @@ class RelationDb(unittest.TestCase):
         Element(self.driver,'dataAssert', 'dataSourceadd_click').wait_click()
         js = "document.getElementsByClassName('add-dataSourde')[0].scrollTop=1000"
         self.driver.execute_script(js)
-        time.sleep(2)
+        time.sleep(1)
         Element(self.driver, 'dataAssert', 'dataSourceaddhdfs_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceaddhdfspre_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
+        Element(self.driver, 'dataAssert', 'dataSourceaddhdfpublicIP_click').wait_click()
+        time.sleep(1)
+        Element(self.driver, 'dataAssert', 'dataSourceaddhdfIP_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceaddhdfname_click').wait_send_keys(data["dataSource_name"] + date)
         Element(self.driver, 'dataAssert', 'dataSourceaddhdfdesc_click').wait_send_keys(date + data["dataSouce_desc"])
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfconnect_click').wait_click()
-        current_url = Element(self.driver, 'dataAssert', 'dataSourceaddhdfsave_click').wait_click()
+        Element(self.driver, 'dataAssert', 'dataSourceaddhdfsurl_click').wait_send_keys(date + data["url"])
+        Element(self.driver, 'dataAssert', 'dataSourceaddhdfsuser_click').wait_send_keys(date + data["user"])
+        Element(self.driver, 'dataAssert', 'dataSourceaddhdfsipconnect_click').wait_click()
+        current_url = Element(self.driver, 'dataAssert', 'dataSourceaddhdfsipsave_click').wait_click()
         time.sleep(1)
 
         try:

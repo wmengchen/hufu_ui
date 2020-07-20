@@ -360,6 +360,121 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/div/button[2]</pathValue>
         </element>
+		<element id="dataSourceaddhdfpublicIP_click">
+            <name>dataSourceaddhdfpublicIP_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/ul/li[1]/div/div/div</pathValue>
+        </element>
+		<element id="dataSourceaddhdfIP_click">
+            <name>dataSourceaddhdfIP_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()="公网IP"]</pathValue>
+        </element>
+		<element id="dataSourceaddhdfsurl_click">
+            <name>dataSourceaddhdfsurl_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/ul/li[4]/input</pathValue>
+        </element>
+		<element id="dataSourceaddhdfsuser_click">
+            <name>dataSourceaddhdfsuser_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/ul/li[5]/input</pathValue>
+        </element>
+		<element id="dataSourceaddhdfsipconnect_click">
+            <name>dataSourceaddhdfsipconnect_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/ul/li[6]/button</pathValue>
+        </element>
+		<element id="dataSourceaddhdfsipsave_click">
+            <name>dataSourceaddhdfsipsave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdb_click">
+            <name>dataSourceaddopentsdb_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="Open TSDB"]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbpre_click">
+            <name>dataSourceaddopentsdbpre_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/div/button[1]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbname_click">
+            <name>dataSourceaddopentsdbname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[2]/input</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbdesc_click">
+            <name>dataSourceaddopentsdbdesc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[3]/input</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbconnect_click">
+            <name>dataSourceaddopentsdbconnect_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[5]/button</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbparaAdd_click">
+            <name>dataSourceaddopentsdbparaAdd_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[6]/div/div[2]/span</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbpara1name_click">
+            <name>dataSourceaddopentsdbpara1name_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[6]/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/input</pathValue>
+        </element>		
+		<element id="dataSourceaddopentsdbpara1type_click">
+            <name>dataSourceaddopentsdbpara1type_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[text()="请选择"]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbpara1type_select">
+            <name>dataSourceaddopentsdbpara1type_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="test-uuid"]/ul/li[1]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbpara1type2_select">
+            <name>dataSourceaddopentsdbpara1type2_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()="String"]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbdelete_click">
+            <name>dataSourceaddopentsdbdelete_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="删除"]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbpara2name_click">
+            <name>dataSourceaddopentsdbpara2name_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[6]/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[1]/div/input</pathValue>
+        </element>		
+		<element id="dataSourceaddopentsdbpara2type_select">
+            <name>dataSourceaddopentsdbpara2type_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="test-uuid"]/ul/li[2]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbsave_click">
+            <name>dataSourceaddopentsdbsave_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/div/button[2]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbpubliciptype_click">
+            <name>dataSourceaddopentsdbpubliciptype_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[1]/div/div/div</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbpubliciptype_select">
+            <name>dataSourceaddopentsdbpubliciptype_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()="公网IP"]</pathValue>
+        </element>
+		<element id="dataSourceaddopentsdbpublicipurl_click">
+            <name>dataSourceaddopentsdbpublicipurl_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[4]/ul/li[4]/input</pathValue>
+        </element>
 	</activity>
 
   

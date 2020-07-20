@@ -9,3 +9,4 @@ dataSource/maxcomputeAdd
 dataSource/mongoAdd
 dataSource/hdfsAdd
 dataSource/hdfs_publicNetAdd
+dataSource/opentsdbAdd
