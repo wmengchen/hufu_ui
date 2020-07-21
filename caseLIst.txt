@@ -11,3 +11,5 @@ dataSource/hdfsAdd
 dataSource/hdfs_publicNetAdd
 dataSource/opentsdbAdd
 dataSource/opentsdb_publicNetAdd
+dataSource/httpmdtAdd
+dataSource/mqttAdd

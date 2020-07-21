@@ -580,6 +580,26 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[7]/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/input</pathValue>
         </element>
+		<element id="dataSourceaddmqttpara1type_click">
+            <name>dataSourceaddmqttpara1type_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[7]/div/div[1]/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpara1type_select">
+            <name>dataSourceaddmqttpara1type_select</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()="String"]</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpara1desc_click">
+            <name>dataSourceaddmqttpara1desc_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[7]/div/div[1]/div/div/div/div/div/table/tbody/tr/td[3]/div/input</pathValue>
+        </element>
+		<element id="dataSourceaddmqttpara1delete_click">
+            <name>dataSourceaddmqttpara1delete_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/ul/li[7]/div/div[1]/div/div/div/div/div/table/tbody/tr/td[4]/div/span</pathValue>
+        </element>
 		<element id="dataSourceaddmqttsave_click">
             <name>dataSourceaddmqttsave_click</name>
             <pathType>XPATH</pathType>
