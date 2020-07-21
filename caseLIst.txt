@@ -13,3 +13,4 @@ dataSource/opentsdbAdd
 dataSource/opentsdb_publicNetAdd
 dataSource/httpmdtAdd
 dataSource/mqttAdd
+dataSource/relationDbEdit
