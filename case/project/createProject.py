@@ -64,7 +64,7 @@ class Project(unittest.TestCase):
 
     def check_result(self):
         count = Dbconnect().sql_ProjectInfo('sql_find','project')
-        self.assertEqual(count,3)
+        self.assertEqual(count,1)
 
 
     def tearDown(self):
