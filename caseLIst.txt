@@ -2,9 +2,9 @@ project/createProject
 dataSource/mysqlAdd
 dataSource/sqlServerAdd
 dataSource/postgreSqlAdd
-#dataSource/oracleAdd
-#dataSource/db2Add
-#dataSource/hiveAdd
+dataSource/oracleAdd
+dataSource/db2Add
+dataSource/hiveAdd
 dataSource/maxcomputeAdd
 dataSource/mongoAdd
 dataSource/hdfsAdd
@@ -14,3 +14,9 @@ dataSource/opentsdb_publicNetAdd
 dataSource/httpmdtAdd
 dataSource/mqttAdd
 dataSource/relationDbEdit
+#dataSource/bigdataEdit
+#dataSource/fileStoreEdit
+#dataSource/Semi-structuredEdit
+#dataSource/opentsdbEdit
+#dataSource/messagequeueEdit
+

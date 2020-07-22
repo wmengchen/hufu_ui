@@ -24,7 +24,7 @@ date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
 @ddt.ddt
-class RelationDb(unittest.TestCase):
+class Db2Add(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')

@@ -676,17 +676,25 @@ class _TestResult(TestResult):
         _, _exc_str = self.errors[-1]
         output = self.complete_output()
         self.result.append((2, test, output, _exc_str))
-        try:
-            driver = getattr(test, "driver")
-            test.img = driver.get_screenshot_as_base64()
-        except AttributeError:
-            test.img = ""
         if self.verbosity > 1:
             sys.stderr.write('E  ')
             sys.stderr.write(str(test))
             sys.stderr.write('\n')
         else:
             sys.stderr.write('E')
+
+    def addFailure(self, test, err):
+        self.failure_count += 1
+        TestResult.addFailure(self, test, err)
+        _, _exc_str = self.failures[-1]
+        output = self.complete_output()
+        self.result.append((1, test, output, _exc_str))
+        if self.verbosity > 1:
+            sys.stderr.write('F  ')
+            sys.stderr.write(str(test))
+            sys.stderr.write('\n')
+        else:
+            sys.stderr.write('F')
 
     # # 增加失败截图功能  --YinJia
     # def addFailure(self, test, err):
@@ -696,11 +704,10 @@ class _TestResult(TestResult):
     #     _, _exc_str = self.failures[-1]
     #     output = self.complete_output()
     #     self.result.append((1, test, output, _exc_str))
-    #     try:
-    #         driver = getattr(test, "driver")
-    #         test.img = driver.get_screenshot_as_base64()
-    #     except AttributeError:
-    #         test.img = ""
+    #     # try:
+
+    #     # except AttributeError:
+    #     #     test.img = ""
     #     if self.verbosity > 1:
     #         sys.stderr.write('F  ')
     #         sys.stderr.write(str(test))

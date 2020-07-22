@@ -5,7 +5,7 @@
 # @author：menghuan.wmc
 import ddt,unittest,sys,os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-from comm.element import  Element
+from comm.element import Element
 from comm.readExcel import ReadExcel
 from comm import login
 from config import setting
@@ -64,7 +64,7 @@ class Project(unittest.TestCase):
 
     def check_result(self):
         count = Dbconnect().sql_ProjectInfo('sql_find','project')
-        self.assertEqual(count,1)
+        self.assertEqual(count,3)
 
 
     def tearDown(self):

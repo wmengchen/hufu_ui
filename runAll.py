@@ -11,7 +11,6 @@ from config import setting
 from comm.runSet import set_suite
 from package.HTMLTestRunner import HTMLTestRunner
 
-
 result_path = setting.Test_report
 
 
@@ -23,8 +22,8 @@ def run_case(result_path=setting.Test_report):
     fp = open(filename,'wb')
     suite = set_suite()
     runner = HTMLTestRunner(stream=fp, title='虎符自动化测试报告', description='测试用例结果')
-
     runner.run(suite)
+
     fp.close()
 
 
