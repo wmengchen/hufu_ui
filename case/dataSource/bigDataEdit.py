@@ -14,12 +14,12 @@ from comm.sql import Dbconnect
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 
-sheetName = 'hiveEdit'
+sheetName = 'bigDataEdit'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
 @ddt.ddt
-class RelationDbEdit(unittest.TestCase):
+class BigDataEdit(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
@@ -29,7 +29,7 @@ class RelationDbEdit(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_hiveEdit(self,data):
+    def test_bigDataEdit(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 

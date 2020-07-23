@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# @date: 2020/7/21 11:17 
-# @name: fileStoreEdit
+# @date: 2020/7/23 11:40 
+# @name: Semi-structuredEdit
 # @author：menghuan.wmc
 
 import ddt,unittest,sys,os
@@ -15,7 +15,7 @@ from comm.sql import Dbconnect
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 
-sheetName = 'fileStoreEdit'
+sheetName = 'Semi-structuredEdit'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
@@ -30,7 +30,7 @@ class FileStoreEdit(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_fileStoreEdit(self,data):
+    def test_Semi_structuredEdit(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 
@@ -42,9 +42,9 @@ class FileStoreEdit(unittest.TestCase):
         Element(self.driver,'dataAssert','dataAssert_click').wait_click()
         Element(self.driver,'dataAssert', 'dataSourcefindname_click').wait_send_keys(data["dataSource_name"]+date)
         Element(self.driver,'dataAssert','dataSourceedit_click').wait_click()
-        Element(self.driver,'dataAssert','dataSourcename_click').send_keys(Keys.CONTROL,'a')
-        Element(self.driver, 'dataAssert', 'dataSourcename_click').send_keys(Keys.BACK_SPACE)
-        Element(self.driver, 'dataAssert', 'dataSourcename_click').wait_send_keys(data["dataSource_name"]+date)
+        Element(self.driver,'dataAssert','dataSourcehdfseditname_click').send_keys(Keys.CONTROL,'a')
+        Element(self.driver, 'dataAssert', 'dataSourcehdfseditname_click').send_keys(Keys.BACK_SPACE)
+        Element(self.driver, 'dataAssert', 'dataSourcehdfseditname_click').wait_send_keys(data["dataSource_name"]+date)
         current_url = Element(self.driver, 'dataAssert', 'dataSourceedit_saveclick').wait_click()
         time.sleep(1)
         try:

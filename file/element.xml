@@ -621,6 +621,23 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[6]/div/button[2]</pathValue>
         </element>
+		<element id="dataSourcehdfseditname_click">
+            <name>dataSourcehdfseditname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div/ul/li[2]/input</pathValue>
+        </element>
+		<element id="dataSourcehttpmdtdelete_click">
+            <name>dataSourcehttpmdtdelete_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="删除"]</pathValue>
+        </element>
+		<element id="dataSourcehttpmdtdelete_ok">
+            <name>dataSourcehttpmdtdelete_ok</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[3]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		
+	
 	</activity>
 
   

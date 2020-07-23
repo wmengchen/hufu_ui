@@ -4,7 +4,7 @@
 #dataSource/postgreSqlAdd
 #dataSource/oracleAdd
 #dataSource/db2Add
-dataSource/hiveAdd
+#dataSource/hiveAdd
 #dataSource/maxcomputeAdd
 #dataSource/mongoAdd
 #dataSource/hdfsAdd
@@ -14,10 +14,10 @@ dataSource/hiveAdd
 #dataSource/httpmdtAdd
 #dataSource/mqttAdd
 #dataSource/relationDbEdit
-#dataSource/hiveEdit
+#dataSource/bigDataEdit
 #dataSource/fileStoreEdit
-#dataSource/Semi-structuredEdit
+#dataSource/Semi_structuredEdit
 #dataSource/opentsdbEdit
-#dataSource/messagequeueEdit
+dataSource/messagequeueEditdeltecreate
 
 
