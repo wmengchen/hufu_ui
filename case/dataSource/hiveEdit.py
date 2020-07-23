@@ -1,9 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# @date: 2020/7/15 16:58
-# @name: sqlServerAdd
+# @date: 2020/7/21 11:16 
+# @name: bigdataEdit
 # @author：menghuan.wmc
-
 import ddt,unittest,sys,os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from comm.element import  Element
@@ -11,15 +10,16 @@ from comm.readExcel import ReadExcel
 from comm import login
 from config import setting
 from selenium.webdriver.common.keys import Keys
+from comm.sql import Dbconnect
 import time
+from selenium.webdriver.common.action_chains import ActionChains
 
-
-sheetName = 'hdfs_publicNetAdd'
+sheetName = 'hiveEdit'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
 @ddt.ddt
-class Hdfs_publicNetAdd(unittest.TestCase):
+class RelationDbEdit(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
@@ -29,7 +29,7 @@ class Hdfs_publicNetAdd(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_hdfs_publicNetAdd(self,data):
+    def test_hiveEdit(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 
@@ -39,25 +39,13 @@ class Hdfs_publicNetAdd(unittest.TestCase):
         Element(self.driver,'project','enterProject_click').wait_click()
         time.sleep(1)
         Element(self.driver,'dataAssert','dataAssert_click').wait_click()
-        Element(self.driver,'dataAssert', 'dataSourceadd_click').wait_click()
-        js = "document.getElementsByClassName('add-dataSourde')[0].scrollTop=1000"
-        self.driver.execute_script(js)
+        Element(self.driver,'dataAssert', 'dataSourcefindname_click').wait_send_keys(data["dataSource_name"]+date)
+        Element(self.driver,'dataAssert','dataSourceedit_click').wait_click()
+        Element(self.driver,'dataAssert','dataSourcename_click').send_keys(Keys.CONTROL,'a')
+        Element(self.driver, 'dataAssert', 'dataSourcename_click').send_keys(Keys.BACK_SPACE)
+        Element(self.driver, 'dataAssert', 'dataSourcename_click').wait_send_keys(data["dataSource_name"]+date)
+        current_url = Element(self.driver, 'dataAssert', 'dataSourceedit_saveclick').wait_click()
         time.sleep(1)
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfs_click').wait_click()
-        Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfspre_click').wait_click()
-        Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfpublicIP_click').wait_click()
-        time.sleep(1)
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfIP_click').wait_click()
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfname_click').wait_send_keys(data["dataSource_name"] + date)
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfdesc_click').wait_send_keys(date + data["dataSouce_desc"])
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfsurl_click').wait_send_keys(data["url"])
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfsuser_click').wait_send_keys(data["user"])
-        Element(self.driver, 'dataAssert', 'dataSourceaddhdfsipconnect_click').wait_click()
-        current_url = Element(self.driver, 'dataAssert', 'dataSourceaddhdfsipsave_click').wait_click()
-        time.sleep(1)
-
         try:
             self.check_result(current_url,data['expect_url1'])
         except:

@@ -21,7 +21,7 @@ def run_case(result_path=setting.Test_report):
     filename = result_path + '/' + now + ' result.html'
     fp = open(filename,'wb')
     suite = set_suite()
-    runner = HTMLTestRunner(stream=fp, title='虎符自动化测试报告', description='测试用例结果')
+    runner = HTMLTestRunner(stream=fp, title='虎符web页面自动化测试报告', description='测试用例结果')
     runner.run(suite)
 
     fp.close()
