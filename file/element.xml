@@ -70,6 +70,22 @@
             <pathType>XPATH</pathType>
             <pathValue>//li/a[text()="数据资产"]</pathValue>
         </element>
+		<element id="dataSourcedefault_click">
+            <name>dataSourcedefault_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class="content-header"]/input</pathValue>
+        </element>
+		<element id="dataSourcedefaultname_click">
+            <name>dataSourcedefaultname_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[1]/span</pathValue>
+        </element>
+		<element id="dataSourcedefaulturl_click">
+            <name>dataSourcedefaulturl_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[3]</pathValue>
+        </element>
+		
 		<element id="dataSourceadd_click">
             <name>dataSourceadd_click</name>
             <pathType>XPATH</pathType>

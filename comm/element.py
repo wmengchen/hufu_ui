@@ -141,3 +141,10 @@ class Element():
         if element:
             value = element.text
         return str(value)
+
+    #动态获取元素属性值
+    def get_attribute(self):
+        element = self.get_element()
+        if element:
+            value = element.get_attribute('textContent')
+        return str(value)

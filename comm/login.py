@@ -16,6 +16,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
 from comm.element import Element
 from selenium.webdriver.common.keys import Keys
+from comm.element import  Element
 #读取配置文件
 cf = cparser.ConfigParser()
 cf.read(setting.Test_config,encoding='utf-8')
@@ -57,23 +58,36 @@ class Login():
         sleep(1)
         self.browser.find_element_by_xpath("//input[@placeholder='验证码']").send_keys('1111')
         sleep(1)
-        k = WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]')))
-        # print('k',k)
-        k.click()
+        WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]'))).click()
+
+        sleep(3)
 
 
 
 
         #单元测试验证具体页面
-        # sleep(1)
-        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys('2020-07-20_wmc_edit')
-        # sleep(1)
+        # # sleep(1)
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys('2020-07-23_自动化测试勿操作！')
+        # sleep(2)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys(Keys.ENTER)
         # sleep(2)
         # self.browser.find_element_by_xpath('//p[@class="item-title"]').click()
         # sleep(1)
         # self.browser.find_element_by_xpath('//li/a[text()="数据资产"]').click()
-        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/p/button').click()
+        #
+        # self.browser.find_element_by_xpath('//div[@class="content-header"]/input').send_keys("default")
+        # sleep(4)
+        # user = Element(self.browser, 'dataAssert', 'dataSourcedefaultname_click').get_attribute()
+        # sleep(5)
+        # print('s的值是：',user)
+        # Element(self.browser, 'dataAssert', 'dataSourceadd_click').wait_click()
+        # Element(self.browser, 'dataAssert', 'dataSourceAddhive_click').wait_click()
+        # sleep(1)
+        # Element(self.browser, 'dataAssert', 'dataSourceadd_nextclick').wait_click()
+        # sleep(1)
+        # Element(self.browser, 'dataAssert', 'dataSourceAddhivepre_click').wait_click()
+        # sleep(1)
+
         # sleep(2)
         # js = "document.getElementsByClassName('add-dataSourde')[0].scrollTop=1000"
         # self.browser.execute_script(js)
