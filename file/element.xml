@@ -635,10 +635,190 @@
             <name>dataSourcehttpmdtdelete_ok</name>
             <pathType>XPATH</pathType>
             <pathValue>/html/body/div[3]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
-        </element>
-		
+        </element>	
 	
 	</activity>
+	<activity name="dataTable">
+        <element id="dataTable_click">
+            <name>dataTable_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="数据表管理"]</pathValue>
+        </element>
+		<element id="dataTablescriptcreateTable_click">
+            <name>dataTablescriptcreateTable_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/p/button[1]</pathValue>
+        </element>
+		<element id="dataTableScript_inputclick">
+            <name>dataTableScript_inputclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="generate-hive-editor-b"]/div/div[1]/div[2]/div[1]/div[4]/div[5]/span/span</pathValue>
+        </element>
+		<element id="dataTableScript_cancelclick">
+            <name>dataTableScript_cancelclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[1]</pathValue>
+        </element>
+		<element id="dataTableScript_saveclick">
+            <name>dataTableScript_saveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="dataTablefind_click">
+            <name>dataTablefind_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="数据表名称或描述"]</pathValue>
+        </element>
+		<element id="dataTablefind_totalclick">
+            <name>dataTablefind_totalclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div[3]/div/span</pathValue>
+        </element>
+	</activity>
+	<activity name="systemManager">
+        <element id="systemManager_click">
+            <name>systemManager_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/div/div[2]/ul/li[2]/a</pathValue>
+        </element>
+		<element id="usermanager_click">
+            <name>usermanager_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/aside/div/div/ul/li[1]/div/a/span</pathValue>
+        </element>
+     	<element id="userAdd_click">
+            <name>userAdd_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/p/button</pathValue>
+        </element>
+		<element id="userName_click">
+            <name>userName_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="username"]</pathValue>
+        </element>
+		<element id="password_click">
+            <name>password_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="password"]</pathValue>
+        </element>		
+		<element id="confirmPassword_click">
+            <name>confirmPassword_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="rePassword"]</pathValue>
+        </element>
+		<element id="email_click">
+            <name>email_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="email"]</pathValue>
+        </element>
+		<element id="phone_click">
+            <name>phone_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="phone"]</pathValue>
+        </element>
+		<element id="name_click">
+            <name>name_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="name"]</pathValue>
+        </element>
+		<element id="department_click">
+            <name>department_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="department"]</pathValue>
+        </element>
+		<element id="position_click">
+            <name>position_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="title"]</pathValue>
+        </element>
+		<element id="open_click">
+            <name>open_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="isDelete"]</pathValue>
+        </element>	
+		<element id="cancel_click">
+            <name>cancel_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[1]</pathValue>
+        </element>
+		<element id="save_click">
+            <name>save_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="account_click">
+            <name>account_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/input</pathValue>
+        </element>
+		<element id="total_click">
+            <name>total_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[3]/div/span</pathValue>
+        </element>
+		<element id="usernamecheck_click">
+            <name>usernamecheck_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="查看"]</pathValue>
+        </element>
+		<element id="usernameEdit_click">
+            <name>usernameEdit_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[6]/div/span[2]</pathValue>
+        </element>
+		<element id="usernameModifyPassword_click">
+            <name>usernameModifyPassword_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[6]/div/span[3]</pathValue>
+        </element>
+		<element id="usernameModifyPasswordconfirm_click">
+            <name>usernameModifyPasswordconfirm_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="rePassword"]</pathValue>
+        </element>
+		<element id="usernamecheckcancel_click">
+            <name>usernamecheckcancel_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/button/span/i/*[name()="svg"]</pathValue>
+        </element>
+		<element id="usernameEditcancel_click">
+            <name>usernameEditcancel_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/button/span/i/*[name()="svg"]</pathValue>
+        </element>
+		<element id="usernameEditok_click">
+            <name>usernameEditok_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="usernameModifyPasswordcancel_click">
+            <name>usernameModifyPasswordcancel_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class="ant-modal-footer"]/div/button[1]</pathValue>
+        </element>
+		<element id="usernameModifyPasswordok_click">
+            <name>usernameModifyPasswordok_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class="ant-modal-footer"]/div/button[2]</pathValue>
+        </element>
+    </activity>
+	<activity name="dataStanard">
+        <element id="dataStanard_click">
+            <name>dataStanard_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/div/div[3]/ul/li[9]/a</pathValue>
+        </element>
+		<element id="modelDesign_click">
+            <name>modelDesign_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/aside/div/div/ul/li[2]/div/a/span</pathValue>
+        </element>
+		<element id="guideCreateTable_click">
+            <name>guideCreateTable_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/button</pathValue>
+        </element>
+	 </activity>
 
   
 </page>

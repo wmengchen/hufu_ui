@@ -18,6 +18,11 @@
 #dataSource/fileStoreEdit
 #dataSource/Semi_structuredEdit
 #dataSource/opentsdbEdit
-dataSource/messagequeueEditdeltecreate
+#dataSource/messagequeueEditdeltecreate
+#dataTable/scriptCreteTable
+#dataTable/guideCreateTable
+#systemManager/userAdd
+systemManager/userEdit
+
 
 

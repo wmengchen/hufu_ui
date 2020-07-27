@@ -91,7 +91,7 @@ class Element():
 
     #等待元素消失
     def wait_not_click(self):
-        element = WebDriverWait(self.driver, 50).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+        element = WebDriverWait(self.driver, 20).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
         return element
     #模拟键盘正常点击
     def click(self):
