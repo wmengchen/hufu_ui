@@ -48,13 +48,14 @@ class MongoAdd(unittest.TestCase):
         Element(self.driver, 'dataAssert', 'dataSourceaddmondbname_click').wait_send_keys(data["dataSource_name"] + date)
         Element(self.driver, 'dataAssert', 'dataSourceaddmondbdesc_click').wait_send_keys(date + data["dataSouce_desc"])
         Element(self.driver,'dataAssert','dataSourceaddmondbserver_click').wait_send_keys(data["url"])
-        Element(self.driver,'dataAssert','dataSourceaddmondbDBinfo_click').wait_send_keys(data["Db"])
+        Element(self.driver,'dataAssert','dataSourceaddmondbDBinfo_click').wait_send_keys(data["db"])
+        Element(self.driver,'dataAssert', 'dataSourceaddmondbDBverify_click').wait_send_keys(data['vertifydb'])
         Element(self.driver,'dataAssert','dataSourceaddmondbuser_click').wait_send_keys(data["user"])
+        time.sleep(3)
         Element(self.driver, 'dataAssert', 'dataSourceaddmondbpwd_click').wait_send_keys(int(data["pwd"]))
         Element(self.driver, 'dataAssert', 'dataSourceaddmondbconnect_click').wait_click()
         current_url = Element(self.driver, 'dataAssert', 'dataSourceaddmondbsave_click').wait_click()
         time.sleep(1)
-
         try:
             self.check_result(current_url,data['expect_url1'])
         except:

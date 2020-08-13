@@ -89,8 +89,7 @@
             <name>dataSource_click</name>
             <pathType>XPATH</pathType>
             <pathValue>//span[text()="数据源管理"]</pathValue>
-        </element>
-					
+        </element>					
 		<element id="dataSourceadd_click">
             <name>dataSourceadd_click</name>
             <pathType>XPATH</pathType>
@@ -324,27 +323,32 @@
 		<element id="dataSourceaddmondbserver_click">
             <name>dataSourceaddmondbserver_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//input[@placeholder="格式：host:port"]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[3]/input</pathValue>
         </element>
 		<element id="dataSourceaddmondbDBinfo_click">
             <name>dataSourceaddmondbDBinfo_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//input[@placeholder="数据库"]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[4]/input</pathValue>
+        </element>
+		<element id="dataSourceaddmondbDBverify_click">
+            <name>dataSourceaddmondbDBverify_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[5]/input</pathValue>
         </element>
 		<element id="dataSourceaddmondbuser_click">
             <name>dataSourceaddmondbuser_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[5]/input</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[6]/input</pathValue>
         </element>
 		<element id="dataSourceaddmondbpwd_click">
             <name>dataSourceaddmondbpwd_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[6]/input</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[7]/input</pathValue>
         </element>
 		<element id="dataSourceaddmondbconnect_click">
             <name>dataSourceaddmondbconnect_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[7]/button</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[7]/ul/li[8]/button</pathValue>
         </element>
 		<element id="dataSourceaddmondbsave_click">
             <name>dataSourceaddmondbsave_click</name>

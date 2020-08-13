@@ -96,7 +96,7 @@ class UserAdd(unittest.TestCase):
     def check_result(self,content):
         number = re.findall(r"\d+\.?\d*", content)
         s = number[0]
-        assert  int(s)==1
+        assert int(s)==1
 
 
 
