@@ -1,0 +1,3015 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>虎符web页面自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.img{
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+    border: 2px solid #777;
+}
+
+.screenshots {
+    z-index: 100;
+	position:absolute;
+	left: 23%;
+	top: 20%;
+	display: none;
+}
+.close_shots {
+	position:absolute;
+	top:0; left:98%;
+	z-index:99;
+	width:20px;
+}
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 800px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; font-weight: bold;}
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+.piechart{
+    position:absolute;  ;
+    top:20px;
+    left:350px;
+    width: 200px;
+    float: left;
+    display:  inline;
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+
+
+
+output_list = Array();
+
+/* 增加显示通过分类列表  --YinJia */
+/* level - 0:Summary; 1:Failed; 2:Pass; 3:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+/* 增加饼图显示  --YinJia */
+function drawCircle(pass, fail, error){
+    var color = ["#6c6","#c60","#c00"];
+    var data = [pass,fail,error];
+    var text_arr = ["pass", "fail", "error"];
+
+    var canvas = document.getElementById("circle");
+    var ctx = canvas.getContext("2d");
+    var startPoint=0;
+    var width = 20, height = 10;
+    var posX = 112 * 2 + 20, posY = 30;
+    var textX = posX + width + 5, textY = posY + 10;
+    for(var i=0;i<data.length;i++){
+        ctx.fillStyle = color[i];
+        ctx.beginPath();
+        ctx.moveTo(112,84);
+        ctx.arc(112,84,84,startPoint,startPoint+Math.PI*2*(data[i]/(data[0]+data[1]+data[2])),false);
+        ctx.fill();
+        startPoint += Math.PI*2*(data[i]/(data[0]+data[1]+data[2]));
+        ctx.fillStyle = color[i];
+        ctx.fillRect(posX, posY + 20 * i, width, height);
+        ctx.moveTo(posX, posY + 20 * i);
+        ctx.font = 'bold 14px';
+        ctx.fillStyle = color[i];
+        var percent = text_arr[i] + ":"+data[i];
+        ctx.fillText(percent, textX, textY + 20 * i);
+
+    }
+}
+
+function show_shots(obj) {
+	obj.nextElementSibling.style.display="block";
+
+}
+
+function close_shots(obj) {
+	obj.parentElement.style.display="none";
+}
+
+
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div class="piechart">
+    <div>
+        <canvas id="circle" width="350" height="168" </canvas>
+    </div>
+</div>
+<div class='heading'>
+<h1>虎符web页面自动化测试报告</h1>
+<p class='attribute'><strong>测试人员:</strong> 梦幻</p>
+<p class='attribute'><strong>开始时间:</strong> 2020-08-13 15:19:25</p>
+<p class='attribute'><strong>合计耗时:</strong> 0:48:15.705895</p>
+<p class='attribute'><strong>测试结果:</strong> 总共 86 通过 73 失败 2 错误 11 通过率 = 84.88%</p>
+
+<p class='description'>测试用例结果</p>
+</div>
+
+
+
+<p id='show_detail_line'>显示
+<a href='javascript:showCase(0)'>概要</a>
+<a href='javascript:showCase(1)'>失败[2]</a>
+<a href='javascript:showCase(2)'>通过[73]</a>
+<a href='javascript:showCase(3)'>所有[86]</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>视图</td>
+    <td>错误截图</td>
+</tr>
+
+<tr class='passClass'>
+    <td>sqlServerAdd.SqlServerAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt1.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_sqlServerAdd_1_1_使用正确的命名创建sqlServer数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+            通过</a>
+
+        <div id='div_pt1.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt1.1: --------测试开始--------
+---------1_使用正确的命名创建sqlServer数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt1.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_sqlServerAdd_2_2_使用非字母开头创建sqlServer数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+            通过</a>
+
+        <div id='div_pt1.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt1.2: --------测试开始--------
+---------2_使用非字母开头创建sqlServer数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt1.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_sqlServerAdd_3_3_使用已有的名字创建sqlServer数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+            通过</a>
+
+        <div id='div_pt1.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt1.3: --------测试开始--------
+---------3_使用已有的名字创建sqlServer数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt1.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_sqlServerAdd_4_4_使用名字长度超过20创建sqlServer数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+            通过</a>
+
+        <div id='div_pt1.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt1.4: --------测试开始--------
+---------4_使用名字长度超过20创建sqlServer数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt1.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_sqlServerAdd_5_5_使用以数字开头创建sqlServer数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+            通过</a>
+
+        <div id='div_pt1.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt1.5: --------测试开始--------
+---------5_使用以数字开头创建sqlServer数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>postgreSqlAdd.PostgreSqlAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt2.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_postgreSqlAdd_1_1_使用正确的命名创建PostgreSql数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+            通过</a>
+
+        <div id='div_pt2.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt2.1: --------测试开始--------
+---------1_使用正确的命名创建PostgreSql数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt2.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_postgreSqlAdd_2_2_使用非字母开头创建PostgreSql数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+            通过</a>
+
+        <div id='div_pt2.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt2.2: --------测试开始--------
+---------2_使用非字母开头创建PostgreSql数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt2.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_postgreSqlAdd_3_3_使用已有的名字创建PostgreSql数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+            通过</a>
+
+        <div id='div_pt2.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt2.3: --------测试开始--------
+---------3_使用已有的名字创建PostgreSql数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt2.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_postgreSqlAdd_4_4_使用名字长度超过20创建PostgreSql数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+            通过</a>
+
+        <div id='div_pt2.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt2.4: --------测试开始--------
+---------4_使用名字长度超过20创建PostgreSql数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt2.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_postgreSqlAdd_5_5_使用以数字开头创建PostgreSql数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+            通过</a>
+
+        <div id='div_pt2.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt2.5: --------测试开始--------
+---------5_使用以数字开头创建PostgreSql数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>oracleAdd.OracleAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt3.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_oracleAdd_1_1_使用正确的命名创建Oracle数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+            通过</a>
+
+        <div id='div_pt3.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt3.1: --------测试开始--------
+---------1_使用正确的命名创建Oracle数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt3.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_oracleAdd_2_2_使用非字母开头创建Oracle数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.2')" >
+            通过</a>
+
+        <div id='div_pt3.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt3.2: --------测试开始--------
+---------2_使用非字母开头创建Oracle数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt3.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_oracleAdd_3_3_使用已有的名字创建Oracle数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.3')" >
+            通过</a>
+
+        <div id='div_pt3.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt3.3: --------测试开始--------
+---------3_使用已有的名字创建Oracle数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt3.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_oracleAdd_4_4_使用名字长度超过20创建Oracle数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.4')" >
+            通过</a>
+
+        <div id='div_pt3.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt3.4: --------测试开始--------
+---------4_使用名字长度超过20创建Oracle数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt3.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_oracleAdd_5_5_使用以数字开头创建Oracle数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.5')" >
+            通过</a>
+
+        <div id='div_pt3.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt3.5: --------测试开始--------
+---------5_使用以数字开头创建Oracle数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>db2Add.Db2Add</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt4.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_db2Add_1_1_使用正确的命名创建Db2数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+            通过</a>
+
+        <div id='div_pt4.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt4.1: --------测试开始--------
+---------1_使用正确的命名创建Db2数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt4.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_db2Add_2_2_使用非字母开头创建Db2数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.2')" >
+            通过</a>
+
+        <div id='div_pt4.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt4.2: --------测试开始--------
+---------2_使用非字母开头创建Db2数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt4.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_db2Add_3_3_使用已有的名字创建Db2数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.3')" >
+            通过</a>
+
+        <div id='div_pt4.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt4.3: --------测试开始--------
+---------3_使用已有的名字创建Db2数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt4.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_db2Add_4_4_使用名字长度超过20创建Db2数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.4')" >
+            通过</a>
+
+        <div id='div_pt4.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt4.4: --------测试开始--------
+---------4_使用名字长度超过20创建Db2数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt4.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_db2Add_5_5_使用以数字开头创建Db2数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.5')" >
+            通过</a>
+
+        <div id='div_pt4.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt4.5: --------测试开始--------
+---------5_使用以数字开头创建Db2数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>hiveAdd.HiveAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt5.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hiveAdd_1_1_使用正确的命名创建hive数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+            通过</a>
+
+        <div id='div_pt5.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt5.1: --------测试开始--------
+---------1_使用正确的命名创建hive数据源，创建成功---------
+user的值是ab02345041dfa7a9_default，url值是jdbc:hive2://10.88.36.232:10000/ab02345041dfa7a9_default
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt5.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hiveAdd_2_2_使用非字母开头创建hive数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.2')" >
+            通过</a>
+
+        <div id='div_pt5.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt5.2: --------测试开始--------
+---------2_使用非字母开头创建hive数据源，创建失败---------
+user的值是ab02345041dfa7a9_default，url值是jdbc:hive2://10.88.36.232:10000/ab02345041dfa7a9_default
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt5.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hiveAdd_3_3_使用已有的名字创建hive数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.3')" >
+            通过</a>
+
+        <div id='div_pt5.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt5.3: --------测试开始--------
+---------3_使用已有的名字创建hive数据源，创建失败---------
+user的值是ab02345041dfa7a9_default，url值是jdbc:hive2://10.88.36.232:10000/ab02345041dfa7a9_default
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt5.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hiveAdd_4_4_使用名字长度超过20创建hive数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.4')" >
+            通过</a>
+
+        <div id='div_pt5.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt5.4: --------测试开始--------
+---------4_使用名字长度超过20创建hive数据源，创建失败---------
+user的值是ab02345041dfa7a9_default，url值是jdbc:hive2://10.88.36.232:10000/ab02345041dfa7a9_default
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt5.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hiveAdd_5_5_使用以数字开头创建hive数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.5')" >
+            通过</a>
+
+        <div id='div_pt5.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt5.5: --------测试开始--------
+---------5_使用以数字开头创建hive数据源，创建失败---------
+user的值是ab02345041dfa7a9_default，url值是jdbc:hive2://10.88.36.232:10000/ab02345041dfa7a9_default
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>maxcomputeAdd.MaxcomputeAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt6.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_maxcomputeAdd_1_1_使用正确的命名创建maxcompute数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+            通过</a>
+
+        <div id='div_pt6.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt6.1: --------测试开始--------
+---------1_使用正确的命名创建maxcompute数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt6.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_maxcomputeAdd_2_2_使用非字母开头创建maxcompute数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.2')" >
+            通过</a>
+
+        <div id='div_pt6.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt6.2: --------测试开始--------
+---------2_使用非字母开头创建maxcompute数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt6.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_maxcomputeAdd_3_3_使用已有的名字创建maxcompute数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.3')" >
+            通过</a>
+
+        <div id='div_pt6.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt6.3: --------测试开始--------
+---------3_使用已有的名字创建maxcompute数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt6.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_maxcomputeAdd_4_4_使用名字长度超过20创建maxcompute数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.4')" >
+            通过</a>
+
+        <div id='div_pt6.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt6.4: --------测试开始--------
+---------4_使用名字长度超过20创建maxcompute数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt6.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_maxcomputeAdd_5_5_使用以数字开头创建maxcompute数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.5')" >
+            通过</a>
+
+        <div id='div_pt6.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt6.5: --------测试开始--------
+---------5_使用以数字开头创建maxcompute数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='errorClass'>
+    <td>mongoAdd.MongoAdd</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td>5</td>
+    <td><a href="javascript:showClassDetail('c7',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='ft7.1' class='none'>
+        <td class='errorCase'><div class='testcase'>test_mongoAdd_1_1_使用正确的命名创建mongo数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.1')" >
+            错误</a>
+
+        <div id='div_ft7.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft7.1: --------测试开始--------
+---------1_使用正确的命名创建mongo数据源，创建成功---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\mongoAdd.py", line 54, in test_mongoAdd
+    Element(self.driver, 'dataAssert', 'dataSourceaddmondbconnect_click').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 83, in wait_click
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='ft7.2' class='none'>
+        <td class='errorCase'><div class='testcase'>test_mongoAdd_2_2_使用非字母开头创建mongo数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.2')" >
+            错误</a>
+
+        <div id='div_ft7.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft7.2: --------测试开始--------
+---------2_使用非字母开头创建mongo数据源，创建失败---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\mongoAdd.py", line 54, in test_mongoAdd
+    Element(self.driver, 'dataAssert', 'dataSourceaddmondbconnect_click').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 83, in wait_click
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='ft7.3' class='none'>
+        <td class='errorCase'><div class='testcase'>test_mongoAdd_3_3_使用已有的名字创建mongo数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.3')" >
+            错误</a>
+
+        <div id='div_ft7.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft7.3: --------测试开始--------
+---------3_使用已有的名字创建mongo数据源，创建失败---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\mongoAdd.py", line 54, in test_mongoAdd
+    Element(self.driver, 'dataAssert', 'dataSourceaddmondbconnect_click').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 83, in wait_click
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='ft7.4' class='none'>
+        <td class='errorCase'><div class='testcase'>test_mongoAdd_4_4_使用名字长度超过20创建mongo数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.4')" >
+            错误</a>
+
+        <div id='div_ft7.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft7.4: --------测试开始--------
+---------4_使用名字长度超过20创建mongo数据源，创建失败---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\mongoAdd.py", line 54, in test_mongoAdd
+    Element(self.driver, 'dataAssert', 'dataSourceaddmondbconnect_click').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 83, in wait_click
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='ft7.5' class='none'>
+        <td class='errorCase'><div class='testcase'>test_mongoAdd_5_5_使用以数字开头创建mongo数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.5')" >
+            错误</a>
+
+        <div id='div_ft7.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft7.5: --------测试开始--------
+---------5_使用以数字开头创建mongo数据源，创建失败---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\mongoAdd.py", line 54, in test_mongoAdd
+    Element(self.driver, 'dataAssert', 'dataSourceaddmondbconnect_click').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 83, in wait_click
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>hdfsAdd.HdfsAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt8.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfsAdd_1_1_使用正确的命名创建hdfs数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+            通过</a>
+
+        <div id='div_pt8.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt8.1: --------测试开始--------
+---------1_使用正确的命名创建hdfs数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt8.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfsAdd_2_2_使用非字母开头创建hdfs数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.2')" >
+            通过</a>
+
+        <div id='div_pt8.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt8.2: --------测试开始--------
+---------2_使用非字母开头创建hdfs数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt8.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfsAdd_3_3_使用已有的名字创建hdfs数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.3')" >
+            通过</a>
+
+        <div id='div_pt8.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt8.3: --------测试开始--------
+---------3_使用已有的名字创建hdfs数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt8.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfsAdd_4_4_使用名字长度超过20创建hdfs数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.4')" >
+            通过</a>
+
+        <div id='div_pt8.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt8.4: --------测试开始--------
+---------4_使用名字长度超过20创建hdfs数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt8.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfsAdd_5_5_使用以数字开头创建hdfs数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.5')" >
+            通过</a>
+
+        <div id='div_pt8.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt8.5: --------测试开始--------
+---------5_使用以数字开头创建hdfs数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>hdfs_publicNetAdd.Hdfs_publicNetAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt9.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfs_publicNetAdd_1_1_使用正确的命名创建公网hdfs数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+            通过</a>
+
+        <div id='div_pt9.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt9.1: --------测试开始--------
+---------1_使用正确的命名创建公网hdfs数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt9.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfs_publicNetAdd_2_2_使用非字母开头创建公网hdfs数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.2')" >
+            通过</a>
+
+        <div id='div_pt9.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt9.2: --------测试开始--------
+---------2_使用非字母开头创建公网hdfs数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt9.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfs_publicNetAdd_3_3_使用已有的名字创建公网hdfs数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.3')" >
+            通过</a>
+
+        <div id='div_pt9.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt9.3: --------测试开始--------
+---------3_使用已有的名字创建公网hdfs数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt9.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfs_publicNetAdd_4_4_使用名字长度超过20创建公网hdfs数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.4')" >
+            通过</a>
+
+        <div id='div_pt9.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt9.4: --------测试开始--------
+---------4_使用名字长度超过20创建公网hdfs数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt9.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_hdfs_publicNetAdd_5_5_使用以数字开头创建公网hdfs数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.5')" >
+            通过</a>
+
+        <div id='div_pt9.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt9.5: --------测试开始--------
+---------5_使用以数字开头创建公网hdfs数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>opentsdbAdd.OpentsdbAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt10.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdbAdd_1_1_使用正确的命名创建opentsdb_数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+            通过</a>
+
+        <div id='div_pt10.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt10.1: --------测试开始--------
+---------1_使用正确的命名创建opentsdb_数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt10.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdbAdd_2_2_使用非字母开头创建opentsdb_数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.2')" >
+            通过</a>
+
+        <div id='div_pt10.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt10.2: --------测试开始--------
+---------2_使用非字母开头创建opentsdb_数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt10.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdbAdd_3_3_使用已有的名字创建opentsdb_数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.3')" >
+            通过</a>
+
+        <div id='div_pt10.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt10.3: --------测试开始--------
+---------3_使用已有的名字创建opentsdb_数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt10.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdbAdd_4_4_使用名字长度超过20创建opentsdb_数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.4')" >
+            通过</a>
+
+        <div id='div_pt10.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt10.4: --------测试开始--------
+---------4_使用名字长度超过20创建opentsdb_数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt10.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdbAdd_5_5_使用以数字开头创建opentsdb_数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.5')" >
+            通过</a>
+
+        <div id='div_pt10.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt10.5: --------测试开始--------
+---------5_使用以数字开头创建opentsdb_数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>opentsdb_publicNetAdd.Opentsdb_publicNetAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c11',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt11.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdb_publicNetAdd_1_1_使用正确的命名创建公网opentsdb_数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.1')" >
+            通过</a>
+
+        <div id='div_pt11.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt11.1: --------测试开始--------
+---------1_使用正确的命名创建公网opentsdb_数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt11.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdb_publicNetAdd_2_2_使用非字母开头创建公网opentsdb_数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.2')" >
+            通过</a>
+
+        <div id='div_pt11.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt11.2: --------测试开始--------
+---------2_使用非字母开头创建公网opentsdb_数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt11.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdb_publicNetAdd_3_3_使用已有的名字创建公网opentsdb_数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.3')" >
+            通过</a>
+
+        <div id='div_pt11.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt11.3: --------测试开始--------
+---------3_使用已有的名字创建公网opentsdb_数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt11.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdb_publicNetAdd_4_4_使用名字长度超过20创建公网opentsdb_数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.4')" >
+            通过</a>
+
+        <div id='div_pt11.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt11.4: --------测试开始--------
+---------4_使用名字长度超过20创建公网opentsdb_数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt11.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdb_publicNetAdd_5_5_使用以数字开头创建公网opentsdb_数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.5')" >
+            通过</a>
+
+        <div id='div_pt11.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt11.5: --------测试开始--------
+---------5_使用以数字开头创建公网opentsdb_数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>httpmdtAdd.HttpmdtAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c12',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt12.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_httpmdtAdd_1_1_使用正确的命名创建httpmdt数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+            通过</a>
+
+        <div id='div_pt12.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt12.1: --------测试开始--------
+---------1_使用正确的命名创建httpmdt数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt12.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_httpmdtAdd_2_2_使用非字母开头创建httpmdt数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.2')" >
+            通过</a>
+
+        <div id='div_pt12.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt12.2: --------测试开始--------
+---------2_使用非字母开头创建httpmdt数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt12.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_httpmdtAdd_3_3_使用已有的名字创建httpmdt数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.3')" >
+            通过</a>
+
+        <div id='div_pt12.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt12.3: --------测试开始--------
+---------3_使用已有的名字创建httpmdt数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt12.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_httpmdtAdd_4_4_使用名字长度超过20创建httpmdt数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.4')" >
+            通过</a>
+
+        <div id='div_pt12.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt12.4: --------测试开始--------
+---------4_使用名字长度超过20创建httpmdt数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt12.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_httpmdtAdd_5_5_使用以数字开头创建httpmdt数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.5')" >
+            通过</a>
+
+        <div id='div_pt12.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt12.5: --------测试开始--------
+---------5_使用以数字开头创建httpmdt数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>mqttAdd.MqttAdd</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c13',5)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt13.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_mqttAdd_1_1_使用正确的命名创建mqtt数据源_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.1')" >
+            通过</a>
+
+        <div id='div_pt13.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt13.1: --------测试开始--------
+---------1_使用正确的命名创建mqtt数据源，创建成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt13.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_mqttAdd_2_2_使用非字母开头创建mqtt数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.2')" >
+            通过</a>
+
+        <div id='div_pt13.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt13.2: --------测试开始--------
+---------2_使用非字母开头创建mqtt数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt13.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_mqttAdd_3_3_使用已有的名字创建mqtt数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.3')" >
+            通过</a>
+
+        <div id='div_pt13.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt13.3: --------测试开始--------
+---------3_使用已有的名字创建mqtt数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt13.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_mqttAdd_4_4_使用名字长度超过20创建mqtt数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.4')" >
+            通过</a>
+
+        <div id='div_pt13.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt13.4: --------测试开始--------
+---------4_使用名字长度超过20创建mqtt数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt13.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_mqttAdd_5_5_使用以数字开头创建mqtt数据源_创建失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.5')" >
+            通过</a>
+
+        <div id='div_pt13.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt13.5: --------测试开始--------
+---------5_使用以数字开头创建mqtt数据源，创建失败---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>bigDataEdit.BigDataEdit</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',2)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt14.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_bigDataEdit_1_1_使用正确的命名编辑hive数据源_编辑成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.1')" >
+            通过</a>
+
+        <div id='div_pt14.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt14.1: --------测试开始--------
+---------1_使用正确的命名编辑hive数据源，编辑成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt14.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_bigDataEdit_2_2_使用正确的命名编辑MaxCompute数据源_编辑成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.2')" >
+            通过</a>
+
+        <div id='div_pt14.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt14.2: --------测试开始--------
+---------2_使用正确的命名编辑MaxCompute数据源，编辑成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='errorClass'>
+    <td>fileStoreEdit.FileStoreEdit</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c15',1)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='ft15.1' class='none'>
+        <td class='errorCase'><div class='testcase'>test_fileStoreEdit_1_1_使用正确的命名编辑mongo数据源_编辑成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft15.1')" >
+            错误</a>
+
+        <div id='div_ft15.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft15.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft15.1: --------测试开始--------
+---------1_使用正确的命名编辑mongo数据源，编辑成功---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\fileStoreEdit.py", line 45, in test_fileStoreEdit
+    Element(self.driver,'dataAssert','dataSourceedit_click').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 83, in wait_click
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='errorClass'>
+    <td>semi_structuredEdit.FileStoreEdit</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c16',2)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='ft16.1' class='none'>
+        <td class='errorCase'><div class='testcase'>test_Semi_structuredEdit_1_1_使用正确的命名编辑雪浪云仓库hdfs数据源_编辑成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft16.1')" >
+            错误</a>
+
+        <div id='div_ft16.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft16.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft16.1: --------测试开始--------
+---------1_使用正确的命名编辑雪浪云仓库hdfs数据源，编辑成功---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\semi_structuredEdit.py", line 43, in test_Semi_structuredEdit
+    Element(self.driver,'dataAssert', 'dataSourcefindname_click').wait_send_keys(data["dataSource_name"]+date)
+  File "E:\07_python\hufu_ui\comm\element.py", line 73, in wait_send_keys
+    element = WebDriverWait(self.driver,30).until(EC.visibility_of_element_located((By.XPATH,str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='ft16.2' class='none'>
+        <td class='errorCase'><div class='testcase'>test_Semi_structuredEdit_2_2_使用正确的命名编辑公网hdfs数据源_编辑成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft16.2')" >
+            错误</a>
+
+        <div id='div_ft16.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft16.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft16.2: --------测试开始--------
+---------2_使用正确的命名编辑公网hdfs数据源，编辑成功---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\semi_structuredEdit.py", line 43, in test_Semi_structuredEdit
+    Element(self.driver,'dataAssert', 'dataSourcefindname_click').wait_send_keys(data["dataSource_name"]+date)
+  File "E:\07_python\hufu_ui\comm\element.py", line 73, in wait_send_keys
+    element = WebDriverWait(self.driver,30).until(EC.visibility_of_element_located((By.XPATH,str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='passClass'>
+    <td>opentsdbEdit.OpentsdbEdit</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c17',1)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt17.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_opentsdbEdit_1_1_使用正确的命名编辑雪浪云仓库opentsdb数据源_编辑成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.1')" >
+            通过</a>
+
+        <div id='div_pt17.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt17.1: --------测试开始--------
+---------1_使用正确的命名编辑雪浪云仓库opentsdb数据源，编辑成功---------
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='errorClass'>
+    <td>messagequeueEditdeltecreate.MessagequeueEdit</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c18',1)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='ft18.1' class='none'>
+        <td class='errorCase'><div class='testcase'>test_messagequeueEdit_1_1_使用正确的命名编辑httpmdt数据源_编辑成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.1')" >
+            错误</a>
+
+        <div id='div_ft18.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft18.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft18.1: --------测试开始--------
+---------1_使用正确的命名编辑httpmdt数据源，编辑成功---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataSource\messagequeueEditdeltecreate.py", line 46, in test_messagequeueEdit
+    Element(self.driver,'dataAssert','dataSourceedit_click').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 83, in wait_click
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='errorClass'>
+    <td>scriptCreteTable.ScriptCreteTable</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c19',1)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='ft19.1' class='none'>
+        <td class='errorCase'><div class='testcase'>test_ScriptCreteTable_1_1_使用正确的脚本创建数据表_创建成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft19.1')" >
+            错误</a>
+
+        <div id='div_ft19.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft19.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft19.1: --------测试开始--------
+---------1_使用正确的脚本创建数据表，创建成功---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\dataTable\scriptCreteTable.py", line 49, in test_ScriptCreteTable
+    Element(self.driver,'dataTable','dataTableScript_cancelclick').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 83, in wait_click
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='failClass'>
+    <td>userAdd.UserAdd</td>
+    <td>12</td>
+    <td>10</td>
+    <td>2</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c20',12)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='pt20.1' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_01_1_输入正确的用户名和密码_添加用户成功</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.1')" >
+            通过</a>
+
+        <div id='div_pt20.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.1: --------测试开始--------
+---------1_输入正确的用户名和密码，添加用户成功---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="c32abb0e41d7bf603c1a011b336beff1", element="0.9089457309173481-25")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.2' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_02_2_输入已有的用户名和密码_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.2')" >
+            通过</a>
+
+        <div id='div_pt20.2' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.2').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.2: --------测试开始--------
+---------2_输入已有的用户名和密码，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="242658cf9c76b6bea80edb0cd43bced5", element="0.3816493394824594-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.3' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_03_3_输入已存在的邮箱_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.3')" >
+            通过</a>
+
+        <div id='div_pt20.3' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.3').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.3: --------测试开始--------
+---------3_输入已存在的邮箱，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="2edfb2eb81a52769f5f2be0d2a549a81", element="0.17064471661878455-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.4' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_04_4_输入已存在的手机号_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.4')" >
+            通过</a>
+
+        <div id='div_pt20.4' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.4').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.4: --------测试开始--------
+---------4_输入已存在的手机号，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="85377649a0df02b497ab20dcbe36faf5", element="0.3726649332319809-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.5' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_05_5_输入用户名长度大于25_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.5')" >
+            通过</a>
+
+        <div id='div_pt20.5' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.5').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.5: --------测试开始--------
+---------5_输入用户名长度大于25，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="904f29dbcf490906526e8bceeaaf53b3", element="0.6694364853109223-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.6' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_06_6_输入的密码为纯字母_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.6')" >
+            通过</a>
+
+        <div id='div_pt20.6' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.6').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.6: --------测试开始--------
+---------6_输入的密码为纯字母，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="5569a3069757b77faca5b1d35d39a57f", element="0.8833743051624405-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.7' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_07_7_输入的密码为纯特殊字符_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.7')" >
+            通过</a>
+
+        <div id='div_pt20.7' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.7').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.7: --------测试开始--------
+---------7_输入的密码为纯特殊字符，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="754188bbafffd2bdaca4e2f091831d48", element="0.890628519664993-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.8' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_08_8_输入的密码小于6位字符_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.8')" >
+            通过</a>
+
+        <div id='div_pt20.8' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.8').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.8: --------测试开始--------
+---------8_输入的密码小于6位字符，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="6b89577ebba6e5b6610592d73e5649c6", element="0.5271089419112733-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.9' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_09_9_输入的密码大于20位字符_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.9')" >
+            通过</a>
+
+        <div id='div_pt20.9' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.9').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.9: --------测试开始--------
+---------9_输入的密码大于20位字符，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="cdafca7cca2e966fda692de44d73d751", element="0.517009120832506-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='pt20.10' class='hiddenRow'>
+        <td class='passCase'><div class='testcase'>test_UserAdd_10_10_两次输入密码不一致_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.10')" >
+            通过</a>
+
+        <div id='div_pt20.10' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.10').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+pt20.10: --------测试开始--------
+---------10_两次输入密码不一致，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="2b38fcf52df42a746aceef2d764c0361", element="0.2891873032766821-26")&gt;
+--------测试结束--------
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='ft20.11' class='none'>
+        <td class='failCase'><div class='testcase'>test_UserAdd_11_11_输入已注册的邮箱_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft20.11')" >
+            失败</a>
+
+        <div id='div_ft20.11' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft20.11').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft20.11: --------测试开始--------
+---------11_输入已注册的邮箱，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="44340b7720ceb65cc3754631ba3dbf81", element="0.5696612811514772-25")&gt;
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\systemManager\userAdd.py", line 94, in test_UserAdd
+    self.check_result(content)
+  File "E:\07_python\hufu_ui\case\systemManager\userAdd.py", line 99, in check_result
+    assert  int(s)==1
+AssertionError
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+    <tr id='ft20.12' class='none'>
+        <td class='failCase'><div class='testcase'>test_UserAdd_12_12_输入已注册的手机号_添加用户失败</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft20.12')" >
+            失败</a>
+
+        <div id='div_ft20.12' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft20.12').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft20.12: --------测试开始--------
+---------12_输入已注册的手机号，添加用户失败---------
+element &lt;selenium.webdriver.remote.webelement.WebElement (session="cabac04cfbca86ec96b6e2bd0cf61913", element="0.461892057182814-26")&gt;
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\systemManager\userAdd.py", line 94, in test_UserAdd
+    self.check_result(content)
+  File "E:\07_python\hufu_ui\case\systemManager\userAdd.py", line 99, in check_result
+    assert int(s)==1
+AssertionError
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr class='errorClass'>
+    <td>userEdit.UserEdit</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c21',1)">详情</a></td>
+    <td>&nbsp;</td>
+</tr>
+
+    <tr id='ft21.1' class='none'>
+        <td class='errorCase'><div class='testcase'>test_UserEdit_1_1_输入正确的用户名_编辑查看修改用户密码</div></td>
+        <td colspan='5' align='center'>
+
+        <!--css div popup start-->
+        <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft21.1')" >
+            错误</a>
+
+        <div id='div_ft21.1' class="popup_window">
+            <div style='text-align: right; color:red;cursor:pointer'>
+            <a onfocus='this.blur();' onclick="document.getElementById('div_ft21.1').style.display = 'none' " >
+               [x]</a>
+            </div>
+            <pre>
+            
+ft21.1: --------测试开始--------
+---------1_输入正确的用户名，编辑查看修改用户密码---------
+--------测试结束--------
+Traceback (most recent call last):
+  File "D:\Program Files\python\lib\site-packages\ddt.py", line 156, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\07_python\hufu_ui\case\systemManager\userEdit.py", line 75, in test_UserEdit
+    Element(self.driver,'systemManager','usernameModifyPassword_click').wait_click()
+  File "E:\07_python\hufu_ui\comm\element.py", line 87, in wait_click
+    element.click()
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\Program Files\python\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element &lt;span class="details" style="cursor: pointer;"&gt;...&lt;/span&gt; is not clickable at point (1628, 276). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap " role="dialog" aria-labelledby="rcDialogTitle0" style=""&gt;...&lt;/div&gt;
+  (Session info: chrome=73.0.3683.86)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.18362 x86_64)
+
+
+
+            </pre>
+        </div>
+        <!--css div popup end-->
+    </td>
+    <td></td>
+</tr>
+
+<tr id='total_row'>
+    <td>总计</td>
+    <td>86</td>
+    <td>73</td>
+    <td>2</td>
+    <td>11</td>
+	<td>通过率：84.88%</td>
+	<td>&nbsp;</td>
+</tr>
+</table>
+<script>
+    drawCircle(73, 2, 11)
+</script>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
