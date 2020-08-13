@@ -85,7 +85,12 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[3]</pathValue>
         </element>
-		
+		<element id="dataSource_click">
+            <name>dataSource_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()="数据源管理"]</pathValue>
+        </element>
+					
 		<element id="dataSourceadd_click">
             <name>dataSourceadd_click</name>
             <pathType>XPATH</pathType>

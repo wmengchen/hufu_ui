@@ -43,6 +43,7 @@ class PostgreSqlAdd(unittest.TestCase):
         Element(self.driver,'project','enterProject_click').wait_click()
         time.sleep(1)
         Element(self.driver,'dataAssert','dataAssert_click').wait_click()
+        Element(self.driver, 'dataAssert', 'dataSource_click').wait_click()
         Element(self.driver,'dataAssert', 'dataSourceadd_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceaddPostgreSQL_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_nextclick').wait_click()

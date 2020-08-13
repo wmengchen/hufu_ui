@@ -40,6 +40,7 @@ class HiveAdd(unittest.TestCase):
         Element(self.driver,'project','enterProject_click').wait_click()
         time.sleep(1)
         Element(self.driver,'dataAssert','dataAssert_click').wait_click()
+        Element(self.driver, 'dataAssert', 'dataSource_click').wait_click()
         Element(self.driver,'dataAssert','dataSourcedefault_click').wait_send_keys(data["defaultdataSource_name"])
         #动态获取默认数据源的用户名和url的值信息
         user = Element(self.driver,'dataAssert', 'dataSourcedefaultname_click').get_attribute()

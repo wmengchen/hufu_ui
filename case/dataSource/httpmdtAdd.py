@@ -39,6 +39,7 @@ class HttpmdtAdd(unittest.TestCase):
         Element(self.driver,'project','enterProject_click').wait_click()
         time.sleep(1)
         Element(self.driver,'dataAssert','dataAssert_click').wait_click()
+        Element(self.driver, 'dataAssert', 'dataSource_click').wait_click()
         Element(self.driver,'dataAssert', 'dataSourceadd_click').wait_click()
         js = "document.getElementsByClassName('add-dataSourde')[0].scrollTop=1000"
         self.driver.execute_script(js)
