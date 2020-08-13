@@ -15,7 +15,7 @@ dataSource/mongoAdd
 #dataSource/mqttAdd
 #dataSource/relationDbEdit
 #dataSource/bigDataEdit
-#dataSource/fileStoreEdit
+#dataSource/mongodbEdit
 #dataSource/Semi_structuredEdit
 #dataSource/opentsdbEdit
 #dataSource/messagequeueEditdeltecreate
