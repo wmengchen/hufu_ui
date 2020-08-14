@@ -16,12 +16,12 @@ from comm.sql import Dbconnect
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 
-sheetName = 'messagequeueEditdeltecreate'
+sheetName = 'httpmdtEditdeltecreate'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
 @ddt.ddt
-class MessagequeueEdit(unittest.TestCase):
+class HttpmdtEditdeltecreate(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
@@ -31,7 +31,7 @@ class MessagequeueEdit(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_messagequeueEdit(self,data):
+    def test_httpmdtEditdeltecreate(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 

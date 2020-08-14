@@ -15,7 +15,7 @@ from comm.sql import Dbconnect
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 
-sheetName = 'fileStoreEdit'
+sheetName = 'mongoDBEdit'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 

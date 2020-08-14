@@ -6,7 +6,7 @@
 #dataSource/db2Add
 #dataSource/hiveAdd
 #dataSource/maxcomputeAdd
-dataSource/mongoAdd
+#dataSource/mongoAdd
 #dataSource/hdfsAdd
 #dataSource/hdfs_publicNetAdd
 #dataSource/opentsdbAdd
@@ -16,14 +16,10 @@ dataSource/mongoAdd
 #dataSource/relationDbEdit
 #dataSource/bigDataEdit
 #dataSource/mongodbEdit
-#dataSource/Semi_structuredEdit
+#dataSource/hdfsEdit
 #dataSource/opentsdbEdit
-#dataSource/messagequeueEditdeltecreate
+#dataSource/httpmdtEditdeltecreate
 #dataTable/scriptCreteTable
 #dataTable/guideCreateTable
 #systemManager/userAdd
-#systemManager/userEdit
-
-
-
-
+systemManager/userEdit

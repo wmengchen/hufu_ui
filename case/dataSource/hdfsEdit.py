@@ -15,12 +15,12 @@ from comm.sql import Dbconnect
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 
-sheetName = 'Semi-structuredEdit'
+sheetName = 'hdfsEdit'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
 @ddt.ddt
-class FileStoreEdit(unittest.TestCase):
+class HdfsEdit(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
@@ -30,7 +30,7 @@ class FileStoreEdit(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_Semi_structuredEdit(self,data):
+    def test_hdfsEdit(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 
@@ -40,6 +40,7 @@ class FileStoreEdit(unittest.TestCase):
         Element(self.driver,'project','enterProject_click').wait_click()
         time.sleep(1)
         Element(self.driver,'dataAssert','dataAssert_click').wait_click()
+        Element(self.driver, 'dataAssert', 'dataSource_click').wait_click()
         Element(self.driver,'dataAssert', 'dataSourcefindname_click').wait_send_keys(data["dataSource_name"]+date)
         Element(self.driver,'dataAssert','dataSourceedit_click').wait_click()
         Element(self.driver,'dataAssert','dataSourcehdfseditname_click').send_keys(Keys.CONTROL,'a')
