@@ -1,4 +1,4 @@
-#project/createProject
+project/createProject
 #dataSource/mysqlAdd
 #dataSource/sqlServerAdd
 #dataSource/postgreSqlAdd
@@ -22,4 +22,5 @@
 #dataTable/scriptCreteTable
 #dataTable/guideCreateTable
 #systemManager/userAdd
-systemManager/userEdit
+#systemManager/userEdit
+#dataQuality/qualityregularAdd
