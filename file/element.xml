@@ -1057,6 +1057,41 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[3]</pathValue>
         </element>
+			<element id="levelchoose_ods_click">
+            <name>levelchoose_ods_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='ods']</pathValue>
+        </element>
+		<element id="applychoose_erp_click">
+            <name>applychoose_erp_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='erp']</pathValue>
+        </element>
+		<element id="increment_click">
+            <name>increment_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[3]/p[2]/div/div/div/div</pathValue>
+        </element>
+		<element id="increment_chooseclick">
+            <name>increment_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='f']</pathValue>
+        </element>		
+		<element id="ods_define_click">
+            <name>ods_define_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[4]/p[2]/input</pathValue>
+        </element>
+		<element id="ods_flency_click">
+            <name>ods_flency_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[5]/p[2]/div/div/div/div</pathValue>
+        </element>
+		<element id="ods_flency_chooseclick">
+            <name>ods_flency_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='min']</pathValue>
+        </element>
 	</activity>
 	<activity name="dataQuality">
         <element id="dataQuality_click">
@@ -1074,6 +1109,7 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/input</pathValue>
         </element>
+	
 	 </activity>
 
   
