@@ -815,7 +815,7 @@
         <element id="dataStanard_click">
             <name>dataStanard_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//li/a[text()='数据质量']</pathValue>
+            <pathValue>//li/a[text()='数据标准']</pathValue>
         </element>
 		<element id="modelDesign_click">
             <name>modelDesign_click</name>
@@ -825,12 +825,12 @@
 		<element id="guideCreateTable_click">
             <name>guideCreateTable_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//span[text()='向导建表']</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/button</pathValue>
         </element>
 		<element id="levelchoose_click">
             <name>levelchoose_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div/p[2]/div/div/div</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div/p[2]/div/div/div/div</pathValue>
         </element>
 		<element id="levelchoose_ads_click">
             <name>levelchoose_ads_click</name>
@@ -872,6 +872,7 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/input</pathValue>
         </element>
+		
 		<element id="next_click">
             <name>next_click</name>
             <pathType>XPATH</pathType>
@@ -885,7 +886,17 @@
 		<element id="paraname1_click">
             <name>paraname1_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div</pathValue>
+            <pathValue>//div[@class='ant-select-selection__rendered']</pathValue>
+        </element>
+		<element id="paraname1_inputclick">
+            <name>paraname1_inputclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div/div[3]/div/input</pathValue>
+        </element>
+		<element id="para1desc_intputclick">
+            <name>para1desc_intputclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[3]/div/input</pathValue>
         </element>
 	    <element id="paraname1_typeclick">
             <name>paraname1_typeclick</name>
@@ -907,6 +918,11 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[1]/div/div/div/div</pathValue>
         </element>
+		<element id="paraname2_inputclick">
+            <name>paraname2_inputclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[1]/div/div/div/div/div[3]/div/input</pathValue>
+        </element>
 		<element id="paraname2_typeclick">
             <name>paraname2_typeclick</name>            
             <pathType>XPATH</pathType>
@@ -916,6 +932,11 @@
             <name>paraname2_typeselect</name>            
             <pathType>XPATH</pathType>
             <pathValue>//li[text()='string']</pathValue>
+        </element>
+		<element id="para2desc_inputclick">
+            <name>para2desc_inputclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[3]/div/input</pathValue>
         </element>
 		<element id="paraname2_save">
             <name>paraname2_save</name>            
@@ -935,12 +956,12 @@
 		<element id="partition_click">
             <name>partition_click</name>            
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/p[2]/div/label[2]/span[1]/input</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/p[2]/div/label[2]/span[2]</pathValue>
         </element>
 		<element id="nopartition_click">
             <name>nopartition_click</name>            
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/p[2]/div/label[1]/span[1]/input</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/p[2]/div/label[1]/span[2]</pathValue>
         </element>
 		<element id="partition_addclick">
             <name>partition_addclick</name>            
@@ -952,10 +973,20 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div</pathValue>
         </element>
+		<element id="partition_para1_inputclick">
+            <name>partition_para1_inputclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div/div[3]/div/input</pathValue>
+        </element>
+		<element id="partition_para1desc_inputclick">
+            <name>partition_para1desc_inputclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[1]/td[3]/div/input</pathValue>
+        </element>
 		<element id="partition_para1_typeclick">
             <name>partition_para1_typeclick</name>            
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[1]/td[2]/div/div/div/div</pathValue>
         </element>
 		<element id="partition_para1_typeselect">
             <name>partition_para1_typeselect</name>            
@@ -965,27 +996,52 @@
 		<element id="partition_para1_saveclick">
             <name>partition_para1_saveclick</name>            
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[4]/div/span</pathValue>
+        </element>
+		<element id="partition_para2_addclick">
+            <name>partition_para2_addclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[2]/span/text()</pathValue>
         </element>
 		<element id="partition_para2_click">
             <name>partition_para2_click</name>            
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[1]/div/div/div/div</pathValue>
         </element>
+		<element id="partition_para2_inputclick">
+            <name>partition_para2_inputclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[1]/div/div/div/div/div[3]/div/input</pathValue>
+        </element>
 		<element id="partition_para2_typeclick">
             <name>partition_para2_typeclick</name>            
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[2]/div/div/div/div/div</pathValue>
         </element>
-		<element id="partition_para1_typeselect">
-            <name>partition_para1_typeselect</name>            
+		<element id="partition_para2_typeselect">
+            <name>partition_para2_typeselect</name>            
             <pathType>XPATH</pathType>
             <pathValue>//li[text()='string']</pathValue>
+        </element>
+		<element id="partition_para2_descClick">
+            <name>partition_para2_descClick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[3]/div/input</pathValue>
         </element>
 		<element id="partition_para2_saveclick">
             <name>partition_para2_saveclick</name>            
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[4]</pathValue>
+        </element>		
+		<element id="partition_para2_editclick">
+            <name>partition_para2_editclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[4]/div/span[1]</pathValue>
+        </element>
+		<element id="partition_para2_deleteclick">
+            <name>partition_para2_deleteclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[4]/div/span[2]</pathValue>
         </element>
 		<element id="para_pre_lick">
             <name>para_pre_lick</name>            

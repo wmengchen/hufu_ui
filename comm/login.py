@@ -5,7 +5,7 @@
 # @author：menghuan.wmc
 from selenium import webdriver
 from time import sleep
-import sys,os
+import sys,os,random
 import configparser as cparser
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from config import setting
@@ -13,10 +13,11 @@ from comm.sql import Dbconnect
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException,TimeoutException
+from selenium.webdriver.support.wait import WebDriverWait
 from comm.element import Element
 from selenium.webdriver.common.keys import Keys
-from comm.element import  Element
+from selenium.webdriver.common.by import By
+import selenium.webdriver.support.expected_conditions as EC
 #读取配置文件
 cf = cparser.ConfigParser()
 cf.read(setting.Test_config,encoding='utf-8')
@@ -67,11 +68,56 @@ class Login():
 
         #单元测试验证具体页面
         # # sleep(1)
-        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys('2020-07-23_自动化测试勿操作！')
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys('2020-09-02_自动化测试勿操作！')
         # sleep(2)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys(Keys.ENTER)
         # sleep(2)
         # self.browser.find_element_by_xpath('//p[@class="item-title"]').click()
+        # sleep(2)
+        #
+        # self.browser.find_element_by_xpath("//li/a[text()='数据标准']").click()
+        #
+        # self.browser.find_element_by_xpath("//span[text()='模型设计']").click()
+        #
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div[2]/div[2]/button").click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div/p[2]/div/div/div/div').click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//li[text()='ads']").click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[2]/p[2]/div").click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//li[text()='ai']").click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[3]/p[2]/input").send_keys('niha')
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[3]/textarea").send_keys('1212121212222222222111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111112121212122222222221111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111')
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[2]').click()
+        # sleep(5)
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[2]').click()
+        # sleep(1)
+        # vlues = self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[2]').get_attribute('ant-click-animating-without-extra-node')
+        # print('vlues的值是：',vlues)
+
+        # WebDriverWait(self.browser, 20).until_not(EC.visibility_of_element_located((By.XPATH, '/*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[2]')))
+
+        # s = random.randrange(1,6)
+        # print('s的值是：',s)
+        # if s==1:
+        #     self.browser.find_element_by_xpath("//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical']/li[1]").click()
+        # elif s==2:
+        #     self.browser.find_element_by_xpath(
+        #         "//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical']/li[2]").click()
+        # elif s == 3:
+        #     self.browser.find_element_by_xpath("//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical']/li[3]").click()
+        # elif s == 4:
+        #     self.browser.find_element_by_xpath(
+        #         "//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical']/li[4]").click()
+        # elif s == 5:
+        #     self.browser.find_element_by_xpath(
+        #         "//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical']/li[5]").click()
+        #
+        # sleep(5)
         # sleep(1)
         # self.browser.find_element_by_xpath('//li/a[text()="数据资产"]').click()
         #

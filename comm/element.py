@@ -143,8 +143,8 @@ class Element():
         return str(value)
 
     #动态获取元素属性值
-    def get_attribute(self):
+    def get_attribute(self,property):
         element = self.get_element()
         if element:
-            value = element.get_attribute('textContent')
+            value = element.get_attribute(property)
         return str(value)

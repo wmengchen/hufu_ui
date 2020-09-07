@@ -20,7 +20,7 @@ project/createProject
 #dataSource/opentsdbEdit
 #dataSource/httpmdtEditdeltecreate
 #dataTable/scriptCreteTable
-#dataTable/guideCreateTable
+#dataTable/guideCreateTable_ads
 #systemManager/userAdd
 #systemManager/userEdit
 #dataQuality/qualityregularAdd
