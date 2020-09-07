@@ -857,6 +857,11 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[3]/textarea</pathValue>
         </element>
+		<element id="tabledesc_info">
+            <name>tabledesc_info</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[3]/span[2]</pathValue>
+        </element>
 		<element id="tablelifeStyle_click">
             <name>tablelifeStyle_click</name>
             <pathType>XPATH</pathType>
@@ -871,8 +876,7 @@
             <name>tablelifeStyle_input</name>
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/input</pathValue>
-        </element>
-		
+        </element>		
 		<element id="next_click">
             <name>next_click</name>
             <pathType>XPATH</pathType>
