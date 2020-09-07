@@ -1025,7 +1025,7 @@
 		<element id="partition_para2_typeselect">
             <name>partition_para2_typeselect</name>            
             <pathType>XPATH</pathType>
-            <pathValue>//li[text()='string']</pathValue>
+            <pathValue>/html/body/div[3]/div/div</pathValue>
         </element>
 		<element id="partition_para2_descClick">
             <name>partition_para2_descClick</name>            
@@ -1035,7 +1035,7 @@
 		<element id="partition_para2_saveclick">
             <name>partition_para2_saveclick</name>            
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[4]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[2]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[4]/div/span</pathValue>
         </element>		
 		<element id="partition_para2_editclick">
             <name>partition_para2_editclick</name>            

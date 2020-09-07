@@ -1,3 +1,8 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# @date: 2020/9/7 13:43 
+# @name: guideCreateTable_ods
+# @author：menghuan.wmc
 # !/usr/bin/python
 # -*- coding: UTF-8 -*-
 # @date: 2020/7/24 10:21
@@ -55,7 +60,6 @@ class guideCreateTable(unittest.TestCase):
         Element(self.driver, 'dataStanard', 'tablelifeStyle_click').wait_click()
         Element(self.driver, 'dataStanard', 'tablelifeStyle_select').wait_click()
         Element(self.driver, 'dataStanard', 'tablelifeStyle_input').wait_send_keys(int(data["lifecycle"]))
-        time.sleep(1)
         Element(self.driver, 'dataStanard', 'next_click').wait_click()
         if value == 'correct':
             Element(self.driver, 'dataStanard', 'addpar_click').wait_click()
@@ -89,42 +93,39 @@ class guideCreateTable(unittest.TestCase):
             time.sleep(1)
             Element(self.driver, 'dataStanard', 'paraname2_editclick').wait_click()
             Element(self.driver, 'dataStanard', 'paraname2_save').wait_click()
-            time.sleep(1)
             Element(self.driver, 'dataStanard', 'partition_click').wait_click()
             Element(self.driver, 'dataStanard', 'nopartition_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_addclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_inputclick').wait_send_keys(data["partition_par1"])
-            time.sleep(1)
             Element(self.driver, 'dataStanard', 'partition_para1_typeclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_typeselect').wait_click()
-            Element(self.driver, 'dataStanard', 'partition_para1desc_inputclick').wait_send_keys(data["partition1_desc"])
+            Element(self.driver, 'dataStanard', 'partition_para1desc_inputclick').wait_send_keys(
+                data["partition1_desc"])
             Element(self.driver, 'dataStanard', 'partition_para1desc_inputclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_saveclick').wait_click()
-            #
             Element(self.driver, 'dataStanard', 'partition_addclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_inputclick').wait_send_keys(data["partition_par2"])
-            time.sleep(1)
+            Element(self.driver, 'dataStanard', 'partition_para2_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeselect').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_descClick').wait_send_keys(data["partition2_desc"])
+            Element(self.driver, 'dataStanard', 'partition_para2_descClick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_saveclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_editclick').wait_click()
-            Element(self.driver, 'dataStanard', 'partition_para2_saveclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_deleteclick').wait_click()
-            # time.sleep(1)
+            time.sleep(1)
             Element(self.driver, 'dataStanard', 'partition_addclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_inputclick').wait_send_keys(data["partition_par2"])
-            time.sleep(1)
+            Element(self.driver, 'dataStanard', 'partition_para2_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeselect').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_descClick').wait_send_keys(data["partition2_desc"])
-
-            Element(self.driver, 'dataStanard', 'partition_para2_saveclick').wait_click()
-            time.sleep(1)
+            Element(self.driver, 'dataStanard', 'partition_para2_descClick').wait_click()
+            Element(self.driver, 'dataStanard', 'partition_para2_editclick').wait_click()
             Element(self.driver, 'dataStanard', 'para_pre_lick').wait_click()
             Element(self.driver, 'dataStanard', 'next_click').wait_click()
             Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
@@ -150,3 +151,4 @@ class guideCreateTable(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
