@@ -1092,6 +1092,101 @@
             <pathType>XPATH</pathType>
             <pathValue>//li[text()='min']</pathValue>
         </element>
+		<element id="dwd__chooseclick">
+            <name>dwd__chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='dwd']</pathValue>
+        </element>
+		<element id="dwd__prdclick">
+            <name>dwd__prdclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='prd']</pathValue>
+        </element>
+		<element id="dwd__apclick">
+            <name>dwd__apclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[3]/p[2]/div/div/div</pathValue>
+        </element>
+		<element id="dwd__apchooseclick">
+            <name>dwd__apchooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='ap']</pathValue>
+        </element>
+		<element id="dwd__increamclick">
+            <name>dwd__increamclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[4]/p[2]/div/div/div/div</pathValue>
+        </element>
+		<element id="dwd__increamchoose_click">
+            <name>dwd__increamchoose_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='f']</pathValue>
+        </element>
+		<element id="dwd__define_click">
+            <name>dwd__define_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[5]/p[2]/input</pathValue>
+        </element>
+		<element id="dwd__flency_click">
+            <name>dwd__flency_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[6]/p[2]/div/div/div/div</pathValue>
+        </element>
+		<element id="dwd__flency_chooseclick">
+            <name>dwd__flency_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='r']</pathValue>
+        </element>
+		<element id="dim_chooseclick">
+            <name>dim_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='dim']</pathValue>
+        </element>
+		<element id="dim_major_key_click">
+            <name>dim_major_key_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[4]/div/label/span[2]</pathValue>
+        </element>
+		<element id="dim_para1_saveclick">
+            <name>dim_para1_saveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[5]/div/span[1]</pathValue>
+        </element>
+		<element id="dim_para2_saveclick">
+            <name>dim_para2_saveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[5]/div/span</pathValue>
+        </element>
+		<element id="dim_para2_editsaveclick">
+            <name>dim_para2_editsaveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[5]/div/span[1]</pathValue>
+        </element>
+		<element id="dim_para2_deleteclick">
+            <name>dim_para2_deleteclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[5]/div/span[2]</pathValue>
+        </element>
+		<element id="dim_para2_editclick">
+            <name>dim_para2_editclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[5]/div/span[1]</pathValue>
+        </element>
+		<element id="dws_chooseclick">
+            <name>dws_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='dws']</pathValue>
+        </element>				
+		<element id="tmp__chooseclick">
+            <name>tmp__chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='tmp']</pathValue>
+        </element>
+		<element id="tmp__defineclick">
+            <name>tmp__defineclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[2]/p[2]/input</pathValue>
+        </element>
 	</activity>
 	<activity name="dataQuality">
         <element id="dataQuality_click">

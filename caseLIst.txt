@@ -21,7 +21,11 @@ project/createProject
 #dataSource/httpmdtEditdeltecreate
 #dataTable/scriptCreteTable
 #dataTable/guideCreateTable_ads
-dataTable/guideCreateTable_ods
+#dataTable/guideCreateTable_ods
+#dataTable/guideCreateTable_dwd
+dataTable/guideCreateTable_dws
+dataTable/guideCreateTable_dim
+dataTable/guideCreateTable_tmp
 #systemManager/userAdd
 #systemManager/userEdit
 #dataQuality/qualityregularAdd
