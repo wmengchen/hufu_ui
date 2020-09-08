@@ -20,7 +20,7 @@ testData = ReadExcel(setting.Test_case, sheetName).read_data()
 
 
 @ddt.ddt
-class guideCreateTable(unittest.TestCase):
+class guideCreateTable_ads(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
@@ -30,7 +30,7 @@ class guideCreateTable(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_guideCreateTable(self, data):
+    def test_guideCreateTable_ads(self, data):
 
         print('---------{}---------'.format(data['case_name']))
 
@@ -120,7 +120,7 @@ class guideCreateTable(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'partition_addclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_inputclick').wait_send_keys(data["partition_par2"])
-            time.sleep(1)
+            time.sleep(2)
             Element(self.driver, 'dataStanard', 'partition_para2_inputclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeselect').wait_click()
@@ -131,20 +131,21 @@ class guideCreateTable(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'para_pre_lick').wait_click()
             Element(self.driver, 'dataStanard', 'next_click').wait_click()
             Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
+            value2 = Element(self.driver,'dataStanard', 'para_save_click').get_attribute(data["property2"])
+            print('value2：',value2)
             try:
-                current_url = Element(self.driver, 'dataStanard', 'para_save_click').wait_not_click()
-                self.check_result(current_url)
+                self.check_result(value2)
             except:
                 return
         else:
             pass
-
+    #
     @ddt.data(testData)
-    def check_result(self, url):
-        if int[testData["result"]] == 0:
-            assert url == testData['expect_url']
+    def check_result(self,value):
+        if int(testData["result"]) == 0:
+            self.assertEqual(value,testData["expect_result"])
         else:
-            assert url != testData['expect_url']
+            self.assertEqual(value, testData["expect_result"])
 
     def tearDown(self):
         print('--------测试结束--------')

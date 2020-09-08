@@ -14,13 +14,13 @@ from selenium.webdriver.common.keys import Keys
 
 
 
-sheetName = 'guideCreateTable_ods'
+sheetName = 'guideCreateTable_tmp'
 date = time.strftime('%Y_%m_%d', time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case, sheetName).read_data()
 
 
 @ddt.ddt
-class guideCreateTable_ods(unittest.TestCase):
+class guideCreateTable_tmp(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
@@ -30,7 +30,7 @@ class guideCreateTable_ods(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_guideCreateTable_ods(self, data):
+    def test_guideCreateTable_tmp(self, data):
 
         print('---------{}---------'.format(data['case_name']))
 
@@ -43,14 +43,8 @@ class guideCreateTable_ods(unittest.TestCase):
         Element(self.driver, 'dataStanard', 'modelDesign_click').wait_click()
         Element(self.driver, 'dataStanard', 'guideCreateTable_click').wait_click()
         Element(self.driver, 'dataStanard', 'levelchoose_click').wait_click()
-        Element(self.driver, 'dataStanard', 'levelchoose_ods_click').wait_click()
-        Element(self.driver, 'dataStanard', 'apply_choose_click').wait_click()
-        Element(self.driver, 'dataStanard', 'applychoose_erp_click').wait_click()
-        Element(self.driver, 'dataStanard', 'increment_click').wait_click()
-        Element(self.driver, 'dataStanard', 'increment_chooseclick').wait_click()
-        Element(self.driver, 'dataStanard', 'ods_define_click').wait_send_keys(data["define"])
-        Element(self.driver, 'dataStanard', 'ods_flency_click').wait_click()
-        Element(self.driver, 'dataStanard', 'ods_flency_chooseclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tmp__chooseclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tmp_defineclick').wait_send_keys(data["define"])
         Element(self.driver, 'dataStanard', 'tabledesc_click').wait_send_keys(data["desc"])
         Element(self.driver, 'dataStanard', 'tabledesc_info').wait_click()
         time.sleep(1)
@@ -66,7 +60,6 @@ class guideCreateTable_ods(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'paraname1_click').wait_click()
             Element(self.driver, 'dataStanard', 'paraname1_inputclick').wait_send_keys(data["para1name"])
             Element(self.driver, 'dataStanard', 'paraname1_click').wait_click()
-            time.sleep(1)
             Element(self.driver, 'dataStanard', 'paraname1_typeclick').wait_click()
             Element(self.driver, 'dataStanard', 'paraname1_typeselect').wait_click()
             Element(self.driver, 'dataStanard', 'para1desc_intputclick').wait_send_keys(data["para1desc"])
@@ -108,10 +101,11 @@ class guideCreateTable_ods(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'partition_para1desc_inputclick').wait_send_keys(data["partition1_desc"])
             Element(self.driver, 'dataStanard', 'partition_para1desc_inputclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_saveclick').wait_click()
+            #
             Element(self.driver, 'dataStanard', 'partition_addclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_inputclick').wait_send_keys(data["partition_par2"])
-            time.sleep(1)
+            time.sleep(2)
             Element(self.driver, 'dataStanard', 'partition_para2_inputclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeselect').wait_click()
@@ -134,24 +128,23 @@ class guideCreateTable_ods(unittest.TestCase):
             time.sleep(1)
             Element(self.driver, 'dataStanard', 'para_pre_lick').wait_click()
             Element(self.driver, 'dataStanard', 'next_click').wait_click()
-            Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
-            Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
-            value2 = Element(self.driver, 'dataStanard', 'para_save_click').get_attribute(data["property2"])
-            print('value2：', value2)
+            url= Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
+            print('url的值是：',url)
             try:
-                self.check_result(value2)
+                current_url = Element(self.driver, 'dataStanard', 'para_save_click').wait_not_click()
+                print('current_url:',current_url)
+                self.check_result(current_url)
             except:
                 return
         else:
             pass
-            #
 
     @ddt.data(testData)
-    def check_result(self, value):
-        if int(testData["result"]) == 0:
-            self.assertEqual(value, testData["expect_result"])
+    def check_result(self, url):
+        if int[testData["result"]] == 0:
+            assert url == testData['expect_url']
         else:
-            self.assertEqual(value, testData["expect_result"])
+            assert url != testData['expect_url']
 
     def tearDown(self):
         print('--------测试结束--------')

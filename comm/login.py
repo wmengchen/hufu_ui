@@ -78,7 +78,7 @@ class Login():
         # self.browser.find_element_by_xpath("//li/a[text()='数据标准']").click()
         #
         # self.browser.find_element_by_xpath("//span[text()='模型设计']").click()
-        #
+        # WebDriverWait.until(self.browser,10).until(EC.visibility_of_element_located((By.XPATH,"//span[text()='模型设计']")))
         # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div[2]/div[2]/button").click()
         # sleep(1)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div/p[2]/div/div/div/div').click()
@@ -99,7 +99,7 @@ class Login():
         # vlues = self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[2]').get_attribute('ant-click-animating-without-extra-node')
         # print('vlues的值是：',vlues)
 
-        # WebDriverWait(self.browser, 20).until_not(EC.visibility_of_element_located((By.XPATH, '/*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[2]')))
+        # url= WebDriverWait(self.browser, 20).until_not(EC.visibility_of_element_located((By.XPATH, '/*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[2]')))
 
         # s = random.randrange(1,6)
         # print('s的值是：',s)

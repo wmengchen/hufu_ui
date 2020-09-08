@@ -141,24 +141,22 @@ class guideCreateTable_dim(unittest.TestCase):
             time.sleep(1)
             Element(self.driver, 'dataStanard', 'para_pre_lick').wait_click()
             Element(self.driver, 'dataStanard', 'next_click').wait_click()
-            current_url2 = Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
-            print('current_url2',current_url2)
+            Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
+            value2 = Element(self.driver, 'dataStanard', 'para_save_click').get_attribute(data["property2"])
+            print('value2：', value2)
             try:
-                current_url = Element(self.driver, 'dataStanard', 'para_save_click').wait_not_click()
-                print('current_url:', current_url)
-                self.check_result(current_url)
+                self.check_result(value2)
             except:
                 return
         else:
             pass
 
     @ddt.data(testData)
-    def check_result(self, url):
-        if int[testData["result"]] == 0:
-            print("testData['expect_url']:",testData['expect_url'])
-            assert url == testData['expect_url']
+    def check_result(self, value):
+        if int(testData["result"]) == 0:
+            self.assertEqual(value, testData["expect_result"])
         else:
-            assert url != testData['expect_url']
+            self.assertEqual(value, testData["expect_result"])
 
     def tearDown(self):
         print('--------测试结束--------')

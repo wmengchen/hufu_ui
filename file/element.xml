@@ -1187,6 +1187,61 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[2]/p[2]/input</pathValue>
         </element>
+		<element id="tablesearch_input">
+            <name>tablesearch_input</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/dl[1]/dd/input</pathValue>
+        </element>		
+		<element id="tablesearch_click">
+            <name>tablesearch_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/button</pathValue>
+        </element>
+		<element id="modelchoose_click">
+            <name>modelchoose_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/dl[2]/dd/div/div/div/div</pathValue>
+        </element>
+		<element id="modelchoose_odsinput">
+            <name>modelchoose_odsinput</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='ods']</pathValue>
+        </element>
+		<element id="modelchoose_adsinput">
+            <name>modelchoose_adsinput</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='ads']</pathValue>
+        </element>
+		<element id="modelchoose_dwdinput">
+            <name>modelchoose_dwdinput</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='dwd']</pathValue>
+        </element>
+		<element id="modelchoose_dwsinput">
+            <name>modelchoose_dwsinput</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='dws']</pathValue>
+        </element>
+		<element id="modelchoose_diminput">
+            <name>modelchoose_diminput</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='dim']</pathValue>
+        </element>
+		<element id="modelchoose_tmpinput">
+            <name>modelchoose_tmpinput</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='tmp']</pathValue>
+        </element>
+		<element id="standard_click">
+            <name>standard_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/dl[3]/dd/div/div/div/div</pathValue>
+        </element>
+		<element id="standard_chooseclick">
+            <name>standard_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='规范']</pathValue>
+        </element>
 	</activity>
 	<activity name="dataQuality">
         <element id="dataQuality_click">

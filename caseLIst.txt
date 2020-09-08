@@ -1,4 +1,4 @@
-project/createProject
+#project/createProject
 #dataSource/mysqlAdd
 #dataSource/sqlServerAdd
 #dataSource/postgreSqlAdd
@@ -20,12 +20,13 @@ project/createProject
 #dataSource/opentsdbEdit
 #dataSource/httpmdtEditdeltecreate
 #dataTable/scriptCreteTable
-#dataTable/guideCreateTable_ads
-#dataTable/guideCreateTable_ods
-#dataTable/guideCreateTable_dwd
-#dataTable/guideCreateTable_dws
-#dataTable/guideCreateTable_dim
+dataTable/guideCreateTable_ads
+dataTable/guideCreateTable_ods
+dataTable/guideCreateTable_dwd
+dataTable/guideCreateTable_dws
+dataTable/guideCreateTable_dim
 #dataTable/guideCreateTable_tmp
+#dataTable/guideads_edit
 #systemManager/userAdd
 #systemManager/userEdit
 #dataQuality/qualityregularAdd

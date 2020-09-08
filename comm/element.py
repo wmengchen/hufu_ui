@@ -93,6 +93,8 @@ class Element():
     def wait_not_click(self):
         element = WebDriverWait(self.driver, 20).until_not(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
         return element
+
+
     #模拟键盘正常点击
     def click(self):
         element = self.get_element()
@@ -146,5 +148,6 @@ class Element():
     def get_attribute(self,property):
         element = self.get_element()
         if element:
+            time.sleep(2)
             value = element.get_attribute(property)
         return str(value)
