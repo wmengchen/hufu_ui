@@ -1182,8 +1182,8 @@
             <pathType>XPATH</pathType>
             <pathValue>//li[text()='tmp']</pathValue>
         </element>
-		<element id="tmp__defineclick">
-            <name>tmp__defineclick</name>
+		<element id="tmp_defineclick">
+            <name>tmp_defineclick</name>
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[2]/p[2]/input</pathValue>
         </element>
