@@ -1262,6 +1262,86 @@
             <pathType>XPATH</pathType>
             <pathValue>//div/span[2]/a</pathValue>
         </element>
+		<element id="table_nameregular_click">
+            <name>table_nameregular_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[1]/a</pathValue>
+        </element>
+		<element id="table_nameregular_okclick">
+            <name>table_nameregular_okclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="tableedit_addpara_click">
+            <name>tableedit_addpara_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[5]/div/div[2]/span</pathValue>
+        </element>
+		<element id="tableedit_addpara_inputclick">
+            <name>tableedit_addpara_inputclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[5]/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[1]/div/div/div/div/div[3]/div/input</pathValue>
+        </element>
+		<element id="tableedit_addpara1_click">
+            <name>tableedit_addpara1_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[5]/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[1]/div/div/div/div</pathValue>
+        </element>
+		<element id="tableedit_addpara1_typeclick">
+            <name>tableedit_addpara1_typeclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[5]/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[2]/div/div/div/div/div</pathValue>
+        </element>
+		<element id="tableedit_addpara1_typechooseclick">
+            <name>tableedit_addpara1_typechooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='binary']</pathValue>
+        </element>
+		<element id="tableedit_addpara1_saveclick">
+            <name>tableedit_addpara1_saveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[5]/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[4]/div/span</pathValue>
+        </element>
+		<element id="tableedit_addpara1_editclick">
+            <name>tableedit_addpara1_editclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[5]/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[4]/div/span[1]</pathValue>
+        </element>
+		<element id="tableedit_addpara1_editsaveclick">
+            <name>tableedit_addpara1_editsaveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[5]/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[4]/div/span[1]</pathValue>
+        </element>		
+		<element id="tableedit_addpara1_deleteclick">
+            <name>tableedit_addpara1_deleteclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[5]/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[4]/div/span[2]</pathValue>
+        </element>
+		<element id="tableedit_lifestyleclick">
+            <name>tableedit_lifestyleclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[4]/div/div/div</pathValue>
+        </element>
+		<element id="tableedit_lifestyle_chooseclick">
+            <name>tableedit_lifestyle_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()="1天"]</pathValue>
+        </element>
+		<element id="tableedit_lifestyle_defineclick">
+            <name>tableedit_lifestyle_defineclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()="自定义"]</pathValue>
+        </element>
+		<element id="tableedit_lifestyle_defineinputclick">
+            <name>tableedit_lifestyle_defineinputclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/ul/li[4]/input</pathValue>
+        </element>
+		<element id="tableedit_saveclick">
+            <name>tableedit_saveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/button</pathValue>
+        </element>
 	</activity>
 	<activity name="dataQuality">
         <element id="dataQuality_click">

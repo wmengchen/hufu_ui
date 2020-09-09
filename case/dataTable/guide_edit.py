@@ -42,18 +42,57 @@ class guide_edit(unittest.TestCase):
         Element(self.driver, 'dataStanard', 'dataStanard_click').wait_click()
         Element(self.driver, 'dataStanard', 'modelDesign_click').wait_click()
         Element(self.driver, 'dataStanard', 'tablesearch_input').wait_send_keys(data["table_name"])
-        Element(self.driver, 'dataStanard', 'tablesearch_click').wait_click()
         Element(self.driver, 'dataStanard', 'standard_click').wait_click()
         Element(self.driver, 'dataStanard', 'standard_chooseclick').wait_click()
-        Element(self.driver, 'dataStanard', 'look_click').wait_click()
         Element(self.driver, 'dataStanard', 'table_edit_click').wait_click()
+        Element(self.driver, 'dataStanard', 'table_nameregular_click').wait_click()
+        Element(self.driver, 'dataStanard', 'table_nameregular_okclick').wait_click()
+        time.sleep(1)
+        Element(self.driver, 'dataStanard', 'tableedit_lifestyleclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_lifestyle_chooseclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_lifestyleclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_lifestyle_defineclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_lifestyle_defineinputclick').wait_send_keys(int(data["lifestyle"]))
+        Element(self.driver, 'dataStanard', 'tableedit_addpara_click').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_click').wait_click()
+        time.sleep(1)
+        Element(self.driver, 'dataStanard', 'tableedit_addpara_inputclick').wait_send_keys("para3name")
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_typeclick').wait_click()
+        time.sleep(5)
+        js = "document.getElementsByClassName('ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical')[0].scrollTop=10000"
 
-    @ddt.data(testData)
-    def check_result(self, url):
-        if int[testData["result"]] == 0:
-            assert url == testData['expect_url']
+        self.driver.execute_script(js)
+
+        time.sleep(5)
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_typechooseclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_saveclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_editclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_editsaveclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_deleteclick').wait_click()
+        time.sleep(1)
+        Element(self.driver, 'dataStanard', 'tableedit_addpara_click').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_click').wait_click()
+        time.sleep(1)
+        Element(self.driver, 'dataStanard', 'tableedit_addpara_inputclick').wait_send_keys("para3name")
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_typeclick').wait_click()
+        js = "document.getElementsByClassName('ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical')[0].scrollTop=10000"
+        self.driver.execute_script(js)
+        time.sleep(1)
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_typechooseclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_addpara1_saveclick').wait_click()
+        current_url = Element(self.driver, 'dataStanard', 'tableedit_saveclick').wait_click()
+        time.sleep(1)
+        try:
+            self.check_result(current_url, data['expect_url1'])
+        except:
+            return
+
+    @ddt.data(*testData)
+    def check_result(self, acual_url, expect_url):
+        if int(testData["result"]) == 0:
+            self.assertEqual (acual_url,expect_url)
         else:
-            assert url != testData['expect_url']
+            self.assertNotEqual (acual_url,expect_url)
 
     def tearDown(self):
         print('--------测试结束--------')
