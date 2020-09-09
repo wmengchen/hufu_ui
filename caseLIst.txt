@@ -13,12 +13,12 @@
 #dataSource/opentsdb_publicNetAdd
 #dataSource/httpmdtAdd
 #dataSource/mqttAdd
-dataSource/relationDbEdit
+#dataSource/relationDbEdit
 #dataSource/bigDataEdit
 #dataSource/mongodbEdit
 #dataSource/hdfsEdit
 #dataSource/opentsdbEdit
-#dataSource/httpmdtEditdeltecreate
+dataSource/httpmdtEditdeltecreate
 #dataTable/scriptCreteTable
 #dataTable/guideCreateTable_ads
 #dataTable/guideCreateTable_ods
@@ -26,7 +26,7 @@ dataSource/relationDbEdit
 #dataTable/guideCreateTable_dws
 #dataTable/guideCreateTable_dim
 #dataTable/guideCreateTable_tmp
-#dataTable/guideads_edit
+#dataTable/guide_edit
 #systemManager/userAdd
 #systemManager/userEdit
 #dataQuality/qualityregularAdd

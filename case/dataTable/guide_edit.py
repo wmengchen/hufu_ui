@@ -41,7 +41,12 @@ class guide_edit(unittest.TestCase):
         time.sleep(1)
         Element(self.driver, 'dataStanard', 'dataStanard_click').wait_click()
         Element(self.driver, 'dataStanard', 'modelDesign_click').wait_click()
-        Element(self.driver, 'dataStanard', 'tablesearch_input').wait_send_keys(data[""])
+        Element(self.driver, 'dataStanard', 'tablesearch_input').wait_send_keys(data["table_name"])
+        Element(self.driver, 'dataStanard', 'tablesearch_click').wait_click()
+        Element(self.driver, 'dataStanard', 'standard_click').wait_click()
+        Element(self.driver, 'dataStanard', 'standard_chooseclick').wait_click()
+        Element(self.driver, 'dataStanard', 'look_click').wait_click()
+        Element(self.driver, 'dataStanard', 'table_edit_click').wait_click()
 
     @ddt.data(testData)
     def check_result(self, url):
