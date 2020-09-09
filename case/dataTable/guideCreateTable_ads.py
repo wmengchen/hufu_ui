@@ -143,6 +143,7 @@ class guideCreateTable_ads(unittest.TestCase):
     @ddt.data(testData)
     def check_result(self,value):
         if int(testData["result"]) == 0:
+
             self.assertEqual(value,testData["expect_result"])
         else:
             self.assertEqual(value, testData["expect_result"])

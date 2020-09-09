@@ -75,25 +75,40 @@
             <pathType>XPATH</pathType>
             <pathValue>//div[@class="content-header"]/input</pathValue>
         </element>
+		<element id="dataSourcedefault_find_click">
+            <name>dataSourcedefault_find_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/button</pathValue>
+        </element>
+		<element id="dataSourcedefault_look_click">
+            <name>dataSourcedefault_look_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[3]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[6]/div/span</pathValue>
+        </element>
 		<element id="dataSourcedefaultname_click">
             <name>dataSourcedefaultname_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[1]/span</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/ul/li[2]/p</pathValue>
         </element>
 		<element id="dataSourcedefaulturl_click">
             <name>dataSourcedefaulturl_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr/td[3]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/ul/li[4]/p</pathValue>
         </element>
 		<element id="dataSource_click">
             <name>dataSource_click</name>
             <pathType>XPATH</pathType>
             <pathValue>//span[text()="数据源管理"]</pathValue>
-        </element>					
+        </element>
+        <element id="dataSource2_click">
+            <name>dataSource2_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/p/div/span[2]/a/span</pathValue>
+        </element>			
 		<element id="dataSourceadd_click">
             <name>dataSourceadd_click</name>
-            <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/p/button</pathValue>
+            <pathType>XPATH</pathType>//*[@id="container"]/section/section/section/main/div/div/div[2]/button
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/button</pathValue>
         </element>		
 		<element id="dataSourceaddMysql_click">
             <name>dataSourceaddMysql_click</name>
@@ -173,7 +188,7 @@
 		<element id="dataSourcefindname_click">
             <name>dataSourcefindname_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//div[@class="content-header"]/input</pathValue>
+            <pathValue>//input[@placeholder='数据源名称']</pathValue>
         </element>
 		<element id="dataSourceedit_click">
             <name>dataSourceedit_click</name>
@@ -1192,11 +1207,6 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/dl[1]/dd/input</pathValue>
         </element>		
-		<element id="tablesearch_click">
-            <name>tablesearch_click</name>
-            <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/button</pathValue>
-        </element>
 		<element id="modelchoose_click">
             <name>modelchoose_click</name>
             <pathType>XPATH</pathType>
@@ -1235,12 +1245,17 @@
 		<element id="standard_click">
             <name>standard_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/dl[3]/dd/div/div/div/div</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/dl[3]/dd/div/div/div</pathValue>
         </element>
 		<element id="standard_chooseclick">
             <name>standard_chooseclick</name>
             <pathType>XPATH</pathType>
             <pathValue>//li[text()='规范']</pathValue>
+        </element>
+		<element id="look_click">
+            <name>look_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='查看']</pathValue>
         </element>
 	</activity>
 	<activity name="dataQuality">

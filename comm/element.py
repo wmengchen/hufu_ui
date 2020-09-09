@@ -151,3 +151,10 @@ class Element():
             time.sleep(2)
             value = element.get_attribute(property)
         return str(value)
+    def get_attribute2(self):
+        element = self.get_element()
+        if element:
+            time.sleep(2)
+            value = element.get_attribute('textContent')
+        return str(value)
+

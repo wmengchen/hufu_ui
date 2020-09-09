@@ -43,6 +43,7 @@ class OpentsdbEdit(unittest.TestCase):
         Element(self.driver,'dataAssert','dataAssert_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSource_click').wait_click()
         Element(self.driver,'dataAssert', 'dataSourcefindname_click').wait_send_keys(data["dataSource_name"]+date)
+        Element(self.driver, 'dataAssert', 'dataSourcedefault_find_click').wait_click()
         Element(self.driver,'dataAssert','dataSourceedit_click').wait_click()
         Element(self.driver,'dataAssert','dataSourcehdfseditname_click').send_keys(Keys.CONTROL,'a')
         Element(self.driver, 'dataAssert', 'dataSourcehdfseditname_click').send_keys(Keys.BACK_SPACE)
