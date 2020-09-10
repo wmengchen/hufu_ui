@@ -43,13 +43,17 @@ class addconfiguration(unittest.TestCase):
         Element(self.driver, 'dataStanard', 'configuration_click').wait_click()
         Element(self.driver, 'dataStanard', 'configuration_addclick').wait_click()
         Element(self.driver, 'dataStanard', 'configurationadd_nameclick').wait_send_keys(data["configuration_name"])
-        Element(self.driver, 'dataStanard', 'configurationadd_cancelclick').wait_click()
-        Element(self.driver, 'dataStanard', 'configuration_click').wait_click()
-        Element(self.driver, 'dataStanard', 'configuration_addclick').wait_click()
-        Element(self.driver, 'dataStanard', 'configurationadd_nameclick').wait_send_keys(data["configuration_name"])
-        Element(self.driver,'dataStanard','configurationadd_okclick').wait_click()
-        try:
-            Element(self.driver, 'dataStanard', 'configurationadd_okclick').wait_not_click()
+        # Element(self.driver, 'dataStanard', 'configurationadd_cancelclick').wait_click()
+        # Element(self.driver, 'dataStanard', 'configuration_addclick').wait_click()
+        # Element(self.driver, 'dataStanard', 'configurationadd_nameclick').wait_send_keys(data["configuration_name"])
+        value = Element(self.driver, 'dataStanard', 'configuration_successpropertyclick').get_attribute2()
+        if value != "长度不能大于10个字符":
+
+            Element(self.driver,'dataStanard','configurationadd_okclick').wait_click()
+            Element(self.driver, 'dataStanard', 'table_successclick').wait_click()
+            context = Element(self.driver, 'dataStanard', 'table_successclick').get_attribute2()
+            print('  context = :', context)
+            self.assertEqual(context, data["expect_result"])
 
     def tearDown(self):
         print('--------测试结束--------')
