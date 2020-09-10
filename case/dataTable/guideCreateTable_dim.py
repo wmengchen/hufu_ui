@@ -142,26 +142,16 @@ class guideCreateTable_dim(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'para_pre_lick').wait_click()
             Element(self.driver, 'dataStanard', 'next_click').wait_click()
             Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
-            value2 = Element(self.driver, 'dataStanard', 'para_save_click').get_attribute(data["property2"])
-            print('value2：', value2)
-            try:
-                self.check_result(value2)
-            except:
-                return
+            Element(self.driver, 'dataStanard', 'table_successclick').wait_click()
+            context = Element(self.driver, 'dataStanard', 'table_successclick').get_attribute2()
+            print('  context = :', context)
+            self.assertEqual(context, data["expect_result"])
         else:
             pass
-
-    @ddt.data(testData)
-    def check_result(self, value):
-        if int(testData["result"]) == 0:
-            self.assertEqual(value, testData["expect_result"])
-        else:
-            self.assertEqual(value, testData["expect_result"])
 
     def tearDown(self):
         print('--------测试结束--------')
         self.login.logout()
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -63,6 +63,7 @@ class MongoAdd(unittest.TestCase):
 
     @ddt.data(*testData)
     def check_result(self,acual_url,expect_url):
+        print('int(testData["result"]):',int(testData["result"]))
         if int(testData["result"]) == 0:
             assert (acual_url != expect_url)
         else:

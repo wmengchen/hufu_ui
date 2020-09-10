@@ -80,7 +80,7 @@ class Element():
 
     # 等待点击
     def wait_click(self):
-        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
+        element = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, str(self.pathValue))))
         try:
 
             if element:
@@ -154,7 +154,7 @@ class Element():
     def get_attribute2(self):
         element = self.get_element()
         if element:
-            time.sleep(2)
+            time.sleep(1)
             value = element.get_attribute('textContent')
         return str(value)
 

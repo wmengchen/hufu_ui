@@ -1342,6 +1342,61 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/button</pathValue>
         </element>
+		<element id="tableedit_searchclick">
+            <name>tableedit_searchclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/button</pathValue>
+        </element>
+		<element id="tablelook_click">
+            <name>tablelook_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[3]/div/div/div[1]/div/div/div/div/div/div[2]/table/tbody/tr[1]/td[7]/div/span[1]/a</pathValue>
+        </element>
+		<element id="tablemodeldesign_click">
+            <name>tablemodeldesign_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/p/div/span[2]/a/span</pathValue>
+        </element>
+		<element id="tableoperation_click">
+            <name>tableoperation_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[3]/div/div/div[1]/div/div/div/div/div/div[2]/table/tbody/tr[1]/td[7]/div/span[3]/a</pathValue>
+        </element>
+		<element id="tableoperation_okclick">
+            <name>tableoperation_okclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[3]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="configuration_click">
+            <name>configuration_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span[text()='配置中心']</pathValue>
+        </element>
+		<element id="configuration_addclick">
+            <name>configuration_addclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div[1]/div[1]/span/i</pathValue>
+        </element>
+		<element id="configurationadd_nameclick">
+            <name>configurationadd_nameclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[2]/div/dl/dd/ul/div/input</pathValue>
+        </element>
+		<element id="configurationadd_cancelclick">
+            <name>configurationadd_cancelclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[1]</pathValue>
+        </element>
+		<element id="configurationadd_okclick">
+            <name>configurationadd_okclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="table_successclick">
+            <name>table_successclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/span/div/div/div/span</pathValue>
+        </element>
 	</activity>
 	<activity name="dataQuality">
         <element id="dataQuality_click">

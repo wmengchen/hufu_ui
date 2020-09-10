@@ -44,6 +44,7 @@ class guide_edit(unittest.TestCase):
         Element(self.driver, 'dataStanard', 'tablesearch_input').wait_send_keys(data["table_name"])
         Element(self.driver, 'dataStanard', 'standard_click').wait_click()
         Element(self.driver, 'dataStanard', 'standard_chooseclick').wait_click()
+        Element(self.driver, 'dataStanard', 'tableedit_searchclick').wait_click()
         Element(self.driver, 'dataStanard', 'table_edit_click').wait_click()
         Element(self.driver, 'dataStanard', 'table_nameregular_click').wait_click()
         Element(self.driver, 'dataStanard', 'table_nameregular_okclick').wait_click()
@@ -58,12 +59,10 @@ class guide_edit(unittest.TestCase):
         time.sleep(1)
         Element(self.driver, 'dataStanard', 'tableedit_addpara_inputclick').wait_send_keys("para3name")
         Element(self.driver, 'dataStanard', 'tableedit_addpara1_typeclick').wait_click()
-        time.sleep(5)
         js = "document.getElementsByClassName('ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical')[0].scrollTop=10000"
 
         self.driver.execute_script(js)
-
-        time.sleep(5)
+        time.sleep(1)
         Element(self.driver, 'dataStanard', 'tableedit_addpara1_typechooseclick').wait_click()
         Element(self.driver, 'dataStanard', 'tableedit_addpara1_saveclick').wait_click()
         Element(self.driver, 'dataStanard', 'tableedit_addpara1_editclick').wait_click()
@@ -81,6 +80,7 @@ class guide_edit(unittest.TestCase):
         Element(self.driver, 'dataStanard', 'tableedit_addpara1_typechooseclick').wait_click()
         Element(self.driver, 'dataStanard', 'tableedit_addpara1_saveclick').wait_click()
         current_url = Element(self.driver, 'dataStanard', 'tableedit_saveclick').wait_click()
+        print('current_url:',current_url)
         time.sleep(1)
         try:
             self.check_result(current_url, data['expect_url1'])

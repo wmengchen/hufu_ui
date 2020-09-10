@@ -67,7 +67,7 @@ class Login():
 
 
         #单元测试验证具体页面
-        # # sleep(1)
+        # sleep(1)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys('2020-09-02_自动化测试勿操作！')
         # sleep(2)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys(Keys.ENTER)
@@ -78,7 +78,7 @@ class Login():
         # self.browser.find_element_by_xpath("//li/a[text()='数据标准']").click()
         #
         # self.browser.find_element_by_xpath("//span[text()='模型设计']").click()
-        # WebDriverWait.until(self.browser,10).until(EC.visibility_of_element_located((By.XPATH,"//span[text()='模型设计']")))
+        # # WebDriverWait.until(self.browser,3).until(EC.visibility_of_element_located((By.XPATH,"//span[text()='模型设计']")))
         # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div[2]/div[2]/button").click()
         # sleep(1)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div/p[2]/div/div/div/div').click()
@@ -90,6 +90,23 @@ class Login():
         # self.browser.find_element_by_xpath("//li[text()='ai']").click()
         # sleep(1)
         # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[1]/div/div[3]/p[2]/input").send_keys('niha')
+        # self.browser.find_element_by_xpath(
+        #     "//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[3]/textarea").send_keys(
+        #     'niha')
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[3]/button[2]").click()
+        # # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[2]/span").click()
+        # # self.browser.find_element_by_xpath("//div[@class='ant-select-selection__rendered']").click()
+        # # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[1]/div/div/div/div/div[3]/div/input").send_keys("nihao")
+        # # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[2]/div/div/div/div/div").click()
+        # # self.browser.find_element_by_xpath("//li[text()='int']").click()
+        # # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr/td[4]/div/span").click()
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[3]/button[3]").click()
+        # sleep(5)
+        # context = self.browser.find_element_by_xpath("/html/body/div[2]/div/span/div/div/div/span").get_attribute("textContent")
+        # print("context的内容是：",context)
+
+
+
         # sleep(1)
         # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div/div[2]/div/ul[1]/li[3]/textarea").send_keys('1212121212222222222111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111112121212122222222221111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111')
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div/div[3]/button[2]').click()

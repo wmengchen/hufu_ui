@@ -14,13 +14,15 @@ from selenium.webdriver.common.keys import Keys
 
 
 
+
 sheetName = 'guideCreateTable_ods'
 date = time.strftime('%Y_%m_%d', time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case, sheetName).read_data()
+print('testdata的值是：',testData)
 
 
 @ddt.ddt
-class guideCreateTable_ods(unittest.TestCase):
+class GuideCreateTable_ods(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
@@ -91,17 +93,14 @@ class guideCreateTable_ods(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'paraname2_typeselect').wait_click()
             Element(self.driver, 'dataStanard', 'para2desc_inputclick').wait_send_keys(data["para2desc"])
             Element(self.driver, 'dataStanard', 'paraname2_save').wait_click()
-            time.sleep(1)
             Element(self.driver, 'dataStanard', 'paraname2_editclick').wait_click()
             Element(self.driver, 'dataStanard', 'paraname2_save').wait_click()
-            time.sleep(1)
             Element(self.driver, 'dataStanard', 'partition_click').wait_click()
             Element(self.driver, 'dataStanard', 'nopartition_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_addclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_inputclick').wait_send_keys(data["partition_par1"])
-            time.sleep(1)
             Element(self.driver, 'dataStanard', 'partition_para1_inputclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_typeclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_typeselect').wait_click()
@@ -111,7 +110,6 @@ class guideCreateTable_ods(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'partition_addclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_inputclick').wait_send_keys(data["partition_par2"])
-            time.sleep(1)
             Element(self.driver, 'dataStanard', 'partition_para2_inputclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para2_typeselect').wait_click()
@@ -135,23 +133,15 @@ class guideCreateTable_ods(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'para_pre_lick').wait_click()
             Element(self.driver, 'dataStanard', 'next_click').wait_click()
             Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
-            Element(self.driver, 'dataStanard', 'para_save_click').wait_click()
-            value2 = Element(self.driver, 'dataStanard', 'para_save_click').get_attribute(data["property2"])
-            print('value2：', value2)
-            try:
-                self.check_result(value2)
-            except:
-                return
+
+            Element(self.driver, 'dataStanard', 'table_successclick').wait_click()
+            context = Element(self.driver, 'dataStanard', 'table_successclick').get_attribute2()
+            print('  context = :',  context)
+            self.assertEqual(context,data["expect_result"])
+
         else:
             pass
-            #
 
-    @ddt.data(testData)
-    def check_result(self, value):
-        if int(testData["result"]) == 0:
-            self.assertEqual(value, testData["expect_result"])
-        else:
-            self.assertEqual(value, testData["expect_result"])
 
     def tearDown(self):
         print('--------测试结束--------')
