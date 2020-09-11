@@ -88,9 +88,21 @@ class guideCreateTable_tmp(unittest.TestCase):
             Element(self.driver, 'dataStanard', 'paraname2_editclick').wait_click()
             Element(self.driver, 'dataStanard', 'paraname2_save').wait_click()
             time.sleep(1)
+
+            Element(self.driver, 'dataStanard', 'addpar_click').wait_click()
+            Element(self.driver, 'dataStanard', 'paraname3_click').wait_click()
+            Element(self.driver, 'dataStanard', 'paraname3_inputclick').wait_send_keys(data["para3name"])
+            Element(self.driver, 'dataStanard', 'paraname3_click').wait_click()
+            Element(self.driver, 'dataStanard', 'paraname3_typeclick').wait_click()
+            js = "document.getElementsByClassName('ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical')[0].scrollTop=10000"
+            self.driver.execute_script(js)
+            time.sleep(1)
             Element(self.driver, 'dataStanard', 'partition_click').wait_click()
             Element(self.driver, 'dataStanard', 'nopartition_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_click').wait_click()
+            js = "document.getElementsByClassName('add-dataSheet')[0].scrollTop=10000"
+            self.driver.execute_script(js)
+            time.sleep(1)
             Element(self.driver, 'dataStanard', 'partition_addclick').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_click').wait_click()
             Element(self.driver, 'dataStanard', 'partition_para1_inputclick').wait_send_keys(data["partition_par1"])

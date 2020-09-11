@@ -937,6 +937,36 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[2]/td[1]/div/div/div/div</pathValue>
         </element>
+		<element id="paraname3_click">
+            <name>paraname3_click</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[1]/div/div/div/div</pathValue>
+        </element>
+		<element id="paraname3_inputclick">
+            <name>paraname3_inputclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[1]/div/div/div/div/div[3]/div/input</pathValue>
+        </element>
+		<element id="paraname3_typeclick">
+            <name>paraname3_typeclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[2]/div/div/div/div/div</pathValue>
+        </element>
+		<element id="paraname3_typeselect">
+            <name>paraname3_typeselect</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='timestamp']</pathValue>
+        </element>
+		<element id="para3desc_inputclick">
+            <name>para3desc_inputclick</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[3]/div/input</pathValue>
+        </element>
+		<element id="paraname3_save">
+            <name>paraname3_save</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[4]/div/span</pathValue>
+        </element>
 		<element id="paraname2_inputclick">
             <name>paraname2_inputclick</name>            
             <pathType>XPATH</pathType>
@@ -1418,6 +1448,11 @@
             <name>table_seachclick</name>
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/input</pathValue>
+        </element>
+		<element id="regular_getclick">
+            <name>regular_getclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="test-uuid"]/ul</pathValue>
         </element>
 	
 	 </activity>
