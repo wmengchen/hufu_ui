@@ -105,7 +105,6 @@ class GuideCreateTable_ods(unittest.TestCase):
             js = "document.getElementsByClassName('ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical')[0].scrollTop=10000"
             self.driver.execute_script(js)
             time.sleep(1)
-
             Element(self.driver, 'dataStanard', 'paraname3_typeselect').wait_click()
             Element(self.driver, 'dataStanard', 'para3desc_inputclick').wait_send_keys(data["para3desc"])
             Element(self.driver, 'dataStanard', 'paraname3_save').wait_click()
