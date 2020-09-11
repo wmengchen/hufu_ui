@@ -157,4 +157,14 @@ class Element():
             time.sleep(1)
             value = element.get_attribute('textContent')
         return str(value)
+    #判断元素是否可点击，一般用于查看按钮是否处于置灰状态
+    def is_enabled(self):
+        element = self.get_element()
+        if element:
+            element.is_enabled()
+            return True
+        else:
+            return False
+        # return element.is_enabled()
+
 

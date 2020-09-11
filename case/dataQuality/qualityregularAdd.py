@@ -17,7 +17,7 @@ from comm.element import get_el_dict
 t = get_el_dict("dataQuality",'dataQuality_click')
 print("s数据的值是：",t.get("pathValue"))
 
-sheetName = 'qualityregularAdd'
+sheetName = 'qualityregular_add'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
@@ -40,6 +40,9 @@ class QualityregularAdd(unittest.TestCase):
         Element(self.driver,'project','Projectfind_click').send_keys(Keys.ENTER)
         time.sleep(1)
         Element(self.driver,'project','enterProject_click').wait_click()
+        Element(self.driver,'dataQuality','dataQuality_click').wait_click()
+        Element(self.driver, 'dataQuality', 'regularManager_click').wait_click()
+        Element(self.driver, 'dataQuality', 'table_seachclick').wait_send_keys(data[""])
         # time.sleep(1)
         # Element(self.driver,'dataAssert','dataAssert_click').wait_click()
         # Element(self.driver, 'dataAssert', 'dataSource_click').wait_click()

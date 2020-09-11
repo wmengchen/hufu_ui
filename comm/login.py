@@ -66,16 +66,18 @@ class Login():
 
 
 
+
         #单元测试验证具体页面
-        # sleep(1)
+        # # sleep(1)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys('2020-09-02_自动化测试勿操作！')
         # sleep(2)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys(Keys.ENTER)
         # sleep(2)
         # self.browser.find_element_by_xpath('//p[@class="item-title"]').click()
         # sleep(2)
-        #
-        # self.browser.find_element_by_xpath("//li/a[text()='数据标准']").click()
+        # #
+        # t = self.browser.find_element_by_xpath("//li/a[text()='数据标准']").is_enabled()
+        # print("//li/a[text()='数据标准']:",t)
         #
         # self.browser.find_element_by_xpath("//span[text()='模型设计']").click()
         # # WebDriverWait.until(self.browser,3).until(EC.visibility_of_element_located((By.XPATH,"//span[text()='模型设计']")))
