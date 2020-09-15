@@ -166,5 +166,10 @@ class Element():
         else:
             return False
         # return element.is_enabled()
+    def context_click(self):
+        element = self.get_element()
+        if element:
+            element.context_click()
+
 
 

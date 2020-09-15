@@ -12,7 +12,7 @@ from config import setting
 from selenium.webdriver.common.keys import Keys
 from comm.sql import Dbconnect
 import time
-from selenium.webdriver.common.action_chains import ActionChains
+
 
 sheetName = 'bigDataEdit'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))

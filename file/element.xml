@@ -1444,10 +1444,160 @@
             <pathType>XPATH</pathType>
             <pathValue>//span[text()='规则管理']</pathValue>
         </element>
+		<element id="table_seachinputclick">
+            <name>table_seachinputclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[1]/input</pathValue>
+        </element>
 		<element id="table_seachclick">
             <name>table_seachclick</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/input</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[1]/button</pathValue>
+        </element>
+		<element id="monitor_addclick">
+            <name>monitor_addclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[2]/div/div/div[1]/div/div/div/div/div/div[2]/table/tbody/tr[1]/td[4]/div/a/span</pathValue>
+        </element>
+		<element id="partitionexpression_addclick">
+            <name>partitionexpression_addclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/i</pathValue>
+        </element>
+		<element id="partitionexpression_nameclick">
+            <name>partitionexpression_nameclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder='请输入分区表达式']</pathValue>
+        </element>
+		<element id="partitionexpression_blankclick">
+            <name>partitionexpression_blankclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[5]/div/div[2]/div/div[2]/div[2]/div/div/span</pathValue>
+        </element>
+		<element id="partitionexpression_cancelclick">
+            <name>partitionexpression_cancelclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[1]</pathValue>
+        </element>
+		<element id="partitionexpression_okclick">
+            <name>partitionexpression_okclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="partitionexpression_searchclick">
+            <name>partitionexpression_searchclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/span/input</pathValue>
+        </element>
+		<element id="partitionexpression_searchokclick">
+            <name>partitionexpression_searchokclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/span/span/i</pathValue>
+        </element>
+		<element id="partitionexpression_moveclick">
+            <name>partitionexpression_moveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="sub1$Menu"]/li/div</pathValue>
+        </element>
+		<element id="partitionexpression_editclick">
+            <name>partitionexpression_editclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='编辑']</pathValue>
+        </element>
+		<element id="partitionexpression_editokclick">
+            <name>partitionexpression_editokclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//button[@class='ant-btn ant-btn-primary']</pathValue>
+        </element>
+		<element id="partitionexpression_deleteclick">
+            <name>partitionexpression_deleteclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='删除']</pathValue>
+        </element>
+		<element id="partitionexpression_deleteokclick">
+            <name>partitionexpression_deleteokclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class='ant-modal-footer']/div/button[2]</pathValue>
+        </element>
+		<element id="partitionexpression_successclick">
+            <name>partitionexpression_successclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[3]/div/span/div/div/div</pathValue>
+        </element>
+		<element id="regular_addclick">
+            <name>regular_addclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/button</pathValue>
+        </element>
+		<element id="regular_nameclick">
+            <name>regular_nameclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="ruleName"]</pathValue>
+        </element>
+		<element id="regular_samllclick">
+            <name>regular_samllclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="ruleStrength"]/label[2]/span[2]</pathValue>
+        </element>
+		<element id="regular_stronglclick">
+            <name>regular_stronglclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="ruleStrength"]/label[1]/span[2]</pathValue>
+        </element>
+		<element id="regularSource_click">
+            <name>regularSource_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="ruleFrom"]/div/div/div</pathValue>
+        </element>
+		<element id="regularinit_click">
+            <name>regularinit_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='内置模版规则']</pathValue>
+        </element>
+		<element id="regularstandard_click">
+            <name>regularstandard_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='标准模版规则']</pathValue>
+        </element>
+		<element id="regulartype_click">
+            <name>regulartype_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="ruleType"]/div/div/div</pathValue>
+        </element>
+		<element id="regulartype_chooseclick">
+            <name>regulartype_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='字段级规则']</pathValue>
+        </element>
+		<element id="regularpara_click">
+            <name>regularpara_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="fieldNames"]/div/div/div</pathValue>
+        </element>		
+		<element id="regularpara1_chooseclick">
+            <name>regularpara1_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='para1name']</pathValue>
+        </element>
+		<element id="regularpara2_chooseclick">
+            <name>regularpara2_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='para2']</pathValue>
+        </element>
+		<element id="regularpara3_chooseclick">
+            <name>regularpara3_chooseclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()='para3name']</pathValue>
+        </element>
+		<element id="regularmodel_click">
+            <name>regularmodel_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="templateId"]/div/div/div</pathValue>
+        </element>
+		<element id="regularpara_click">
+            <name>regularpara_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="fieldNames"]/div/div/div</pathValue>
         </element>
 		<element id="regular_getclick">
             <name>regular_getclick</name>
