@@ -60,22 +60,54 @@ class Login():
         self.browser.find_element_by_xpath("//input[@placeholder='验证码']").send_keys('1111')
         sleep(1)
         WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]'))).click()
-
         sleep(3)
 
 
 
 
 
+
+
         #单元测试验证具体页面
-        # # sleep(1)
-        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys('2020-09-02_自动化测试勿操作！')
-        # sleep(2)
+
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys('2020-09-15_自动化测试勿操作！')
+        # sleep(1)
         # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[1]/span/input').send_keys(Keys.ENTER)
-        # sleep(2)
+        # sleep(1)
         # self.browser.find_element_by_xpath('//p[@class="item-title"]').click()
-        # sleep(2)
-        # #
+        # sleep(1)
+        # self.browser.find_element_by_xpath('//li/a[text()="数据质量"]').click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//span[text()='规则管理']").click()
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div/div[2]/div[1]/input').send_keys('ods_erp_f_odstest_min')
+        # sleep(1)
+        # self.browser.find_element_by_xpath(
+        #     '//*[@id="container"]/section/section/section/main/div/div/div[2]/div[1]/button').click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div/div[2]/div[2]/div/div/div[1]/div/div/div/div/div/div[2]/table/tbody/tr/td[4]/div/a/span").click()
+        #
+        # sleep(1)
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/span/input').send_keys('partition_par1=test')
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div[2]/div[1]/span/span/i").click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//*[@id='container']/section/section/section/main/div/div[2]/div[2]/button").click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath("//*[@id='ruleName']").send_keys("ceshi")
+        # sleep(1)
+        # self.browser.find_element_by_xpath('//*[@id="ruleStrength"]/label[2]/span[2]').click()
+        # self.browser.find_element_by_xpath('//*[@id="ruleFrom"]/div/div/div').click()
+        # sleep(1)
+        # s = self.browser.find_element_by_xpath('//*[@id="test-uuid"]/ul')
+        # t = s.find_elements_by_xpath('li')
+        # list = []
+        # for i in t:
+        #     a = i.text
+        #     list.append(a)
+        #     print('a的值是{}'.format(a))
+        # print('list的值是:',list)
+        # print(list[0])
+
         # t = self.browser.find_element_by_xpath("//li/a[text()='数据标准']").is_enabled()
         # print("//li/a[text()='数据标准']:",t)
         #

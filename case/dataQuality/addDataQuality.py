@@ -34,8 +34,9 @@ class addDataQuality(unittest.TestCase):
     def test_addDataQuality(self,data):
 
         print('---------{}---------'.format(data['case_name']))
-
-        Element(self.driver,'project','Projectfind_click').wait_send_keys(date+data["project_name"])
+        #
+        # Element(self.driver,'project','Projectfind_click').wait_send_keys(date+data["project_name"])
+        Element(self.driver,'project','Projectfind_click').wait_send_keys(data["project_name"])
         Element(self.driver,'project','Projectfind_click').send_keys(Keys.ENTER)
         time.sleep(1)
         Element(self.driver,'project','enterProject_click').wait_click()
@@ -53,8 +54,23 @@ class addDataQuality(unittest.TestCase):
         time.sleep(1)
         Element(self.driver, 'dataQuality', 'partitionexpression_searchokclick').wait_click()
         time.sleep(1)
-        Element(self.driver, 'dataQuality', 'partitionexpression_searchokclick').wait_click()
-
+        Element(self.driver, 'dataQuality', 'regular_addclick').wait_click()
+        Element(self.driver, 'dataQuality', 'regular_nameclick').wait_send_keys(data["regular_name"])
+        Element(self.driver, 'dataQuality', 'regular_samllclick').wait_click()
+        Element(self.driver, 'dataQuality', 'regular_stronglclick').wait_click()
+        Element(self.driver, 'dataQuality', 'regular_samllclick').wait_click()
+        Element(self.driver, 'dataQuality', 'regularSource_click').wait_click()
+        Element(self.driver, 'dataQuality', 'regularinit_click').wait_click()
+        Element(self.driver, 'dataQuality', 'regulartype_click').wait_click()
+        Element(self.driver, 'dataQuality', 'regulartype_chooseclick').wait_click()
+        Element(self.driver, 'dataQuality', 'regularpara_click').wait_click()
+        Element(self.driver, 'dataQuality', 'regularpara1_chooseclick').wait_click()
+        Element(self.driver, 'dataQuality', 'regularmodel_click').wait_click()
+        # time.sleep(1)
+        # value = Element(self.driver, 'dataQuality', 'regular_getclick').get_attribute2()
+        # print('value的值是：',value)
+        # element = get_el_dict('dataQuality', 'regular_getclick')
+        # element.find
 
 
 

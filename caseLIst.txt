@@ -24,7 +24,7 @@
 #dataTable/guideCreateTable_ads
 #dataTable/guideCreateTable_dwd
 #dataTable/guideCreateTable_dws
-#dataTable/guideCreateTable_dim
+dataTable/guideCreateTable_dim
 #dataTable/guideCreateTable_tmp
 #dataTable/guide_edit
 #dataTable/guidetable_LookandOperation

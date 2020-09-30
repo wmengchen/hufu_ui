@@ -143,6 +143,30 @@ class Element():
         if element:
             value = element.text
         return str(value)
+    def get_element_list(self):
+        """
+        get element list
+        :return: element list
+        """
+        try:
+            if self.pathType == 'ID':
+                element_list = self.driver.find_element_by_id(self.pathValue)
+                return element_list
+            if self.pathType == 'XPATH':
+                print(self.pathValue)
+                element_list = self.driver.find_elements_by_xpath(self.pathValue)
+                return element_list
+            if self.pathType == 'CLASSNAME':
+                element_list = self.driver.find_element_by_class_name(self.pathValue)
+                return element_list
+            if self.pathType == 'NAME':
+                element_list = self.driver.find_element_by_name(self.pathValue)
+                return element_list
+            if self.pathType == 'SELECTOR':
+                element_list = self.driver.find_element_by_css_selector(self.pathValue)
+                return element_list
+        except NoSuchElementException:
+            return None
 
     #动态获取元素属性值
     def get_attribute(self,property):

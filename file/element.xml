@@ -967,6 +967,11 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul/li/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[4]/div/span</pathValue>
         </element>
+		<element id="paraname3_dimsave">
+            <name>paraname3_dimsave</name>            
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div/div[2]/div/ul[1]/li/div/div[1]/div/div/div/div/div/table/tbody/tr[3]/td[5]/div/span</pathValue>
+        </element>
 		<element id="paraname2_inputclick">
             <name>paraname2_inputclick</name>            
             <pathType>XPATH</pathType>
