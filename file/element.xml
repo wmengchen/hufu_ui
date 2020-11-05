@@ -713,7 +713,7 @@
      	<element id="userAdd_click">
             <name>userAdd_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//*[@id="container"]/section/section/section/main/div/p/button</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/button[2]</pathValue>
         </element>
 		<element id="userName_click">
             <name>userName_click</name>
@@ -775,6 +775,36 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/input</pathValue>
         </element>
+		<element id="account_click_find">
+            <name>account_click_find</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[1]/button[1]</pathValue>
+        </element>
+		<element id="modifyPassword_click">
+            <name>modifyPassword_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div/div/div/div/div/div/div/div/div[2]/table/tbody/tr[1]/td[6]/div/span[3]</pathValue>
+        </element>
+		<element id="oldPassword_click">
+            <name>oldPassword_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="password"]</pathValue>
+        </element>
+		<element id="newPassword_click">
+            <name>newPassword_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="rePassword"]</pathValue>
+        </element>
+		<element id="modifyPassword_cancelclick">
+            <name>modifyPassword_cancelclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class = "ant-modal-footer"]/div/button[1]</pathValue>
+        </element>
+		<element id="modifyPassword_okclick">
+            <name>modifyPassword_okclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//div[@class = "ant-modal-footer"]/div/button[2]</pathValue>
+        </element>
 		<element id="total_click">
             <name>total_click</name>
             <pathType>XPATH</pathType>
@@ -824,6 +854,16 @@
             <name>usernameModifyPasswordok_click</name>
             <pathType>XPATH</pathType>
             <pathValue>//div[@class="ant-modal-footer"]/div/button[2]</pathValue>
+        </element>
+		<element id="rolemanager_click">
+            <name>rolemanager_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/aside/div/div/ul/li[2]/div/a/span</pathValue>
+        </element>
+		<element id="rolemanager_cancelclick">
+            <name>rolemanager_cancelclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/button/span/i</pathValue>
         </element>
     </activity>
 	<activity name="dataStanard">

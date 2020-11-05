@@ -18,6 +18,8 @@ from comm.element import Element
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import selenium.webdriver.support.expected_conditions as EC
+
+from selenium.webdriver.common.action_chains import ActionChains
 #读取配置文件
 cf = cparser.ConfigParser()
 cf.read(setting.Test_config,encoding='utf-8')
@@ -47,6 +49,7 @@ class Login():
         self.browser = webdriver.Chrome()
 
 
+
     def login(self):
 
         self.browser.get(test_url)
@@ -63,8 +66,25 @@ class Login():
         sleep(3)
 
 
-
-
+        #单元测试
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/div/div[2]/ul/li[2]/a').click()
+        # sleep(1)
+        # self.browser.find_element_by_xpath('//*[@id="container"]/section/section/aside/div/div/ul/li[2]/div/a/span').click()
+        # sleep(1)
+        #
+        # for i in range(1, 7):
+        #     pathvalue = self.browser.find_element_by_xpath(
+        #         '//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[{}]/td[5]/span/a[1]'.format(
+        #             i))
+        #
+        #     print('pathvalue:', pathvalue)
+        #     # test = self.driver.find_element_by_xpath(pathvalue)
+        #     # 右键到编辑分区表达式界面
+        #     ActionChains(self.browser).move_to_element(pathvalue).click(pathvalue).perform()
+        #     sleep(1)
+        #     self.browser.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/button/span/i').click()
+        #     sleep(1)
+        #
 
 
 

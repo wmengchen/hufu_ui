@@ -10,10 +10,8 @@ from comm.element import  Element
 from comm.readExcel import ReadExcel
 from comm import login
 from config import setting
-from selenium.webdriver.common.keys import Keys
-from comm.sql import Dbconnect
 import time
-from selenium.webdriver.common.action_chains import ActionChains
+
 
 sheetName = 'userAdd'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
@@ -33,11 +31,12 @@ class UserAdd(unittest.TestCase):
     def test_UserAdd(self,data):
 
         print('---------{}---------'.format(data['case_name']))
-        global s,str1
 
         Element(self.driver,'systemManager','systemManager_click').wait_click()
         Element(self.driver,'systemManager','usermanager_click').wait_click()
+        time.sleep(1)
         Element(self.driver,'systemManager','userAdd_click').wait_click()
+        time.sleep(2)
         Element(self.driver,'systemManager','userName_click').wait_send_keys(date+data["username"])
         time.sleep(1)
         Element(self.driver,'systemManager','password_click').wait_send_keys(data["password"])
