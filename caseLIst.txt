@@ -32,6 +32,7 @@
 #systemManager/userAdd
 #systemManager/userEdit
 #systemManager/modifyPassword
-systemManager/roleLook
+#systemManager/roleLook
+#systemManager/roleEdit
 #dataQuality/addpartitionExpression
 #dataQuality/addDataQuality
