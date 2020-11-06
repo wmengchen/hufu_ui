@@ -925,6 +925,26 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/div[3]/div[1]/button</pathValue>
         </element>
+		<element id="saferapprove_approveclick">
+            <name>saferapprove_approveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//span/a[text()="审核"]</pathValue>
+        </element>
+		<element id="saferapprove_rejectclick">
+            <name>saferapprove_rejectclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div[3]/div/div[2]/div[4]/div[2]/div/div[2]/div[3]/div/button[1]</pathValue>
+        </element>
+		<element id="saferapprove_passclick">
+            <name>saferapprove_passclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div[3]/div/div[2]/div[4]/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="saferapprove_contextclick">
+            <name>saferapprove_contextclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div[3]/div/div[2]/div[4]/div[2]/div/div[2]/div[2]/div[6]/div[2]/textarea</pathValue>
+        </element>
     </activity>
 	<activity name="dataStanard">
         <element id="dataStanard_click">

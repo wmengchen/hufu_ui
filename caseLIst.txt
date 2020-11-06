@@ -34,6 +34,7 @@
 #systemManager/modifyPassword
 #systemManager/roleLook
 #systemManager/roleEdit
-systemManager/safemangeropenoff
+#systemManager/safemangeropenoff
+#systemManager/saferapprove
 #dataQuality/addpartitionExpression
 #dataQuality/addDataQuality

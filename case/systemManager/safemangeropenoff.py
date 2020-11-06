@@ -11,9 +11,9 @@ from comm.readExcel import ReadExcel
 from comm import login
 from config import setting
 import time
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-from comm.element import get_el_dict
+from .saferapprove import Saferapprove
+
+
 
 sheetName = 'safemangeropenoff'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
@@ -40,19 +40,29 @@ class Safemangeropenoff(unittest.TestCase):
 
         Element(self.driver,'systemManager','systemManager_click').wait_click()
         Element(self.driver,'systemManager','safemanager_click').wait_click()
-        Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
-        Element(self.driver, 'systemManager', 'safemanager_saferclick').wait_click()
-        Element(self.driver, 'systemManager', 'safemanager_saferselect').wait_click()
-        time.sleep(1)
-        Element(self.driver, 'systemManager', 'safemanager_auditerclick').wait_click()
-        Element(self.driver, 'systemManager', 'safemanager_auditerselect').wait_click()
-        time.sleep(2)
-        Element(self.driver, 'systemManager', 'safemanager_useraddclick').wait_click()
-        Element(self.driver, 'systemManager', 'safemanager_usereditclick').wait_click()
-        Element(self.driver, 'systemManager', 'safemanager_modifypasswordclick').wait_click()
-        Element(self.driver, 'systemManager', 'safemanager_roleeditclick').wait_click()
-        Element(self.driver, 'systemManager', 'safemanager_saveclick').wait_click()
-        time.sleep(1)
+        if Element(self.driver, 'systemManager', 'safemanager_openclick').get_attribute('aria-checked') == 'false':
+
+            Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
+            Element(self.driver, 'systemManager', 'safemanager_saferclick').wait_click()
+            Element(self.driver, 'systemManager', 'safemanager_saferselect').wait_click()
+            time.sleep(1)
+            Element(self.driver, 'systemManager', 'safemanager_auditerclick').wait_click()
+            Element(self.driver, 'systemManager', 'safemanager_auditerselect').wait_click()
+            time.sleep(2)
+            Element(self.driver, 'systemManager', 'safemanager_useraddclick').wait_click()
+            Element(self.driver, 'systemManager', 'safemanager_usereditclick').wait_click()
+            Element(self.driver, 'systemManager', 'safemanager_modifypasswordclick').wait_click()
+            Element(self.driver, 'systemManager', 'safemanager_roleeditclick').wait_click()
+            Element(self.driver, 'systemManager', 'safemanager_saveclick').wait_click()
+            time.sleep(1)
+            Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
+            time.sleep(1)
+            Saferapprove().test_Saferapprove()
+            # Saferapprove().test_Saferapprove()
+            # self.Saferapprove.test_Saferapprove()
+        else:
+            print('test')
+
 
 
     def tearDown(self):

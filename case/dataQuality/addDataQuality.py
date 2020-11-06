@@ -49,7 +49,6 @@ class addDataQuality(unittest.TestCase):
         time.sleep(2)
         Element(self.driver, 'dataQuality', 'monitor_addclick').wait_click()
 
-
         Element(self.driver, 'dataQuality', 'partitionexpression_searchclick').wait_send_keys(
             data["partitionexpression"])
         time.sleep(1)
