@@ -18,6 +18,9 @@ from comm.element import get_el_dict
 sheetName = 'modifyPassword'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
+for item in testData:
+     username = item['username']
+     password = item['password']
 
 @ddt.ddt
 class ModifyPassword(unittest.TestCase):
@@ -25,7 +28,7 @@ class ModifyPassword(unittest.TestCase):
     def setUp(self):
         print('--------测试开始--------')
         self.login = login.Login()
-        self.login.login()
+        self.login.login(username, password)
         self.driver = self.login.browser
         pass
 
@@ -36,11 +39,11 @@ class ModifyPassword(unittest.TestCase):
 
         Element(self.driver,'systemManager','systemManager_click').wait_click()
         Element(self.driver,'systemManager','usermanager_click').wait_click()
-        Element(self.driver, 'systemManager', 'account_click').wait_send_keys(data["username"])
+        Element(self.driver, 'systemManager', 'account_click').wait_send_keys(data["username2"])
         Element(self.driver,'systemManager','account_click_find').wait_click()
         Element(self.driver,'systemManager','modifyPassword_click').wait_click()
         Element(self.driver,'systemManager','modifyPassword_click')
-        Element(self.driver, 'systemManager', 'oldPassword_click').wait_send_keys(data['password'])
+        Element(self.driver, 'systemManager', 'oldPassword_click').wait_send_keys(data['password2'])
         Element(self.driver, 'systemManager', 'newPassword_click').wait_send_keys(data['confirmPassword'])
         Element(self.driver,'systemManager', 'modifyPassword_cancelclick').wait_click()
         time.sleep(1)

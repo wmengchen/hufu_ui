@@ -16,7 +16,9 @@ import time
 sheetName = 'project'
 date = time.strftime('%Y-%m-%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
-
+for item in testData:
+     username = item['username']
+     password = item['password']
 
 @ddt.ddt
 class Project(unittest.TestCase):
@@ -24,7 +26,7 @@ class Project(unittest.TestCase):
     def setUp(self):
         print('--------测试开始--------')
         self.login = login.Login()
-        self.login.login()
+        self.login.login(username, password)
         self.driver = self.login.browser
         pass
 

@@ -28,21 +28,7 @@ test_user = cf.get('test_admin','username')
 test_pwd = cf.get('test_admin','password')
 
 
-account = {
-    "test_admin":{
-        "username":"menghuan",
-        "password":"mh1234d"
-    },
-    "test_safeadmin":{
-        "username":"wmenghuan7",
-        "password":"mh1234"
-    },
-    "test_auditadmin":{
-        "username":"wmenghuan8",
-        "passworf":"mh1234"
-    }
 
-}
 class Login():
 
     def __init__(self):
@@ -50,20 +36,20 @@ class Login():
 
 
 
-    def login(self):
+    def login(self,username,password):
 
         self.browser.get(test_url)
         self.browser.maximize_window()
         sleep(1)
 
-        self.browser.find_element_by_xpath("//input[@id='username']").send_keys(test_user)
+        self.browser.find_element_by_xpath("//input[@id='username']").send_keys(username)
         sleep(1)
-        self.browser.find_element_by_xpath("//input[@id='password']").send_keys(test_pwd)
+        self.browser.find_element_by_xpath("//input[@id='password']").send_keys(password)
         sleep(1)
         self.browser.find_element_by_xpath("//input[@placeholder='验证码']").send_keys('1111')
         sleep(1)
-        WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.XPATH,'//button[@type="submit"]'))).click()
-        sleep(3)
+        self.browser.find_element_by_xpath('//button[@type="submit"]').click()
+        sleep(2)
 
 
         #单元测试
@@ -217,4 +203,4 @@ class Login():
 
 if __name__=="__main__":
     l= Login()
-    l.login()
+    l.login('menghuan','mh1234')

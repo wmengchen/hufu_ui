@@ -15,7 +15,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from comm.element import get_el_dict
 
-sheetName = 'roleLook'
+sheetName = 'safemangeropenoff'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 for item in testData:
@@ -24,7 +24,7 @@ for item in testData:
 
 
 @ddt.ddt
-class RoleLook(unittest.TestCase):
+class Safemangeropenoff(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
@@ -34,25 +34,25 @@ class RoleLook(unittest.TestCase):
         pass
 
     @ddt.data(*testData)
-    def test_RoleLook(self,data):
+    def test_Safemangeropenoff(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 
         Element(self.driver,'systemManager','systemManager_click').wait_click()
-        Element(self.driver,'systemManager','rolemanager_click').wait_click()
+        Element(self.driver,'systemManager','safemanager_click').wait_click()
+        Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
+        Element(self.driver, 'systemManager', 'safemanager_saferclick').wait_click()
+        Element(self.driver, 'systemManager', 'safemanager_saferselect').wait_click()
+        time.sleep(1)
+        Element(self.driver, 'systemManager', 'safemanager_auditerclick').wait_click()
+        Element(self.driver, 'systemManager', 'safemanager_auditerselect').wait_click()
         time.sleep(2)
-        for i in range(1,7):
-            pathvalue = self.driver.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[{}]/td[5]/span/a[1]'.format(i))
-
-            print('pathvalue:',pathvalue)
-            #点击查看按钮
-            ActionChains(self.driver).move_to_element(pathvalue).click(pathvalue).perform()
-            time.sleep(1)
-            #取消查看
-            Element(self.driver,'systemManager','rolemanager_cancelclick').wait_click()
-            time.sleep(1)
-
-
+        Element(self.driver, 'systemManager', 'safemanager_useraddclick').wait_click()
+        Element(self.driver, 'systemManager', 'safemanager_usereditclick').wait_click()
+        Element(self.driver, 'systemManager', 'safemanager_modifypasswordclick').wait_click()
+        Element(self.driver, 'systemManager', 'safemanager_roleeditclick').wait_click()
+        Element(self.driver, 'systemManager', 'safemanager_saveclick').wait_click()
+        time.sleep(1)
 
 
     def tearDown(self):

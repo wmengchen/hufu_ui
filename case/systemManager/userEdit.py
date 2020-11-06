@@ -18,6 +18,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 sheetName = 'userEdit'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
+for item in testData:
+     username = item['username']
+     password = item['password']
 
 @ddt.ddt
 class UserEdit(unittest.TestCase):
@@ -25,7 +28,7 @@ class UserEdit(unittest.TestCase):
     def setUp(self):
         print('--------测试开始--------')
         self.login = login.Login()
-        self.login.login()
+        self.login.login(username, password)
         self.driver = self.login.browser
         pass
 
@@ -73,7 +76,7 @@ class UserEdit(unittest.TestCase):
         Element(self.driver,'systemManager','usernameEditok_click').wait_click()
         time.sleep(1)
         Element(self.driver,'systemManager','usernameModifyPassword_click').wait_click()
-        Element(self.driver,'systemManager','password_click').wait_send_keys(data["password"])
+        Element(self.driver,'systemManager','password_click').wait_send_keys(data["password2"])
         time.sleep(1)
         Element(self.driver,'systemManager','usernameModifyPasswordconfirm_click').wait_send_keys(data["confirmPassword"])
         time.sleep(1)

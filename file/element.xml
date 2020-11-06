@@ -865,6 +865,66 @@
             <pathType>XPATH</pathType>
             <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/button/span/i</pathValue>
         </element>
+		<element id="rolemanager_editokclick">
+            <name>rolemanager_editokclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[2]</pathValue>
+        </element>
+		<element id="safemanager_click">
+            <name>safemanager_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/aside/div/div/ul/li[3]/div/a/span</pathValue>
+        </element>
+		<element id="safemanager_openclick">
+            <name>safemanager_openclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[1]/button</pathValue>
+        </element>
+		<element id="safemanager_saferclick">
+            <name>safemanager_saferclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/div[3]/div[1]/div[3]/div[2]/div/div/div/div[2]</pathValue>
+        </element>
+		<element id="safemanager_saferselect">
+            <name>safemanager_saferselect</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()="wmenghuan7"]</pathValue>
+        </element>
+		<element id="safemanager_auditerclick">
+            <name>safemanager_auditerclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/div[3]/div[1]/div[4]/div[2]/div/div/div/div[2]</pathValue>
+        </element>
+		<element id="safemanager_auditerselect">
+            <name>safemanager_auditerselect</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//li[text()="wmenghuan8"]</pathValue>
+        </element>
+		<element id="safemanager_useraddclick">
+            <name>safemanager_useraddclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/div[3]/div[1]/div[6]/div[2]/div[2]/label[1]/span[2]</pathValue>
+        </element>
+		<element id="safemanager_usereditclick">
+            <name>safemanager_usereditclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/div[3]/div[1]/div[6]/div[2]/div[2]/label[2]/span[2]</pathValue>
+        </element>
+		<element id="safemanager_modifypasswordclick">
+            <name>safemanager_modifypasswordclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/div[3]/div[1]/div[6]/div[2]/div[2]/label[3]/span[2]</pathValue>
+        </element>
+		<element id="safemanager_roleeditclick">
+            <name>safemanager_roleeditclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/div[3]/div[1]/div[6]/div[3]/div[2]/label/span[2]</pathValue>
+        </element>
+		<element id="safemanager_saveclick">
+            <name>safemanager_saveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div[2]/div[3]/div[1]/button</pathValue>
+        </element>
     </activity>
 	<activity name="dataStanard">
         <element id="dataStanard_click">

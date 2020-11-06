@@ -15,22 +15,26 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from comm.element import get_el_dict
 
-sheetName = 'roleLook'
+sheetName = 'roleEdit'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
+for item in testData:
+     username = item['username']
+     password = item['password']
+
 
 @ddt.ddt
-class RoleLook(unittest.TestCase):
+class RoleEdit(unittest.TestCase):
 
     def setUp(self):
         print('--------测试开始--------')
         self.login = login.Login()
-        self.login.login()
+        self.login.login(username,password)
         self.driver = self.login.browser
         pass
 
     @ddt.data(*testData)
-    def test_RoleLook(self,data):
+    def test_RoleEdit(self,data):
 
         print('---------{}---------'.format(data['case_name']))
 
@@ -38,7 +42,7 @@ class RoleLook(unittest.TestCase):
         Element(self.driver,'systemManager','rolemanager_click').wait_click()
         time.sleep(2)
         for i in range(1,7):
-            pathvalue = self.driver.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[{}]/td[5]/span/a[1]'.format(i))
+            pathvalue = self.driver.find_element_by_xpath('//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[{}]/td[5]/span/a[2]'.format(i))
 
             print('pathvalue:',pathvalue)
             #点击查看按钮
@@ -47,13 +51,22 @@ class RoleLook(unittest.TestCase):
             #取消查看
             Element(self.driver,'systemManager','rolemanager_cancelclick').wait_click()
             time.sleep(1)
+            pathvalue = self.driver.find_element_by_xpath(
+                '//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[{}]/td[5]/span/a[2]'.format(
+                    i))
+
+            print('pathvalue:', pathvalue)
+            # 点击查看按钮
+            ActionChains(self.driver).move_to_element(pathvalue).click(pathvalue).perform()
+            Element(self.driver,'systemManager','rolemanager_editokclick').wait_click()
+            Element(self.driver, 'systemManager', 'rolemanager_editokclick').wait_not_click()
 
 
 
 
-    def tearDown(self):
-        print('--------测试结束--------')
-        self.login.logout()
+    # def tearDown(self):
+    #     print('--------测试结束--------')
+    #     self.login.logout()
 
 if __name__=="__main__":
     unittest.main()

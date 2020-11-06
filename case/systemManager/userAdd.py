@@ -16,6 +16,10 @@ import time
 sheetName = 'userAdd'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
+for item in testData:
+     username = item['username']
+     password = item['password']
+
 
 @ddt.ddt
 class UserAdd(unittest.TestCase):
@@ -23,7 +27,7 @@ class UserAdd(unittest.TestCase):
     def setUp(self):
         print('--------测试开始--------')
         self.login = login.Login()
-        self.login.login()
+        self.login.login(username, password)
         self.driver = self.login.browser
         pass
 
@@ -37,9 +41,9 @@ class UserAdd(unittest.TestCase):
         time.sleep(1)
         Element(self.driver,'systemManager','userAdd_click').wait_click()
         time.sleep(2)
-        Element(self.driver,'systemManager','userName_click').wait_send_keys(date+data["username"])
+        Element(self.driver,'systemManager','userName_click').wait_send_keys(date+data["username2"])
         time.sleep(1)
-        Element(self.driver,'systemManager','password_click').wait_send_keys(data["password"])
+        Element(self.driver,'systemManager','password_click').wait_send_keys(data["password2"])
         time.sleep(1)
         Element(self.driver,'systemManager','confirmPassword_click').wait_send_keys(data["confirmPassword"])
         time.sleep(1)
