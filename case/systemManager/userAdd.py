@@ -11,14 +11,15 @@ from comm.readExcel import ReadExcel
 from comm import login
 from config import setting
 import time
-
-
+import configparser as cparser
+cf = cparser.ConfigParser()
+cf.read(setting.Test_config,encoding='utf-8')
+username = cf.get('test_admin','username')
+password = cf.get('test_admin','password')
 sheetName = 'userAdd'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
-for item in testData:
-     username = item['username']
-     password = item['password']
+
 
 
 @ddt.ddt

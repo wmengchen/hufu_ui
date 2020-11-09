@@ -12,16 +12,16 @@ from comm import login
 from config import setting
 from selenium.webdriver.common.keys import Keys
 from comm.element import get_el_dict
-t = get_el_dict("dataQuality",'dataQuality_click')
-print("s数据的值是：",t.get("pathValue"))
-
+import configparser as cparser
+cf = cparser.ConfigParser()
+cf.read(setting.Test_config,encoding='utf-8')
+username = cf.get('test_admin','username')
+password = cf.get('test_admin','password')
 
 sheetName = 'configurationcenter_add'
 date = time.strftime('%Y_%m_%d', time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case, sheetName).read_data()
-for item in testData:
-     username = item['username']
-     password = item['password']
+
 
 @ddt.ddt
 class addconfiguration(unittest.TestCase):

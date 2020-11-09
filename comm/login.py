@@ -9,23 +9,14 @@ import sys,os,random
 import configparser as cparser
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from config import setting
-from comm.sql import Dbconnect
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from comm.element import Element
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-import selenium.webdriver.support.expected_conditions as EC
 
-from selenium.webdriver.common.action_chains import ActionChains
 #读取配置文件
 cf = cparser.ConfigParser()
 cf.read(setting.Test_config,encoding='utf-8')
-test_url = cf .get('test_env','url')
 test_user = cf.get('test_admin','username')
 test_pwd = cf.get('test_admin','password')
+test_url = cf .get('test_env','url')
+
 
 
 

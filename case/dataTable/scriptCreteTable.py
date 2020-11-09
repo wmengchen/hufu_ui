@@ -15,13 +15,15 @@ from selenium.webdriver.common.keys import Keys
 from comm.sql import Dbconnect
 import time
 from selenium.webdriver.common.action_chains import ActionChains
-
+import configparser as cparser
+cf = cparser.ConfigParser()
+cf.read(setting.Test_config,encoding='utf-8')
+username = cf.get('test_admin','username')
+password = cf.get('test_admin','password')
 sheetName = 'scriptCreteTable'
 date = time.strftime('%Y_%m_%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
-for item in testData:
-     username = item['username']
-     password = item['password']
+
 
 @ddt.ddt
 class ScriptCreteTable(unittest.TestCase):

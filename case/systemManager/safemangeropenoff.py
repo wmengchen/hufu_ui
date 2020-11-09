@@ -12,15 +12,17 @@ from comm import login
 from config import setting
 import time
 from .saferapprove import Saferapprove
-
+import configparser as cparser
+cf = cparser.ConfigParser()
+cf.read(setting.Test_config,encoding='utf-8')
+username = cf.get('test_admin','username')
+password = cf.get('test_admin','password')
 
 
 sheetName = 'safemangeropenoff'
 date = time.strftime('%Y%m%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
-for item in testData:
-     username = item['username']
-     password = item['password']
+
 
 
 @ddt.ddt
@@ -40,7 +42,10 @@ class Safemangeropenoff(unittest.TestCase):
 
         Element(self.driver,'systemManager','systemManager_click').wait_click()
         Element(self.driver,'systemManager','safemanager_click').wait_click()
+        print('三员管理的开启状态是：',Element(self.driver, 'systemManager', 'safemanager_openclick').get_attribute('aria-checked'))
+        #判断是否开启三员管理，若未开启则开启
         if Element(self.driver, 'systemManager', 'safemanager_openclick').get_attribute('aria-checked') == 'false':
+
 
             Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
             Element(self.driver, 'systemManager', 'safemanager_saferclick').wait_click()
@@ -55,14 +60,17 @@ class Safemangeropenoff(unittest.TestCase):
             Element(self.driver, 'systemManager', 'safemanager_roleeditclick').wait_click()
             Element(self.driver, 'systemManager', 'safemanager_saveclick').wait_click()
             time.sleep(1)
+            #提交关闭三员管理
             Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
             time.sleep(1)
-            Saferapprove().test_Saferapprove()
-            # Saferapprove().test_Saferapprove()
-            # self.Saferapprove.test_Saferapprove()
-        else:
-            print('test')
+            #安全管理员驳回关闭三员管理
+            self.Saferapprove().test_Saferapprove_reject()
+            time.sleep()
 
+        else:
+            Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
+            time.sleep(1)
+            self.Saferapprove().test_Saferapprove_pass()
 
 
     def tearDown(self):
