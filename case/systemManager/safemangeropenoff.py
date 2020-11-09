@@ -11,7 +11,7 @@ from comm.readExcel import ReadExcel
 from comm import login
 from config import setting
 import time
-from .saferapprove import Saferapprove
+from .saferapprove import safer_approve
 import configparser as cparser
 cf = cparser.ConfigParser()
 cf.read(setting.Test_config,encoding='utf-8')
@@ -46,7 +46,6 @@ class Safemangeropenoff(unittest.TestCase):
         #判断是否开启三员管理，若未开启则开启
         if Element(self.driver, 'systemManager', 'safemanager_openclick').get_attribute('aria-checked') == 'false':
 
-
             Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
             Element(self.driver, 'systemManager', 'safemanager_saferclick').wait_click()
             Element(self.driver, 'systemManager', 'safemanager_saferselect').wait_click()
@@ -64,13 +63,13 @@ class Safemangeropenoff(unittest.TestCase):
             Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
             time.sleep(1)
             #安全管理员驳回关闭三员管理
-            self.Saferapprove().test_Saferapprove_reject()
-            time.sleep()
+            safer_approve().Safer_reject()
+            time.sleep(1)
 
         else:
             Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
             time.sleep(1)
-            self.Saferapprove().test_Saferapprove_pass()
+            safer_approve().Safer_pass()
 
 
     def tearDown(self):

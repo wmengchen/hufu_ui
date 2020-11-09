@@ -25,45 +25,69 @@ date = time.strftime('%Y%m%d',time.localtime(time.time()))
 testData = ReadExcel(setting.Test_case,sheetName).read_data()
 
 
-
-@ddt.ddt
-class Saferapprove(unittest.TestCase):
-
-    def setUp(self):
-        print('--------测试开始--------')
+class safer_approve():
+    def __init__(self):
         self.login = login.Login()
         self.login.login(username, password)
         self.driver = self.login.browser
-        pass
-
-    @ddt.data(*testData)
-
-    def test_Saferapprove_pass(self,data):
-        print('---------{}---------'.format(data['case_name']))
+    def Safer_reject(self):
 
         Element(self.driver, 'systemManager', 'systemManager_click').wait_click()
         time.sleep(1)
         Element(self.driver, 'systemManager', 'saferapprove_approveclick').wait_click()
-        Element(self.driver, 'systemManager', 'saferapprove_contextclick').wait_send_keys(data["approve_context"])
-        Element(self.driver, 'systemManager', 'saferapprove_passclick').wait_click()
-        time.sleep(1)
-
-    def test_Saferapprove_reject(self, data):
-        print('---------{}---------'.format(data['case_name']))
-
-        Element(self.driver, 'systemManager', 'systemManager_click').wait_click()
-        time.sleep(1)
-        Element(self.driver, 'systemManager', 'saferapprove_approveclick').wait_click()
-        Element(self.driver, 'systemManager', 'saferapprove_contextclick').wait_send_keys(data["approve_context"])
+        Element(self.driver, 'systemManager', 'saferapprove_contextclick').wait_send_keys('test')
         Element(self.driver, 'systemManager', 'saferapprove_rejectclick').wait_click()
         time.sleep(1)
-
-
-
-
-    def tearDown(self):
-        print('--------测试结束--------')
+        self.login.logout()
+    def Safer_pass(self):
+        Element(self.driver, 'systemManager', 'systemManager_click').wait_click()
+        time.sleep(1)
+        Element(self.driver, 'systemManager', 'saferapprove_approveclick').wait_click()
+        Element(self.driver, 'systemManager', 'saferapprove_contextclick').wait_send_keys('test')
+        Element(self.driver, 'systemManager', 'saferapprove_passclick').wait_click()
+        time.sleep(1)
         self.login.logout()
 
+#
+# @ddt.ddt
+# class Saferapprove(unittest.TestCase):
+#
+#     def setUp(self):
+#         print('--------测试开始--------')
+#         self.login = login.Login()
+#         self.login.login(username, password)
+#         self.driver = self.login.browser
+#         pass
+#
+#     @ddt.data(*testData)
+#
+#     def test_Saferapprove_pass(self,data):
+#         print('---------{}---------'.format(data['case_name']))
+#
+#         Element(self.driver, 'systemManager', 'systemManager_click').wait_click()
+#         time.sleep(1)
+#         Element(self.driver, 'systemManager', 'saferapprove_approveclick').wait_click()
+#         Element(self.driver, 'systemManager', 'saferapprove_contextclick').wait_send_keys(data["approve_context"])
+#         Element(self.driver, 'systemManager', 'saferapprove_passclick').wait_click()
+#         time.sleep(1)
+#
+#     def test_Saferapprove_reject(self, data):
+#         print('---------{}---------'.format(data['case_name']))
+#
+#         Element(self.driver, 'systemManager', 'systemManager_click').wait_click()
+#         time.sleep(1)
+#         Element(self.driver, 'systemManager', 'saferapprove_approveclick').wait_click()
+#         Element(self.driver, 'systemManager', 'saferapprove_contextclick').wait_send_keys(data["approve_context"])
+#         Element(self.driver, 'systemManager', 'saferapprove_rejectclick').wait_click()
+#         time.sleep(1)
+#
+#
+#
+#
+#     def tearDown(self):
+#         print('--------测试结束--------')
+#         self.login.logout()
+
 if __name__=="__main__":
-    unittest.main()
+    test = safer_approve()
+    test.Safer_pass()
