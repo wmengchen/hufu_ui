@@ -35,5 +35,6 @@
 #systemManager/roleLook
 #systemManager/roleEdit
 #systemManager/safemangeropenoff
+#systemManager/accountRegular
 #dataQuality/addpartitionExpression
 #dataQuality/addDataQuality
