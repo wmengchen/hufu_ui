@@ -945,6 +945,46 @@
             <pathType>XPATH</pathType>
             <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div[3]/div/div[2]/div[4]/div[2]/div/div[2]/div[2]/div[6]/div[2]/textarea</pathValue>
         </element>
+		<element id="accountRegular_click">
+            <name>accountRegular_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/aside/div/div/ul/li[4]/div/a/span</pathValue>
+        </element>
+		<element id="accountRegular_editclick">
+            <name>accountRegular_editclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/button</pathValue>
+        </element>
+		<element id="accountRegular_Structuredstorageclick">
+            <name>accountRegular_Structuredstorageclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[1]/td[2]/div/div/input</pathValue>
+        </element>
+		<element id="accountRegular_notStructuredstorageclick">
+            <name>accountRegular_notStructuredstorageclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[2]/td[2]/div/div/input</pathValue>
+        </element>
+		<element id="accountRegular_cpuclick">
+            <name>accountRegular_cpuclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[3]/td[2]/div/div/input</pathValue>
+        </element>
+		<element id="accountRegular_Gpuclick">
+            <name>accountRegular_Gpuclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[3]/td[2]/div/div/input</pathValue>
+        </element>
+		<element id="accountRegular_memoryclick">
+            <name>accountRegular_memoryclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div[2]/div/div/div/div/div/table/tbody/tr[5]/td[2]/div/div/input</pathValue>
+        </element>
+		<element id="accountRegular_saveclick">
+            <name>accountRegular_saveclick</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/button</pathValue>
+        </element>
     </activity>
 	<activity name="dataStanard">
         <element id="dataStanard_click">

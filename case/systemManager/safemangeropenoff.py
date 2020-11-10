@@ -42,7 +42,7 @@ class Safemangeropenoff(unittest.TestCase):
 
         Element(self.driver,'systemManager','systemManager_click').wait_click()
         Element(self.driver,'systemManager','safemanager_click').wait_click()
-        print('三员管理的开启状态是：',Element(self.driver, 'systemManager', 'safemanager_openclick').get_attribute('aria-checked'))
+
         #判断是否开启三员管理，若未开启则开启
         if Element(self.driver, 'systemManager', 'safemanager_openclick').get_attribute('aria-checked') == 'false':
 
@@ -63,7 +63,7 @@ class Safemangeropenoff(unittest.TestCase):
             Element(self.driver, 'systemManager', 'safemanager_openclick').wait_click()
             time.sleep(1)
             #安全管理员驳回关闭三员管理
-            safer_approve().Safer_reject()
+            safer_approve().Safer_pass()
             time.sleep(1)
 
         else:
