@@ -66,9 +66,9 @@ class UserAdd(unittest.TestCase):
         Element(self.driver, 'systemManager','cancel_click').wait_click()
         time.sleep(1)
         Element(self.driver, 'systemManager', 'userAdd_click').wait_click()
-        Element(self.driver, 'systemManager', 'userName_click').wait_send_keys(date + data["username"])
+        Element(self.driver, 'systemManager', 'userName_click').wait_send_keys(date + data["username2"])
         time.sleep(1)
-        Element(self.driver, 'systemManager', 'password_click').wait_send_keys(data["password"])
+        Element(self.driver, 'systemManager', 'password_click').wait_send_keys(data["password2"])
         time.sleep(1)
         Element(self.driver, 'systemManager', 'confirmPassword_click').wait_send_keys(data["confirmPassword"])
         time.sleep(1)
@@ -94,6 +94,7 @@ class UserAdd(unittest.TestCase):
         Element(self.driver,'systemManager','account_click').wait_send_keys(date+data["username2"])
         time.sleep(1)
         content = Element(self.driver,'systemManager','total_click').get_text_value()
+        print('content:',content)
 
         self.check_result(content)
 
