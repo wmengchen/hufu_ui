@@ -59,6 +59,7 @@ class Db2Add(unittest.TestCase):
         Element(self.driver,'dataAssert','dataSourcename_click').wait_send_keys(data["dataSource_name"]+date)
         Element(self.driver, 'dataAssert', 'dataSourcedesc_click').wait_send_keys(date+data["dataSouce_desc"])
         Element(self.driver, 'dataAssert', 'dataSourceurl_click').wait_send_keys(data["dataSource_url"])
+        Element(self.driver, 'dataAssert', 'dataBase_click').wait_send_keys(data["database"])
         Element(self.driver,'dataAssert','dataSourceuser_click').wait_send_keys(data["dataSource_user"])
         Element(self.driver,'dataAssert','dataSourcepwd_click').wait_send_keys(int(data["dataSource_pwd"]))
         Element(self.driver,'dataAssert','dataSourceTestCon_click').wait_click()

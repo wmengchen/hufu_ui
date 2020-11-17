@@ -153,8 +153,13 @@
 		<element id="dataSourceurl_click">
             <name>dataSourceurl_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//div/ul/li[3]/input</pathValue>
-        </element>		
+            <pathValue>//input[@placeholder="主机或IP名称"]</pathValue>
+        </element>	
+        <element id="dataBase_click">
+            <name>dataBase_click</name>
+            <pathType>XPATH</pathType>
+            <pathValue>//input[@placeholder="数据库名称"]</pathValue>
+        </element>	   		
 		<element id="dataSourceuser_click">
             <name>dataSourceuser_click</name>
             <pathType>XPATH</pathType>
@@ -168,7 +173,7 @@
 		<element id="dataSourceTestCon_click">
             <name>dataSourceTestCon_click</name>
             <pathType>XPATH</pathType>
-            <pathValue>//button[@class="ant-btn ant-btn-primary ant-btn-background-ghost"]</pathValue>
+            <pathValue>//*[@id="container"]/section/section/section/main/div/div/div[2]/div[1]/form/div[9]/div[1]/label/button</pathValue>
         </element>
 		<element id="dataSourceTestConpre_click">
             <name>dataSourceTestConpre_click</name>

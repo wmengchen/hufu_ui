@@ -56,9 +56,11 @@ class HiveAdd(unittest.TestCase):
         # Element(self.driver, 'dataAssert', 'dataSourcedefaultname_click').wait_click()
         # time.sleep(1)
         user = Element(self.driver,'dataAssert', 'dataSourcedefaultname_click').get_attribute2()
+        print('user:',user)
         # Element(self.driver, 'dataAssert', 'dataSourcedefaulturl_click').wait_click()
         # time.sleep(1)
         url = Element(self.driver,'dataAssert','dataSourcedefaulturl_click').get_attribute2()
+
         print('user的值是{}，url值是{}'.format(user,url))
         Element(self.driver, 'dataAssert', 'dataSource2_click').wait_click()
         Element(self.driver, 'dataAssert', 'dataSourceadd_click').wait_click()
